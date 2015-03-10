@@ -1,0 +1,36 @@
+
+Input variables:
+|--------------------+---------------------------+----------------------------------------------------------------------------------------------------------------------|
+| type               | variable name             | notes                                                                                                                |
+|--------------------+---------------------------+----------------------------------------------------------------------------------------------------------------------|
+| vector             | substrates                | represents counts of free metabolites, min. required for replication initiation                                      |
+| vector             | enzymes                   | represents counts of free replication proteins, min. required for replication initiation [each protein has an index] |
+| int?               | bound_enyzmes             | represents counts of chromosally-bound replication proteins                                                          |
+| bool               | isDnaAORIComplexAssembled | whether or not a DnaA-ATP complex has formed at the oriC, if true replication can initiate                           |
+| vector             | Chromosome.damagedBases   | indices [positions x strands] indicating metabolite identity of damaged bases                                        |
+| vector             | Chromosome.strandBreaks   | boolean [positions x strands] indicating positions of strand breaks in strands of DNA                                |
+| ChromosomeSequence | Chromosome.sequence       |                                                                                                                      |
+| int?               | oriCPosition              | oriC position                                                                                                        |
+| int?               | terCPosition              | terC position                                                                                                        |
+|--------------------+---------------------------+----------------------------------------------------------------------------------------------------------------------|
+Missing:	at least: various DNA footprints for different enzymes
+
+
+Output variables:
+|--------+-------------------------------+-------------------------------------------------------------------------------------------------------------------|
+| type   | variable name                 | notes                                                                                                             |
+| vector | Chromosome.polymerizedRegions | integers [positions x strands] indicating the start positions of polymerized regions of strands and their lengths |
+| vector | Chromosome.strandBreaks       | boolean [positions x strands] indicating positions of strand breaks in strands of DNA                             |
+| vector | Chromosome.complexBoundSites  | indices [positions x strands] indicating start positions of macromolecular complexes bound to DNA bases           |
+| bool   | isAnyHelicaseBound            | whether or not any helicase is bound                                                                              |
+| bool   | isAnyPolymeraseBound          | whether or not any polymerase is bound                                                                            |
+| bool   | leadingStrandElongating       | whether replication elongation is in progress                                                                     |
+| bool   | laggingStrandElongating       | whether there is a backup clamp bound to each loading complex                                                     |
+| bool   | leadingStrandPolymerized      | whether leading strands have been polymerized                                                                     |
+| bool   | laggingStrandPolymerized      | whether lagging strands have been polymerized                                                                     |
+| bool   | strandPolymerized             | whether leading and lagging strands have been polymerized                                                         |
+| int    | numLigations                  | number of ligations that have occurred (in replication order along lagging strand)                                |
+| bool   | strandLigated                 | whether or not strands are completely ligated                                                                     |
+| bool   | strandDuplicated              | whether replication is complete and chromosome segregation can start                                              |
+|--------+-------------------------------+-------------------------------------------------------------------------------------------------------------------|
+
