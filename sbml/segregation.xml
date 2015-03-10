@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Created by libAntimony version v2.7.0 on 2015-03-10 16:53 with libSBML version 5.11.3. -->
+<!-- Created by libAntimony version v2.7.0 on 2015-03-10 17:45 with libSBML version 5.11.3. -->
 <sbml xmlns="http://www.sbml.org/sbml/level3/version1/core" level="3" version="1">
   <model id="chromosomeSegragation" name="chromosomeSegragation">
     <listOfCompartments>
@@ -14,27 +14,39 @@
       <species id="gtp" compartment="default_compartment" initialConcentration="500" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
       <species id="gdp" compartment="default_compartment" initialConcentration="500" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
       <species id="h" compartment="default_compartment" initialConcentration="500" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
-      <species id="h2o" compartment="default_compartment" initialConcentration="500" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="h2o" compartment="default_compartment" initialConcentration="0" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
       <species id="p" compartment="default_compartment" initialConcentration="500" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
     </listOfSpecies>
     <listOfParameters>
-      <parameter id="ChrIsSegregated" value="0" constant="true"/>
-      <parameter id="Chromosome_polymerizedRegions" value="0" constant="true"/>
-      <parameter id="Chromosome_supercoiled" value="0" constant="true"/>
+      <parameter id="ChromosomeIsSegregated" value="0" constant="false"/>
+      <parameter id="Chromosome_polymerizedRegions" value="232304" constant="true"/>
+      <parameter id="Chromosome_supercoiled" value="4" constant="true"/>
       <parameter id="Chromosome_nCompartments" value="4" constant="true"/>
       <parameter id="Chromosome_sequenceLen" value="58076" constant="true"/>
       <parameter id="gtpCost" value="1" constant="true"/>
     </listOfParameters>
+    <listOfReactions>
+      <reaction id="_J0" reversible="false" fast="false">
+        <listOfProducts>
+          <speciesReference species="h2o" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <cn type="integer"> 1 </cn>
+          </math>
+        </kineticLaw>
+      </reaction>
+    </listOfReactions>
     <listOfEvents>
-      <event id="_E0" useValuesFromTriggerTime="true">
+      <event id="TriggerChromosomeSegregation" useValuesFromTriggerTime="true">
         <trigger initialValue="true" persistent="true">
           <math xmlns="http://www.w3.org/1998/Math/MathML">
             <apply>
               <and/>
               <apply>
-                <neq/>
-                <ci> ChrIsSegregated </ci>
-                <cn type="integer"> 1 </cn>
+                <geq/>
+                <ci> h2o </ci>
+                <ci> gtpCost </ci>
               </apply>
               <apply>
                 <eq/>
@@ -89,6 +101,11 @@
           </math>
         </trigger>
         <listOfEventAssignments>
+          <eventAssignment variable="ChromosomeIsSegregated">
+            <math xmlns="http://www.w3.org/1998/Math/MathML">
+              <cn type="integer"> 1 </cn>
+            </math>
+          </eventAssignment>
           <eventAssignment variable="h">
             <math xmlns="http://www.w3.org/1998/Math/MathML">
               <apply>

@@ -1,9 +1,9 @@
 model chromosomeSegragation
 
   # inputs (modeled as parameters for now)
-  ChrIsSegregated                = 0; #Chromosome.segregated
-  Chromosome_polymerizedRegions  = 0
-  Chromosome_supercoiled         = 0
+  ChromosomeIsSegregated          = 0; 
+  Chromosome_polymerizedRegions   = 232304;
+  Chromosome_supercoiled          = 4;
 
 
   # input enzymes
@@ -18,10 +18,12 @@ model chromosomeSegragation
   species gtp           = 500;
   species gdp           = 500;
   species h             = 500;
-  species h2o           = 500;
+  species h2o           = 0;
   species p             = 500;
 
-
+  # dummy reaction to test the system
+  => h2o; 1;
+  
   # parameters
   Chromosome_nCompartments  = 4; # this should come directly from the chromosome class
   Chromosome_sequenceLen    = 58076; # value taken from knowlege base 
@@ -30,19 +32,20 @@ model chromosomeSegragation
 
   # the propagation-logic is encoded as an event
   # if conditions are fulfilled segregation is executed
-  at (ChrIsSegregated!=1 \
-     and Chromosome_polymerizedRegions == Chromosome_nCompartments * Chromosome_sequenceLen \   
-     and Chromosome_supercoiled == Chromosome_nCompartments \                                   
-     and CobQ >= 1 \
-     and mraZ >= 1 \
-     and Era >= 1 \
-     and Obg >= 1 \
-     and topoisomerase >= 1 \
-     and gtp >= gtpCost \
-     and h2o >= gtpCost ): \
-     h2o = h2o - gtpCost, \
-     gtp = gtp - gtpCost, \ 
-     gdp = gdp + gtpCost, \
-     p   = p   + gtpCost, \
-     h   = h   + gtpCost; 
+  TriggerChromosomeSegregation: at (h2o >= gtpCost \
+     				and Chromosome_polymerizedRegions == Chromosome_nCompartments * Chromosome_sequenceLen \   
+     				and Chromosome_supercoiled == Chromosome_nCompartments \                                   
+     				and CobQ >= 1 \
+				and mraZ >= 1 \
+     				and Era >= 1 \
+     				and Obg >= 1 \
+     				and topoisomerase >= 1 \
+     				and gtp >= gtpCost \
+     				and h2o >= gtpCost ): \
+     				h2o = h2o - gtpCost, \
+     				gtp = gtp - gtpCost, \ 
+     				gdp = gdp + gtpCost, \
+    				p   = p   + gtpCost, \
+     				h   = h   + gtpCost, \
+     				ChromosomeIsSegregated = 1;
 end 
