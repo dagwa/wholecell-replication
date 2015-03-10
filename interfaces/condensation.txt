@@ -1,0 +1,29 @@
+Input variables:
+|-----------+---------------+-----------------------------------------------|
+| type      | variable name | notes                                         |
+|-----------+---------------+-----------------------------------------------|
+| int array | DNA_region    | regions of DNA that SMC complexes can bind to |
+|-----------+---------------+-----------------------------------------------|
+
+
+Output variables:
+|-----------+---------------+-------------------------------------------------|
+| type      | variable name | notes                                           |
+|-----------+---------------+-------------------------------------------------|
+| int array | SMC_positions | positions of SMC complexes on the chromosome(s) |
+|-----------+---------------+-------------------------------------------------|
+
+
+1. Calculate the maximum number of SMC complexes that can bind in the given timestep.						
+   SMCBindingLimit = min (Number of free SMC complexes,Number of availableATPmolecules)						
+2. Bind SMCs						
+  (a) Query the Chromosome state to determine the free bases where SMC complexes can bind. Accessible						
+      bases are > l bases away from any DNA bound SMC complexes.						
+  (b) Given that the probability of binding each accessible base is,						
+      PBinding Accessible Base = 1s − 2l						
+      randomly choose sites to bind based on this probability up to the SMCBindingLimit						
+  (c) Form an SMC-ATP complex, and hydrolyze the ATP to ADP.						
+
+      i. Decrement a free SMC						
+      ii. Increment and decrement free metabolites for ATP hydrolysis						
+  (d) Bind the SMC-ADP complex to chromosome (facilitated by the Chromosome state)						

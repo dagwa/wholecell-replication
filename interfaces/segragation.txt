@@ -1,0 +1,32 @@
+
+Input variables:
+|-----------+----------------------+----------------------------------------------------------|
+| type      | variable name        | notes                                                    |
+|-----------+----------------------+----------------------------------------------------------|
+| boolean   | replication_status   | is chromosome replicated?                                |
+| float (?) | superhelical_density | must be in range (sigma +/- sigma_{tol})                 |
+| int       | GTP_free             | number of available GTP (must be >=  E seg)              |
+| int       | seg_protein1         | number of available segregation protein 1 (must be >= 1) |
+| int       | seg_protein2         | number of available segregation protein 2 (must be >= 1) |
+| int       | seg_protein3         | number of available segregation protein 3 (must be >= 1) |
+| int       | seg_protein4         | number of available segregation protein 4 (must be >= 1) |
+| int       | seg_protein5         | number of available segregation protein 5 (must be >= 1) |
+|-----------+----------------------+----------------------------------------------------------|
+
+
+Output variables:
+|---------+--------------------+---------------------------|
+| type    | variable name      | notes                     |
+|---------+--------------------+---------------------------|
+| boolean | segragation_status | is chromosome segregated? |
+|---------+--------------------+---------------------------|
+
+
+Dynamic Computation (p. 35, supplement)					
+At each timestep, the following conditional statement is performed: If					
+1	The chromosome is replicated				
+2	The superhelical density is in the range: σ ± σ tol				
+3	There is at least one free and functional molecule of each of the 5 segregation proteins				
+4	Available GTP ≥ E seg				
+Then, mark the chromosome as segregated.					
+
