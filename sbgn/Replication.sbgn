@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<sbgn xmlns="http://sbgn.org/libsbgn/0.2">
+    <map language="process description">
+        <glyph class="process" orientation="horizontal" id="pnre20">
+            <bbox w="10.0" h="10.0" x="150.3" y="196.5"/>
+            <port id="pnre20.L" x="150.3" y="201.5"/>
+            <port id="pnre20.R" x="160.3" y="201.5"/>
+        </glyph>
+        <glyph class="process" orientation="horizontal" id="pnre23">
+            <bbox w="10.0" h="10.0" x="199.8" y="233.8"/>
+            <port id="pnre23.L" x="199.8" y="238.8"/>
+            <port id="pnre23.R" x="209.8" y="238.8"/>
+        </glyph>
+        <glyph class="process" orientation="horizontal" id="pnre24">
+            <bbox w="10.0" h="10.0" x="284.2" y="136.5"/>
+            <port id="pnre24.L" x="284.2" y="141.5"/>
+            <port id="pnre24.R" x="294.2" y="141.5"/>
+        </glyph>
+        <glyph class="process" orientation="horizontal" id="pnre25">
+            <bbox w="10.0" h="10.0" x="554.5" y="285.0"/>
+            <port id="pnre25.L" x="554.5" y="290.0"/>
+            <port id="pnre25.R" x="564.5" y="290.0"/>
+        </glyph>
+        <glyph class="process" orientation="horizontal" id="pnre26">
+            <bbox w="10.0" h="10.0" x="402.5" y="178.6"/>
+            <port id="pnre26.L" x="402.5" y="183.6"/>
+            <port id="pnre26.R" x="412.5" y="183.6"/>
+        </glyph>
+        <glyph class="process" orientation="horizontal" id="pnre27">
+            <bbox w="10.0" h="10.0" x="283.2" y="312.4"/>
+            <port id="pnre27.L" x="283.2" y="317.4"/>
+            <port id="pnre27.R" x="293.2" y="317.4"/>
+        </glyph>
+        <glyph class="process" orientation="horizontal" id="pnre29">
+            <bbox w="10.0" h="10.0" x="720.4" y="90.4"/>
+            <port id="pnre29.L" x="720.4" y="95.4"/>
+            <port id="pnre29.R" x="730.4" y="95.4"/>
+        </glyph>
+        <glyph class="simple chemical" id="sa1">
+            <label text="dsDNA"/>
+            <bbox w="70.0" h="25.0" x="103.0" y="280.5"/>
+        </glyph>
+        <glyph class="macromolecule" id="sa2">
+            <label text="Helicase"/>
+            <bbox w="59.0" h="26.0" x="52.0" y="171.0"/>
+        </glyph>
+        <glyph class="simple chemical" id="sa12">
+            <label text="leading ssDNA"/>
+            <bbox w="102.0" h="28.0" x="186.0" y="107.5"/>
+        </glyph>
+        <glyph class="simple chemical" id="sa13">
+            <label text="lagging ssDNA"/>
+            <bbox w="108.0" h="27.0" x="186.0" y="61.5"/>
+        </glyph>
+        <glyph class="macromolecule" id="sa19">
+            <label text="SSBP"/>
+            <bbox w="54.0" h="16.0" x="472.0" y="172.0"/>
+        </glyph>
+        <glyph class="macromolecule" id="sa38">
+            <label text="primase"/>
+            <bbox w="65.0" h="21.0" x="468.0" y="45.5"/>
+        </glyph>
+        <glyph class="macromolecule" id="sa42">
+            <label text="core subunit"/>
+            <bbox w="93.0" h="19.0" x="719.0" y="38.5"/>
+        </glyph>
+        <glyph class="macromolecule" id="sa43">
+            <label text="beta-clamp"/>
+            <bbox w="93.0" h="21.0" x="586.0" y="48.5"/>
+        </glyph>
+        <glyph class="macromolecule" id="sa44">
+            <label text="gamma complex"/>
+            <bbox w="111.0" h="24.0" x="638.0" y="8.0"/>
+        </glyph>
+        <glyph class="simple chemical" id="sa75">
+            <label text="dsDNA with a break"/>
+            <bbox w="141.0" h="25.0" x="193.0" y="160.5"/>
+        </glyph>
+        <glyph class="macromolecule" id="sa76">
+            <label text="ligase"/>
+            <bbox w="60.0" h="22.0" x="242.27272" y="249.09091"/>
+        </glyph>
+        <glyph class="simple chemical" id="sa78">
+            <label text="lagging ssDNA with an Okazaki fragment"/>
+            <bbox w="285.0" h="27.0" x="406.0" y="323.5"/>
+        </glyph>
+        <glyph class="simple chemical" id="sa79">
+            <label text="lagging ssDNA"/>
+            <bbox w="109.0" h="24.0" x="350.9091" y="222.36363"/>
+        </glyph>
+        <glyph class="macromolecule" id="sa80">
+            <label text="SSBP"/>
+            <bbox w="52.0" h="16.0" x="391.9091" y="252.36363"/>
+        </glyph>
+        <glyph class="macromolecule" id="sa82">
+            <label text="core subunit"/>
+            <bbox w="93.0" h="19.0" x="658.9091" y="125.36364"/>
+        </glyph>
+        <glyph class="macromolecule" id="sa83">
+            <label text="beta-clamp"/>
+            <bbox w="93.0" h="21.0" x="661.9091" y="154.36363"/>
+        </glyph>
+        <glyph class="macromolecule" id="sa84">
+            <label text="gamma complex"/>
+            <bbox w="111.0" h="24.0" x="658.9091" y="186.36363"/>
+        </glyph>
+        <glyph class="complex" id="csa34">
+            <label text="lagging ssDNA with SSBP binded"/>
+            <bbox w="205.0" h="79.0" x="311.0" y="216.0"/>
+        </glyph>
+        <glyph class="complex" id="csa35">
+            <label text="the DNA polymerase III"/>
+            <bbox w="159.0" h="123.0" x="643.0" y="112.0"/>
+        </glyph>
+        <arc class="consumption" id="re20-react0" source="sa1" target="pnre20.L">
+            <start x="124.60608" y="281.4515"/>
+            <end x="150.3" y="201.5"/>
+        </arc>
+        <arc class="production" id="re20-product0" source="pnre20.R" target="sa12">
+            <start x="160.3" y="201.5"/>
+            <end x="186.0" y="121.5"/>
+        </arc>
+        <arc class="production" id="re20-addProduct1" source="pnre20.R" target="sa13">
+            <start x="160.3" y="201.5"/>
+            <end x="186.0" y="75.0"/>
+        </arc>
+        <arc class="consumption" id="re23-react0" source="sa75" target="pnre23.R">
+            <start x="236.52081" y="184.5485"/>
+            <end x="209.8" y="238.8"/>
+        </arc>
+        <arc class="production" id="re23-product0" source="pnre23.L" target="sa1">
+            <start x="199.8" y="238.8"/>
+            <end x="173.0" y="293.0"/>
+        </arc>
+        <arc class="consumption" id="re24-react0" source="sa12" target="pnre24.L">
+            <start x="288.0" y="121.5"/>
+            <end x="284.2" y="141.5"/>
+        </arc>
+        <arc class="production" id="re24-product0" source="pnre24.R" target="sa75">
+            <start x="294.2" y="141.5"/>
+            <end x="290.4792" y="161.4515"/>
+        </arc>
+        <arc class="consumption" id="re25-react0" source="csa34" target="pnre25.L">
+            <start x="516.0" y="255.5"/>
+            <end x="554.5" y="290.0"/>
+        </arc>
+        <arc class="production" id="re25-product0" source="pnre25.R" target="sa78">
+            <start x="564.5" y="290.0"/>
+            <end x="603.0324" y="324.52762"/>
+        </arc>
+        <arc class="consumption" id="re26-react0" source="sa13" target="pnre26.L">
+            <start x="294.0" y="75.0"/>
+            <next x="403.0" y="152.6875"/>
+            <end x="402.5" y="183.6"/>
+        </arc>
+        <arc class="production" id="re26-product0" source="pnre26.R" target="csa34">
+            <start x="412.5" y="183.6"/>
+            <end x="413.5" y="216.0"/>
+        </arc>
+        <arc class="consumption" id="re26-react1" source="sa19" target="pnre26.L">
+            <start x="472.0" y="184.0"/>
+            <next x="403.0" y="152.6875"/>
+            <end x="402.5" y="183.6"/>
+        </arc>
+        <arc class="production" id="re25-addProduct1" source="pnre25.R" target="sa19">
+            <start x="564.5" y="290.0"/>
+            <end x="526.0" y="184.0"/>
+        </arc>
+        <arc class="consumption" id="re27-react0" source="sa78" target="pnre27.R">
+            <start x="406.0" y="337.0"/>
+            <end x="293.2" y="317.4"/>
+        </arc>
+        <arc class="production" id="re27-product0" source="pnre27.L" target="sa1">
+            <start x="283.2" y="317.4"/>
+            <end x="170.33578" y="297.78354"/>
+        </arc>
+        <arc class="catalysis" id="re27-mod0" source="sa76" target="pnre27">
+            <start x="272.27274" y="271.0909"/>
+            <end x="288.9903" y="312.44974"/>
+        </arc>
+        <arc class="catalysis" id="re23-mod0" source="sa76" target="pnre23">
+            <start x="272.27274" y="249.09091"/>
+            <end x="211.61551" y="236.98323"/>
+        </arc>
+        <arc class="catalysis" id="re20-mod0" source="sa2" target="pnre20">
+            <start x="82.0" y="184.0"/>
+            <end x="148.83047" y="204.35777"/>
+        </arc>
+        <arc class="consumption" id="re29-react0" source="sa42" target="pnre29.R">
+            <start x="765.5" y="57.5"/>
+            <next x="730.5" y="81.0"/>
+            <end x="730.4" y="95.4"/>
+        </arc>
+        <arc class="production" id="re29-product0" source="pnre29.L" target="csa35">
+            <start x="720.4" y="95.4"/>
+            <end x="722.5" y="112.0"/>
+        </arc>
+        <arc class="consumption" id="re29-react1" source="sa44" target="pnre29.R">
+            <start x="694.0" y="20.0"/>
+            <next x="730.5" y="81.0"/>
+            <end x="730.4" y="95.4"/>
+        </arc>
+        <arc class="consumption" id="re29-addReact2" source="sa43" target="pnre29.R">
+            <start x="632.5" y="69.5"/>
+            <end x="730.4" y="95.4"/>
+        </arc>
+        <arc class="catalysis" id="re24-mod0" source="sa38" target="pnre24">
+            <start x="500.5" y="66.5"/>
+            <end x="439.66666" y="121.666664"/>
+        </arc>
+        <arc class="catalysis" id="re24-mod1" source="csa35" target="pnre24">
+            <start x="643.0" y="173.5"/>
+            <end x="439.66666" y="121.666664"/>
+        </arc>
+        <arc class="catalysis" id="re25-mod0" source="sa38" target="pnre25">
+            <start x="500.5" y="66.5"/>
+            <end x="566.0" y="121.333336"/>
+        </arc>
+        <arc class="catalysis" id="re25-mod1" source="csa35" target="pnre25">
+            <start x="643.0" y="173.5"/>
+            <end x="566.0" y="121.333336"/>
+        </arc>
+        <arc class="catalysis" id="re25-mod2" source="sa43" target="pnre25">
+            <start x="632.5" y="69.5"/>
+            <end x="566.0" y="121.333336"/>
+        </arc>
+    </map>
+</sbgn>
