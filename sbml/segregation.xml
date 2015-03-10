@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Created by libAntimony version v2.7.0 on 2015-03-10 15:20 with libSBML version 5.11.3. -->
+<!-- Created by libAntimony version v2.7.0 on 2015-03-10 16:53 with libSBML version 5.11.3. -->
 <sbml xmlns="http://www.sbml.org/sbml/level3/version1/core" level="3" version="1">
   <model id="chromosomeSegragation" name="chromosomeSegragation">
     <listOfCompartments>
@@ -16,42 +16,15 @@
       <species id="h" compartment="default_compartment" initialConcentration="500" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
       <species id="h2o" compartment="default_compartment" initialConcentration="500" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
       <species id="p" compartment="default_compartment" initialConcentration="500" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
-      <species id="ChrIsPolymerized" compartment="default_compartment" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
     </listOfSpecies>
     <listOfParameters>
       <parameter id="ChrIsSegregated" value="0" constant="true"/>
       <parameter id="Chromosome_polymerizedRegions" value="0" constant="true"/>
-      <parameter id="Chromosome_nCompartments" value="0" constant="true"/>
-      <parameter id="Chromosome_sequenceLen" value="0" constant="true"/>
       <parameter id="Chromosome_supercoiled" value="0" constant="true"/>
-      <parameter id="gtpCost" value="0" constant="true"/>
-      <parameter id="ChrIsSupercoiled" constant="true"/>
-      <parameter id="ChrIsSupercoiles" constant="true"/>
+      <parameter id="Chromosome_nCompartments" value="4" constant="true"/>
+      <parameter id="Chromosome_sequenceLen" value="58076" constant="true"/>
+      <parameter id="gtpCost" value="1" constant="true"/>
     </listOfParameters>
-    <listOfInitialAssignments>
-      <initialAssignment symbol="ChrIsPolymerized">
-        <math xmlns="http://www.w3.org/1998/Math/MathML">
-          <apply>
-            <eq/>
-            <ci> Chromosome_polymerizedRegions </ci>
-            <apply>
-              <times/>
-              <ci> Chromosome_nCompartments </ci>
-              <ci> Chromosome_sequenceLen </ci>
-            </apply>
-          </apply>
-        </math>
-      </initialAssignment>
-      <initialAssignment symbol="ChrIsSupercoiled">
-        <math xmlns="http://www.w3.org/1998/Math/MathML">
-          <apply>
-            <eq/>
-            <ci> Chromosome_supercoiled </ci>
-            <ci> Chromosome_nCompartments </ci>
-          </apply>
-        </math>
-      </initialAssignment>
-    </listOfInitialAssignments>
     <listOfEvents>
       <event id="_E0" useValuesFromTriggerTime="true">
         <trigger initialValue="true" persistent="true">
@@ -63,8 +36,20 @@
                 <ci> ChrIsSegregated </ci>
                 <cn type="integer"> 1 </cn>
               </apply>
-              <ci> ChrIsPolymerized </ci>
-              <ci> ChrIsSupercoiles </ci>
+              <apply>
+                <eq/>
+                <ci> Chromosome_polymerizedRegions </ci>
+                <apply>
+                  <times/>
+                  <ci> Chromosome_nCompartments </ci>
+                  <ci> Chromosome_sequenceLen </ci>
+                </apply>
+              </apply>
+              <apply>
+                <eq/>
+                <ci> Chromosome_supercoiled </ci>
+                <ci> Chromosome_nCompartments </ci>
+              </apply>
               <apply>
                 <geq/>
                 <ci> CobQ </ci>
