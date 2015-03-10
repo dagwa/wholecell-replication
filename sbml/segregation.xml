@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created by libAntimony version v2.7.0 on 2015-03-10 15:20 with libSBML version 5.11.3. -->
+<sbml xmlns="http://www.sbml.org/sbml/level3/version1/core" level="3" version="1">
+  <model id="chromosomeSegragation" name="chromosomeSegragation">
+    <listOfCompartments>
+      <compartment sboTerm="SBO:0000410" id="default_compartment" spatialDimensions="3" size="1" constant="true"/>
+    </listOfCompartments>
+    <listOfSpecies>
+      <species id="CobQ" compartment="default_compartment" initialConcentration="1" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="mraZ" compartment="default_compartment" initialConcentration="1" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="Era" compartment="default_compartment" initialConcentration="1" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="Obg" compartment="default_compartment" initialConcentration="1" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="topoisomerase" compartment="default_compartment" initialConcentration="1" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="gtp" compartment="default_compartment" initialConcentration="500" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="gdp" compartment="default_compartment" initialConcentration="500" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="h" compartment="default_compartment" initialConcentration="500" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="h2o" compartment="default_compartment" initialConcentration="500" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="p" compartment="default_compartment" initialConcentration="500" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="ChrIsPolymerized" compartment="default_compartment" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+    </listOfSpecies>
+    <listOfParameters>
+      <parameter id="ChrIsSegregated" value="0" constant="true"/>
+      <parameter id="Chromosome_polymerizedRegions" value="0" constant="true"/>
+      <parameter id="Chromosome_nCompartments" value="0" constant="true"/>
+      <parameter id="Chromosome_sequenceLen" value="0" constant="true"/>
+      <parameter id="Chromosome_supercoiled" value="0" constant="true"/>
+      <parameter id="gtpCost" value="0" constant="true"/>
+      <parameter id="ChrIsSupercoiled" constant="true"/>
+      <parameter id="ChrIsSupercoiles" constant="true"/>
+    </listOfParameters>
+    <listOfInitialAssignments>
+      <initialAssignment symbol="ChrIsPolymerized">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <eq/>
+            <ci> Chromosome_polymerizedRegions </ci>
+            <apply>
+              <times/>
+              <ci> Chromosome_nCompartments </ci>
+              <ci> Chromosome_sequenceLen </ci>
+            </apply>
+          </apply>
+        </math>
+      </initialAssignment>
+      <initialAssignment symbol="ChrIsSupercoiled">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <eq/>
+            <ci> Chromosome_supercoiled </ci>
+            <ci> Chromosome_nCompartments </ci>
+          </apply>
+        </math>
+      </initialAssignment>
+    </listOfInitialAssignments>
+    <listOfEvents>
+      <event id="_E0" useValuesFromTriggerTime="true">
+        <trigger initialValue="true" persistent="true">
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <and/>
+              <apply>
+                <neq/>
+                <ci> ChrIsSegregated </ci>
+                <cn type="integer"> 1 </cn>
+              </apply>
+              <ci> ChrIsPolymerized </ci>
+              <ci> ChrIsSupercoiles </ci>
+              <apply>
+                <geq/>
+                <ci> CobQ </ci>
+                <cn type="integer"> 1 </cn>
+              </apply>
+              <apply>
+                <geq/>
+                <ci> mraZ </ci>
+                <cn type="integer"> 1 </cn>
+              </apply>
+              <apply>
+                <geq/>
+                <ci> Era </ci>
+                <cn type="integer"> 1 </cn>
+              </apply>
+              <apply>
+                <geq/>
+                <ci> Obg </ci>
+                <cn type="integer"> 1 </cn>
+              </apply>
+              <apply>
+                <geq/>
+                <ci> topoisomerase </ci>
+                <cn type="integer"> 1 </cn>
+              </apply>
+              <apply>
+                <geq/>
+                <ci> gtp </ci>
+                <ci> gtpCost </ci>
+              </apply>
+              <apply>
+                <geq/>
+                <ci> h2o </ci>
+                <ci> gtpCost </ci>
+              </apply>
+            </apply>
+          </math>
+        </trigger>
+        <listOfEventAssignments>
+          <eventAssignment variable="h">
+            <math xmlns="http://www.w3.org/1998/Math/MathML">
+              <apply>
+                <plus/>
+                <ci> h </ci>
+                <ci> gtpCost </ci>
+              </apply>
+            </math>
+          </eventAssignment>
+          <eventAssignment variable="p">
+            <math xmlns="http://www.w3.org/1998/Math/MathML">
+              <apply>
+                <plus/>
+                <ci> p </ci>
+                <ci> gtpCost </ci>
+              </apply>
+            </math>
+          </eventAssignment>
+          <eventAssignment variable="gdp">
+            <math xmlns="http://www.w3.org/1998/Math/MathML">
+              <apply>
+                <plus/>
+                <ci> gdp </ci>
+                <ci> gtpCost </ci>
+              </apply>
+            </math>
+          </eventAssignment>
+          <eventAssignment variable="gtp">
+            <math xmlns="http://www.w3.org/1998/Math/MathML">
+              <apply>
+                <minus/>
+                <ci> gtp </ci>
+                <ci> gtpCost </ci>
+              </apply>
+            </math>
+          </eventAssignment>
+          <eventAssignment variable="h2o">
+            <math xmlns="http://www.w3.org/1998/Math/MathML">
+              <apply>
+                <minus/>
+                <ci> h2o </ci>
+                <ci> gtpCost </ci>
+              </apply>
+            </math>
+          </eventAssignment>
+        </listOfEventAssignments>
+      </event>
+    </listOfEvents>
+  </model>
+</sbml>

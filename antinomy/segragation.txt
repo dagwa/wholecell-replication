@@ -1,0 +1,50 @@
+model chromosomeSegragation
+
+  # inputs (modeled as parameters for now)
+  ChrIsSegregated                = 0; #Chromosome.segregated
+  Chromosome_polymerizedRegions  = 0
+  Chromosome_nCompartments       = 0
+  Chromosome_sequenceLen         = 0
+  Chromosome_supercoiled         = 0
+
+  # input enzymes
+  species CobQ          = 1;             # MG_470_MONOMER           # CobQ/CobB/MinD/ParA nucleotide binding domain
+  species mraZ          = 1;             # MG_221_OCTAMER           # mraZ protein
+  species Era           = 1;             # MG_387_MONOMER           # GTP-binding protein Era
+  species Obg           = 1;             # MG_384_MONOMER           # GTPase1 Obg
+  species topoisomerase = 1;             # MG_203_204_TETRAMER      # DNA topoisomerase IV
+
+  # input metabolites
+  species gtp           = 500;
+  species gdp           = 500;
+  species h             = 500;
+  species h2o           = 500;
+  species p             = 500;
+
+  # parameters
+  Chromosome_nCompartments  = 4; # this should come directly from the chromosome class
+  Chromosome_sequenceLen    = 0; 
+  gtpCost                   = 0;
+
+  # species computed via inital assignment
+  species ChrIsPolymerized    = Chromosome_polymerizedRegions == ( Chromosome_nCompartments * Chromosome_sequenceLen )
+  ChrIsSupercoiled            = Chromosome_supercoiled == Chromosome_nCompartments
+  
+  # the propagation-logic is encoded as an event
+  # if conditions are fulfilled segregation is executed
+  at (ChrIsSegregated!=1 \
+     and ChrIsPolymerized \
+     and ChrIsSupercoiles \
+     and CobQ >= 1 \
+     and mraZ >= 1 \
+     and Era >= 1 \
+     and Obg >= 1 \
+     and topoisomerase >= 1 \
+     and gtp >= gtpCost \
+     and h2o >= gtpCost ): \
+     h2o = h2o - gtpCost, \
+     gtp = gtp - gtpCost, \ 
+     gdp = gdp + gtpCost, \
+     p   = p   + gtpCost, \
+     h   = h   + gtpCost; 
+end 
