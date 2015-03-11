@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Created by libAntimony version v2.7.0 on 2015-03-10 17:45 with libSBML version 5.11.3. -->
+<!-- Created by libAntimony version v2.7.0 on 2015-03-11 10:54 with libSBML version 5.11.3. -->
 <sbml xmlns="http://www.sbml.org/sbml/level3/version1/core" level="3" version="1">
-  <model id="chromosomeSegragation" name="chromosomeSegragation">
+  <model id="chromosomeSegregation" name="chromosomeSegregation">
     <listOfCompartments>
       <compartment sboTerm="SBO:0000410" id="default_compartment" spatialDimensions="3" size="1" constant="true"/>
     </listOfCompartments>
@@ -14,7 +14,7 @@
       <species id="gtp" compartment="default_compartment" initialConcentration="500" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
       <species id="gdp" compartment="default_compartment" initialConcentration="500" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
       <species id="h" compartment="default_compartment" initialConcentration="500" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
-      <species id="h2o" compartment="default_compartment" initialConcentration="0" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="h2o" compartment="default_compartment" initialConcentration="4" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
       <species id="p" compartment="default_compartment" initialConcentration="500" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
     </listOfSpecies>
     <listOfParameters>
@@ -25,21 +25,9 @@
       <parameter id="Chromosome_sequenceLen" value="58076" constant="true"/>
       <parameter id="gtpCost" value="1" constant="true"/>
     </listOfParameters>
-    <listOfReactions>
-      <reaction id="_J0" reversible="false" fast="false">
-        <listOfProducts>
-          <speciesReference species="h2o" stoichiometry="1" constant="true"/>
-        </listOfProducts>
-        <kineticLaw>
-          <math xmlns="http://www.w3.org/1998/Math/MathML">
-            <cn type="integer"> 1 </cn>
-          </math>
-        </kineticLaw>
-      </reaction>
-    </listOfReactions>
     <listOfEvents>
       <event id="TriggerChromosomeSegregation" useValuesFromTriggerTime="true">
-        <trigger initialValue="true" persistent="true">
+        <trigger initialValue="false" persistent="true">
           <math xmlns="http://www.w3.org/1998/Math/MathML">
             <apply>
               <and/>

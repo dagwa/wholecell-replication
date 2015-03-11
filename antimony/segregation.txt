@@ -1,4 +1,4 @@
-model chromosomeSegragation
+model chromosomeSegregation
 
   # inputs (modeled as parameters for now)
   ChromosomeIsSegregated          = 0; 
@@ -18,11 +18,11 @@ model chromosomeSegragation
   species gtp           = 500;
   species gdp           = 500;
   species h             = 500;
-  species h2o           = 0;
+  species h2o           = 4;
   species p             = 500;
 
   # dummy reaction to test the system
-  => h2o; 1;
+  #=> h2o; 1;
   
   # parameters
   Chromosome_nCompartments  = 4; # this should come directly from the chromosome class
@@ -41,7 +41,8 @@ model chromosomeSegragation
      				and Obg >= 1 \
      				and topoisomerase >= 1 \
      				and gtp >= gtpCost \
-     				and h2o >= gtpCost ): \
+     				and h2o >= gtpCost), \
+				t0=false: \
      				h2o = h2o - gtpCost, \
      				gtp = gtp - gtpCost, \ 
      				gdp = gdp + gtpCost, \
