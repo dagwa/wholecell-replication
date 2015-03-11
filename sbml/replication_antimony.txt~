@@ -1,0 +1,90 @@
+//Created by libAntimony v2.7.0
+model *Replication()
+
+  // Compartments and Species:
+  compartment default;
+  species dsDNA in default, MG_094_HEXAMER in default, leadSsDNA in default;
+  species lagSsDNA in default, MG_254_MONOMER in default, DNA_POLYMERASE_CORE in default;
+  species MG_001_DIMER in default, MG_250_MONOMER in default, DNA_POLYMERASE_GAMMA_COMPLEX in default;
+  species leadDsDNA in default, lagDsDNA in default, okazaki_fragment in default;
+  species MG_091_TETRAMER in default, lagSsDNA_MG_091_OCTAMER in default;
+  species s110 in default, MG_091_OCTAMER in default, DNA_POLYMERASE_CORE_BETA_CLAMP_GAMMA_COMPLEX in default;
+
+  // Reactions:
+  unwinding: dsDNA => leadSsDNA + lagSsDNA; ;
+  terminal_lag_ligation: 500lagDsDNA => 500dsDNA; ;
+  lead_ligation: 500leadDsDNA => 500dsDNA; ;
+  lead_polymerisation: 10leadSsDNA => 10leadDsDNA; ;
+  okazaki_creation: lagSsDNA_MG_091_OCTAMER => okazaki_fragment + MG_091_OCTAMER; ;
+  ssb_binding: 2lagSsDNA + MG_091_OCTAMER => lagSsDNA_MG_091_OCTAMER; ;
+  lag_ligation: 2okazaki_fragment => 4lagDsDNA; ;
+  polymerase_complex_creation: DNA_POLYMERASE_CORE + DNA_POLYMERASE_GAMMA_COMPLEX + MG_001_DIMER => DNA_POLYMERASE_CORE_BETA_CLAMP_GAMMA_COMPLEX; ;
+  SSB_transformation: MG_091_OCTAMER -> MG_091_TETRAMER; ;
+  initiation:  => 500dsDNA; ;
+  termination: 1000dsDNA => ; ;
+
+  // Interactions:
+  _I0: MG_094_HEXAMER -( unwinding; ;
+  _I1: MG_254_MONOMER -( terminal_lag_ligation; ;
+  _I2: MG_254_MONOMER -( lead_ligation; ;
+  _I3: MG_250_MONOMER -( lead_polymerisation; ;
+  _I4: DNA_POLYMERASE_CORE_BETA_CLAMP_GAMMA_COMPLEX -( lead_polymerisation; ;
+  _I5: MG_250_MONOMER -( okazaki_creation; ;
+  _I6: DNA_POLYMERASE_CORE_BETA_CLAMP_GAMMA_COMPLEX -( okazaki_creation; ;
+  _I7: MG_001_DIMER -( okazaki_creation; ;
+  _I8: MG_254_MONOMER -( lag_ligation; ;
+  _I9: s110 -( initiation; ;
+
+  // Species initializations:
+  dsDNA = 8.30269391581363e-022;
+  MG_094_HEXAMER = 8.30269391581363e-023;
+  leadSsDNA = 0;
+  lagSsDNA = 0;
+  MG_254_MONOMER = 8.30269391581363e-023;
+  DNA_POLYMERASE_CORE = 8.30269391581363e-023;
+  MG_001_DIMER = 8.30269391581363e-023;
+  MG_250_MONOMER = 8.30269391581363e-023;
+  DNA_POLYMERASE_GAMMA_COMPLEX = 8.30269391581363e-023;
+  leadDsDNA = 0;
+  lagDsDNA = 0;
+  okazaki_fragment = 0;
+  MG_091_TETRAMER = 8.30269391581363e-023;
+  lagSsDNA_MG_091_OCTAMER = 0;
+  s110 = 8.30269391581363e-023;
+  MG_091_OCTAMER = 8.30269391581363e-023;
+  DNA_POLYMERASE_CORE_BETA_CLAMP_GAMMA_COMPLEX = 0;
+
+  // Compartment initializations:
+  default = 1;
+
+  // Other declarations:
+  const default;
+
+  // Display Names:
+  MG_094_HEXAMER is "Helicase";
+  leadSsDNA is "leading ssDNA";
+  lagSsDNA is "lagging ssDNA";
+  MG_254_MONOMER is "ligase";
+  DNA_POLYMERASE_CORE is "core subunit";
+  MG_001_DIMER is "beta-clamp";
+  MG_250_MONOMER is "primase";
+  DNA_POLYMERASE_GAMMA_COMPLEX is "gamma complex";
+  leadDsDNA is "dsDNA with a break";
+  okazaki_fragment is "lagging ssDNA with an Okazaki fragment";
+  MG_091_TETRAMER is "SSB tetramer";
+  lagSsDNA_MG_091_OCTAMER is "lagging ssDNA with SSBP bound";
+  s110 is "DnaA-ATP complex ";
+  MG_091_OCTAMER is "SSB octamer";
+  DNA_POLYMERASE_CORE_BETA_CLAMP_GAMMA_COMPLEX is "DNA polymerase III";
+  unwinding is "unwinding";
+  terminal_lag_ligation is "terminal_lag_ligation";
+  lead_ligation is "lead_ligation";
+  lead_polymerisation is "lead_polymerisation";
+  okazaki_creation is "okazaki_creation";
+  ssb_binding is "ssb_binding";
+  lag_ligation is "lag_ligation";
+  polymerase_complex_creation is "polymerase_complex_creation";
+  SSB_transformation is "SSB_transformation";
+  initiation is "initiation";
+  termination is "termination";
+end

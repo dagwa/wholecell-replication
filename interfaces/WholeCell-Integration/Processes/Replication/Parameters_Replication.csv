@@ -1,0 +1,2 @@
+Parameter,Description,read only,Read and write,write only
+isDnaAORIComplexAssembled,boolean indicating whether or not a DnaA-ATP complex has formed at the oriC  if true replication can initiate,x,,
