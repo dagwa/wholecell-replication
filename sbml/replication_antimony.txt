@@ -8,7 +8,7 @@ model *Replication()
   species MG_001_DIMER in default, MG_250_MONOMER in default, DNA_POLYMERASE_GAMMA_COMPLEX in default;
   species leadDsDNA in default, lagDsDNA in default, okazaki_fragment in default;
   species MG_091_TETRAMER in default, lagSsDNA_MG_091_OCTAMER in default;
-  species DnaA_ATP_complex in default, MG_091_OCTAMER in default, DNA_POLYMERASE_CORE_BETA_CLAMP_GAMMA_COMPLEX in default;
+  species s110 in default, MG_091_OCTAMER in default, DNA_POLYMERASE_CORE_BETA_CLAMP_GAMMA_COMPLEX in default;
 
   // Reactions:
   re20: dsDNA => leadSsDNA + lagSsDNA; ;
@@ -25,51 +25,42 @@ model *Replication()
 
   // Interactions:
   _I0: MG_094_HEXAMER -( re20; ;
-  _I9: MG_254_MONOMER -( re22; ;
-  _I1: MG_254_MONOMER -( re23; ;
-  _I2: MG_250_MONOMER -( re24; ;
-  _I3: DNA_POLYMERASE_CORE_BETA_CLAMP_GAMMA_COMPLEX -( re24; ;
-  _I4: MG_250_MONOMER -( re25; ;
-  _I5: DNA_POLYMERASE_CORE_BETA_CLAMP_GAMMA_COMPLEX -( re25; ;
-  _I6: MG_001_DIMER -( re25; ;
-  _I7: MG_254_MONOMER -( re27; ;
-  _I8: DnaA_ATP_complex -( re32; ;
+  _I1: MG_254_MONOMER -( re22; ;
+  _I2: MG_254_MONOMER -( re23; ;
+  _I3: MG_250_MONOMER -( re24; ;
+  _I4: DNA_POLYMERASE_CORE_BETA_CLAMP_GAMMA_COMPLEX -( re24; ;
+  _I5: MG_250_MONOMER -( re25; ;
+  _I6: DNA_POLYMERASE_CORE_BETA_CLAMP_GAMMA_COMPLEX -( re25; ;
+  _I7: MG_001_DIMER -( re25; ;
+  _I8: MG_254_MONOMER -( re27; ;
+  _I9: s110 -( re32; ;
 
   // Species initializations:
-  dsDNA = 0;
-  MG_094_HEXAMER = 0;
+  dsDNA = 8.30269391581363e-022;
+  MG_094_HEXAMER = 8.30269391581363e-023;
   leadSsDNA = 0;
   lagSsDNA = 0;
-  MG_254_MONOMER = 0;
-  DNA_POLYMERASE_CORE = 0;
-  MG_001_DIMER = 0;
-  MG_250_MONOMER = 0;
-  DNA_POLYMERASE_GAMMA_COMPLEX = 0;
+  MG_254_MONOMER = 8.30269391581363e-023;
+  DNA_POLYMERASE_CORE = 8.30269391581363e-023;
+  MG_001_DIMER = 8.30269391581363e-023;
+  MG_250_MONOMER = 8.30269391581363e-023;
+  DNA_POLYMERASE_GAMMA_COMPLEX = 8.30269391581363e-023;
   leadDsDNA = 0;
   lagDsDNA = 0;
   okazaki_fragment = 0;
-  MG_091_TETRAMER = 0;
+  MG_091_TETRAMER = 8.30269391581363e-023;
   lagSsDNA_MG_091_OCTAMER = 0;
-  DnaA_ATP_complex = 0;
-  MG_091_OCTAMER = 0;
+  s110 = 8.30269391581363e-023;
+  MG_091_OCTAMER = 8.30269391581363e-023;
   DNA_POLYMERASE_CORE_BETA_CLAMP_GAMMA_COMPLEX = 0;
 
   // Compartment initializations:
   default = 1;
-  default has volume;
 
   // Other declarations:
   const default;
 
-  // Unit definitions:
-  unit volume = litre;
-  unit substance = mole;
-  unit area = metre^2;
-  unit length = metre;
-  unit time_unit = second;
-
   // Display Names:
-  time_unit is "time";
   MG_094_HEXAMER is "Helicase";
   leadSsDNA is "leading ssDNA";
   lagSsDNA is "lagging ssDNA";
@@ -82,7 +73,18 @@ model *Replication()
   okazaki_fragment is "lagging ssDNA with an Okazaki fragment";
   MG_091_TETRAMER is "SSB tetramer";
   lagSsDNA_MG_091_OCTAMER is "lagging ssDNA with SSBP bound";
-  DnaA_ATP_complex is "DnaA-ATP complex ";
+  s110 is "DnaA-ATP complex ";
   MG_091_OCTAMER is "SSB octamer";
   DNA_POLYMERASE_CORE_BETA_CLAMP_GAMMA_COMPLEX is "DNA polymerase III";
+  re20 is "unwinding";
+  re22 is "terminal_lag_ligation";
+  re23 is "lead_ligation";
+  re24 is "lead_polymerisation";
+  re25 is "okazaki_creation";
+  re26 is "ssb_binding";
+  re27 is "lag_ligation";
+  re29 is "polymerase_complex_creation";
+  re30 is "SSB_transformation";
+  re32 is "initiation";
+  re33 is "termination";
 end
