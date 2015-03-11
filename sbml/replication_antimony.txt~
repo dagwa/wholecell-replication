@@ -8,7 +8,7 @@ model *Replication()
   species MG_001_DIMER in default, MG_250_MONOMER in default, DNA_POLYMERASE_GAMMA_COMPLEX in default;
   species leadDsDNA in default, lagDsDNA in default, okazaki_fragment in default;
   species MG_091_TETRAMER in default, lagSsDNA_MG_091_OCTAMER in default;
-  species DnaA_ATP_complex in default, MG_091_OCTAMER in default, DNA_POLYMERASE_CORE_BETA_CLAMP_GAMMA_COMPLEX in default;
+  species s110 in default, MG_091_OCTAMER in default, DNA_POLYMERASE_CORE_BETA_CLAMP_GAMMA_COMPLEX in default;
 
   // Reactions:
   unwinding: dsDNA => leadSsDNA + lagSsDNA; ;
@@ -33,7 +33,7 @@ model *Replication()
   _I6: DNA_POLYMERASE_CORE_BETA_CLAMP_GAMMA_COMPLEX -( okazaki_creation; ;
   _I7: MG_001_DIMER -( okazaki_creation; ;
   _I8: MG_254_MONOMER -( lag_ligation; ;
-  _I9: DnaA_ATP_complex -( initiation; ;
+  _I9: s110 -( initiation; ;
 
   // Species initializations:
   dsDNA = 8.30269391581363e-022;
@@ -50,7 +50,7 @@ model *Replication()
   okazaki_fragment = 0;
   MG_091_TETRAMER = 8.30269391581363e-023;
   lagSsDNA_MG_091_OCTAMER = 0;
-  DnaA_ATP_complex = 8.30269391581363e-023;
+  s110 = 8.30269391581363e-023;
   MG_091_OCTAMER = 8.30269391581363e-023;
   DNA_POLYMERASE_CORE_BETA_CLAMP_GAMMA_COMPLEX = 0;
 
@@ -73,7 +73,7 @@ model *Replication()
   okazaki_fragment is "lagging ssDNA with an Okazaki fragment";
   MG_091_TETRAMER is "SSB tetramer";
   lagSsDNA_MG_091_OCTAMER is "lagging ssDNA with SSBP bound";
-  DnaA_ATP_complex is "DnaA-ATP complex ";
+  s110 is "DnaA-ATP complex ";
   MG_091_OCTAMER is "SSB octamer";
   DNA_POLYMERASE_CORE_BETA_CLAMP_GAMMA_COMPLEX is "DNA polymerase III";
   unwinding is "unwinding";
