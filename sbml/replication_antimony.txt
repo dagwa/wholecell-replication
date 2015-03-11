@@ -20,7 +20,7 @@ model *Replication()
   re27: 2okazaki_fragment => 4lagDsDNA; ;
   re29: DNA_POLYMERASE_CORE + DNA_POLYMERASE_GAMMA_COMPLEX + MG_001_DIMER => DNA_POLYMERASE_CORE_BETA_CLAMP_GAMMA_COMPLEX; ;
   re30: MG_091_OCTAMER -> MG_091_TETRAMER; ;
-  //re32:  => 500dsDNA; ;
+  re32:  => 500dsDNA; ;
   re33: 1000dsDNA => ; ;
 
   // Interactions:
@@ -36,7 +36,7 @@ model *Replication()
   _I8: DnaA_ATP_complex -( re32; ;
 
   // Species initializations:
-  dsDNA = 500;
+  dsDNA = 0;
   MG_094_HEXAMER = 0;
   leadSsDNA = 0;
   lagSsDNA = 0;
