@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Created by COPASI version 4.14 (Build 89) on 2015-03-11 15:17 with libSBML version 5.10.3. -->
+<!-- Created by COPASI version 4.12 (Build 81) on 2015-03-11 18:47 with libSBML version 5.9.0. -->
 <sbml xmlns="http://www.sbml.org/sbml/level2/version4" level="2" version="4">
   <model metaid="COPASI0" id="Replication" name="Replication">
     <annotation>
@@ -15,11 +15,260 @@
         </rdf:RDF>
       </COPASI>
     </annotation>
+    <listOfFunctionDefinitions>
+      <functionDefinition metaid="COPASI43" id="Rate_Law_1_substrate" name="Rate Law 1 substrate">
+        <annotation>
+          <COPASI xmlns="http://www.copasi.org/static/sbml">
+            <rdf:RDF xmlns:dcterms="http://purl.org/dc/terms/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+              <rdf:Description rdf:about="#COPASI43">
+                <dcterms:created>
+                  <rdf:Description>
+                    <dcterms:W3CDTF>2015-03-11T16:33:35Z</dcterms:W3CDTF>
+                  </rdf:Description>
+                </dcterms:created>
+              </rdf:Description>
+            </rdf:RDF>
+          </COPASI>
+        </annotation>
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <lambda>
+            <bvar>
+              <ci> s </ci>
+            </bvar>
+            <bvar>
+              <ci> k </ci>
+            </bvar>
+            <apply>
+              <times/>
+              <ci> s </ci>
+              <ci> k </ci>
+            </apply>
+          </lambda>
+        </math>
+      </functionDefinition>
+      <functionDefinition metaid="COPASI44" id="Rate_Law_1_substrate_2_modifier" name="Rate Law 1 substrate 2 modifier">
+        <annotation>
+          <COPASI xmlns="http://www.copasi.org/static/sbml">
+            <rdf:RDF xmlns:dcterms="http://purl.org/dc/terms/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+              <rdf:Description rdf:about="#COPASI44">
+                <dcterms:created>
+                  <rdf:Description>
+                    <dcterms:W3CDTF>2015-03-11T16:19:23Z</dcterms:W3CDTF>
+                  </rdf:Description>
+                </dcterms:created>
+              </rdf:Description>
+            </rdf:RDF>
+          </COPASI>
+        </annotation>
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <lambda>
+            <bvar>
+              <ci> k </ci>
+            </bvar>
+            <bvar>
+              <ci> s </ci>
+            </bvar>
+            <bvar>
+              <ci> m </ci>
+            </bvar>
+            <bvar>
+              <ci> m2 </ci>
+            </bvar>
+            <apply>
+              <times/>
+              <ci> k </ci>
+              <ci> s </ci>
+              <ci> m </ci>
+              <ci> m2 </ci>
+            </apply>
+          </lambda>
+        </math>
+      </functionDefinition>
+      <functionDefinition metaid="COPASI45" id="Rate_Law_1_substrate_1_modifier" name="Rate Law 1 substrate 1 modifier">
+        <annotation>
+          <COPASI xmlns="http://www.copasi.org/static/sbml">
+            <rdf:RDF xmlns:dcterms="http://purl.org/dc/terms/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+              <rdf:Description rdf:about="#COPASI45">
+                <dcterms:created>
+                  <rdf:Description>
+                    <dcterms:W3CDTF>2015-03-11T16:18:09Z</dcterms:W3CDTF>
+                  </rdf:Description>
+                </dcterms:created>
+              </rdf:Description>
+            </rdf:RDF>
+          </COPASI>
+        </annotation>
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <lambda>
+            <bvar>
+              <ci> k </ci>
+            </bvar>
+            <bvar>
+              <ci> s </ci>
+            </bvar>
+            <bvar>
+              <ci> m </ci>
+            </bvar>
+            <apply>
+              <times/>
+              <ci> k </ci>
+              <ci> s </ci>
+              <ci> m </ci>
+            </apply>
+          </lambda>
+        </math>
+      </functionDefinition>
+      <functionDefinition metaid="COPASI46" id="Rate_Law_3_substrate" name="Rate Law 3 substrate">
+        <annotation>
+          <COPASI xmlns="http://www.copasi.org/static/sbml">
+            <rdf:RDF xmlns:dcterms="http://purl.org/dc/terms/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+              <rdf:Description rdf:about="#COPASI46">
+                <dcterms:created>
+                  <rdf:Description>
+                    <dcterms:W3CDTF>2015-03-11T16:24:15Z</dcterms:W3CDTF>
+                  </rdf:Description>
+                </dcterms:created>
+              </rdf:Description>
+            </rdf:RDF>
+          </COPASI>
+        </annotation>
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <lambda>
+            <bvar>
+              <ci> k </ci>
+            </bvar>
+            <bvar>
+              <ci> s1 </ci>
+            </bvar>
+            <bvar>
+              <ci> s2 </ci>
+            </bvar>
+            <bvar>
+              <ci> s3 </ci>
+            </bvar>
+            <apply>
+              <times/>
+              <ci> k </ci>
+              <ci> s1 </ci>
+              <ci> s2 </ci>
+              <ci> s3 </ci>
+            </apply>
+          </lambda>
+        </math>
+      </functionDefinition>
+      <functionDefinition metaid="COPASI47" id="Rate_Law_1_substrate_3_modifier" name="Rate Law 1 substrate 3 modifier">
+        <annotation>
+          <COPASI xmlns="http://www.copasi.org/static/sbml">
+            <rdf:RDF xmlns:dcterms="http://purl.org/dc/terms/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+              <rdf:Description rdf:about="#COPASI47">
+                <dcterms:created>
+                  <rdf:Description>
+                    <dcterms:W3CDTF>2015-03-11T16:20:52Z</dcterms:W3CDTF>
+                  </rdf:Description>
+                </dcterms:created>
+              </rdf:Description>
+            </rdf:RDF>
+          </COPASI>
+        </annotation>
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <lambda>
+            <bvar>
+              <ci> k </ci>
+            </bvar>
+            <bvar>
+              <ci> s1 </ci>
+            </bvar>
+            <bvar>
+              <ci> m </ci>
+            </bvar>
+            <bvar>
+              <ci> m2 </ci>
+            </bvar>
+            <bvar>
+              <ci> m3 </ci>
+            </bvar>
+            <apply>
+              <times/>
+              <ci> k </ci>
+              <ci> s1 </ci>
+              <ci> m3 </ci>
+              <ci> m </ci>
+              <ci> m2 </ci>
+            </apply>
+          </lambda>
+        </math>
+      </functionDefinition>
+      <functionDefinition metaid="COPASI48" id="Rate_Law_2_substrate" name="Rate Law 2 substrate">
+        <annotation>
+          <COPASI xmlns="http://www.copasi.org/static/sbml">
+            <rdf:RDF xmlns:dcterms="http://purl.org/dc/terms/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+              <rdf:Description rdf:about="#COPASI48">
+                <dcterms:created>
+                  <rdf:Description>
+                    <dcterms:W3CDTF>2015-03-11T16:24:55Z</dcterms:W3CDTF>
+                  </rdf:Description>
+                </dcterms:created>
+              </rdf:Description>
+            </rdf:RDF>
+          </COPASI>
+        </annotation>
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <lambda>
+            <bvar>
+              <ci> k </ci>
+            </bvar>
+            <bvar>
+              <ci> s1 </ci>
+            </bvar>
+            <bvar>
+              <ci> s2 </ci>
+            </bvar>
+            <apply>
+              <times/>
+              <ci> k </ci>
+              <ci> s1 </ci>
+              <ci> s2 </ci>
+            </apply>
+          </lambda>
+        </math>
+      </functionDefinition>
+    </listOfFunctionDefinitions>
+    <listOfUnitDefinitions>
+      <unitDefinition id="volume" name="volume">
+        <listOfUnits>
+          <unit kind="dimensionless" exponent="1" scale="0" multiplier="1"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="time" name="time">
+        <listOfUnits>
+          <unit kind="dimensionless" exponent="1" scale="0" multiplier="1"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="substance" name="substance">
+        <listOfUnits>
+          <unit kind="item" exponent="1" scale="0" multiplier="1"/>
+        </listOfUnits>
+      </unitDefinition>
+    </listOfUnitDefinitions>
     <listOfCompartments>
-      <compartment id="default" name="default" spatialDimensions="3" size="1" constant="true"/>
+      <compartment metaid="COPASI29" id="default" name="default" spatialDimensions="3" size="1" constant="true">
+        <annotation>
+          <COPASI xmlns="http://www.copasi.org/static/sbml">
+            <rdf:RDF xmlns:dcterms="http://purl.org/dc/terms/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+              <rdf:Description rdf:about="#COPASI29">
+                <dcterms:created>
+                  <rdf:Description>
+                    <dcterms:W3CDTF>2015-03-11T16:08:29Z</dcterms:W3CDTF>
+                  </rdf:Description>
+                </dcterms:created>
+              </rdf:Description>
+            </rdf:RDF>
+          </COPASI>
+        </annotation>
+      </compartment>
     </listOfCompartments>
     <listOfSpecies>
-      <species metaid="COPASI1" id="dsDNA" name="dsDNA" compartment="default" initialConcentration="8.30269391581363e-22" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false">
+      <species metaid="COPASI1" id="dsDNA" name="dsDNA" compartment="default" initialConcentration="0" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false">
         <annotation>
           <COPASI xmlns="http://www.copasi.org/static/sbml">
             <rdf:RDF xmlns:dcterms="http://purl.org/dc/terms/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
@@ -34,7 +283,7 @@
           </COPASI>
         </annotation>
       </species>
-      <species metaid="COPASI2" id="MG_094_HEXAMER" name="Helicase" compartment="default" initialConcentration="8.30269391581363e-23" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false">
+      <species metaid="COPASI2" id="MG_094_HEXAMER" name="Helicase" compartment="default" initialConcentration="50" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false">
         <annotation>
           <COPASI xmlns="http://www.copasi.org/static/sbml">
             <rdf:RDF xmlns:dcterms="http://purl.org/dc/terms/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
@@ -79,7 +328,7 @@
           </COPASI>
         </annotation>
       </species>
-      <species metaid="COPASI5" id="MG_254_MONOMER" name="ligase" compartment="default" initialConcentration="8.30269391581363e-23" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false">
+      <species metaid="COPASI5" id="MG_254_MONOMER" name="ligase" compartment="default" initialConcentration="50" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false">
         <annotation>
           <COPASI xmlns="http://www.copasi.org/static/sbml">
             <rdf:RDF xmlns:dcterms="http://purl.org/dc/terms/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
@@ -94,7 +343,7 @@
           </COPASI>
         </annotation>
       </species>
-      <species metaid="COPASI6" id="DNA_POLYMERASE_CORE" name="core subunit" compartment="default" initialConcentration="8.30269391581363e-23" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false">
+      <species metaid="COPASI6" id="DNA_POLYMERASE_CORE" name="core subunit" compartment="default" initialConcentration="50" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false">
         <annotation>
           <COPASI xmlns="http://www.copasi.org/static/sbml">
             <rdf:RDF xmlns:dcterms="http://purl.org/dc/terms/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
@@ -109,7 +358,7 @@
           </COPASI>
         </annotation>
       </species>
-      <species metaid="COPASI7" id="MG_001_DIMER" name="beta-clamp" compartment="default" initialConcentration="8.30269391581363e-23" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false">
+      <species metaid="COPASI7" id="MG_001_DIMER" name="beta-clamp" compartment="default" initialConcentration="50" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false">
         <annotation>
           <COPASI xmlns="http://www.copasi.org/static/sbml">
             <rdf:RDF xmlns:dcterms="http://purl.org/dc/terms/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
@@ -124,7 +373,7 @@
           </COPASI>
         </annotation>
       </species>
-      <species metaid="COPASI8" id="MG_250_MONOMER" name="primase" compartment="default" initialConcentration="8.30269391581363e-23" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false">
+      <species metaid="COPASI8" id="MG_250_MONOMER" name="primase" compartment="default" initialConcentration="50" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false">
         <annotation>
           <COPASI xmlns="http://www.copasi.org/static/sbml">
             <rdf:RDF xmlns:dcterms="http://purl.org/dc/terms/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
@@ -139,7 +388,7 @@
           </COPASI>
         </annotation>
       </species>
-      <species metaid="COPASI9" id="DNA_POLYMERASE_GAMMA_COMPLEX" name="gamma complex" compartment="default" initialConcentration="8.30269391581363e-23" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false">
+      <species metaid="COPASI9" id="DNA_POLYMERASE_GAMMA_COMPLEX" name="gamma complex" compartment="default" initialConcentration="50" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false">
         <annotation>
           <COPASI xmlns="http://www.copasi.org/static/sbml">
             <rdf:RDF xmlns:dcterms="http://purl.org/dc/terms/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
@@ -199,7 +448,7 @@
           </COPASI>
         </annotation>
       </species>
-      <species metaid="COPASI13" id="MG_091_TETRAMER" name="SSB tetramer" compartment="default" initialConcentration="8.30269391581363e-23" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false">
+      <species metaid="COPASI13" id="MG_091_TETRAMER" name="SSB tetramer" compartment="default" initialConcentration="50" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false">
         <annotation>
           <COPASI xmlns="http://www.copasi.org/static/sbml">
             <rdf:RDF xmlns:dcterms="http://purl.org/dc/terms/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
@@ -229,22 +478,7 @@
           </COPASI>
         </annotation>
       </species>
-      <species metaid="COPASI15" id="s110" name="DnaA-ATP complex " compartment="default" initialConcentration="8.30269391581363e-23" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false">
-        <annotation>
-          <COPASI xmlns="http://www.copasi.org/static/sbml">
-            <rdf:RDF xmlns:dcterms="http://purl.org/dc/terms/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
-              <rdf:Description rdf:about="#COPASI15">
-                <dcterms:created>
-                  <rdf:Description>
-                    <dcterms:W3CDTF>2015-03-11T14:46:38Z</dcterms:W3CDTF>
-                  </rdf:Description>
-                </dcterms:created>
-              </rdf:Description>
-            </rdf:RDF>
-          </COPASI>
-        </annotation>
-      </species>
-      <species metaid="COPASI16" id="MG_091_OCTAMER" name="SSB octamer" compartment="default" initialConcentration="8.30269391581363e-23" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false">
+      <species metaid="COPASI16" id="MG_091_OCTAMER" name="SSB octamer" compartment="default" initialConcentration="50" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false">
         <annotation>
           <COPASI xmlns="http://www.copasi.org/static/sbml">
             <rdf:RDF xmlns:dcterms="http://purl.org/dc/terms/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
@@ -274,7 +508,204 @@
           </COPASI>
         </annotation>
       </species>
+      <species metaid="COPASI30" id="DnaA_ATP_complex" name="DnaA-ATP complex" compartment="default" initialConcentration="1" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false">
+        <annotation>
+          <COPASI xmlns="http://www.copasi.org/static/sbml">
+            <rdf:RDF xmlns:dcterms="http://purl.org/dc/terms/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+              <rdf:Description rdf:about="#COPASI30">
+                <dcterms:created>
+                  <rdf:Description>
+                    <dcterms:W3CDTF>2015-03-11T18:42:31Z</dcterms:W3CDTF>
+                  </rdf:Description>
+                </dcterms:created>
+              </rdf:Description>
+            </rdf:RDF>
+          </COPASI>
+        </annotation>
+      </species>
+      <species metaid="COPASI31" id="Complete_DNA" name="Complete DNA" compartment="default" initialConcentration="1" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false">
+        <annotation>
+          <COPASI xmlns="http://www.copasi.org/static/sbml">
+            <rdf:RDF xmlns:dcterms="http://purl.org/dc/terms/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+              <rdf:Description rdf:about="#COPASI31">
+                <dcterms:created>
+                  <rdf:Description>
+                    <dcterms:W3CDTF>2015-03-11T16:29:10Z</dcterms:W3CDTF>
+                  </rdf:Description>
+                </dcterms:created>
+              </rdf:Description>
+            </rdf:RDF>
+          </COPASI>
+        </annotation>
+      </species>
     </listOfSpecies>
+    <listOfParameters>
+      <parameter metaid="COPASI32" id="Initiation_rate" name="Initiation_rate" value="500" constant="true">
+        <annotation>
+          <COPASI xmlns="http://www.copasi.org/static/sbml">
+            <rdf:RDF xmlns:dcterms="http://purl.org/dc/terms/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+              <rdf:Description rdf:about="#COPASI32">
+                <dcterms:created>
+                  <rdf:Description>
+                    <dcterms:W3CDTF>2015-03-11T15:31:27Z</dcterms:W3CDTF>
+                  </rdf:Description>
+                </dcterms:created>
+              </rdf:Description>
+            </rdf:RDF>
+          </COPASI>
+        </annotation>
+      </parameter>
+      <parameter metaid="COPASI33" id="Lag_ligation_rate" name="Lag_ligation_rate" value="1" constant="true">
+        <annotation>
+          <COPASI xmlns="http://www.copasi.org/static/sbml">
+            <rdf:RDF xmlns:dcterms="http://purl.org/dc/terms/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+              <rdf:Description rdf:about="#COPASI33">
+                <dcterms:created>
+                  <rdf:Description>
+                    <dcterms:W3CDTF>2015-03-11T15:30:12Z</dcterms:W3CDTF>
+                  </rdf:Description>
+                </dcterms:created>
+              </rdf:Description>
+            </rdf:RDF>
+          </COPASI>
+        </annotation>
+      </parameter>
+      <parameter metaid="COPASI34" id="Lead_ligation_rate" name="Lead_ligation_rate" value="1" constant="true">
+        <annotation>
+          <COPASI xmlns="http://www.copasi.org/static/sbml">
+            <rdf:RDF xmlns:dcterms="http://purl.org/dc/terms/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+              <rdf:Description rdf:about="#COPASI34">
+                <dcterms:created>
+                  <rdf:Description>
+                    <dcterms:W3CDTF>2015-03-11T15:30:24Z</dcterms:W3CDTF>
+                  </rdf:Description>
+                </dcterms:created>
+              </rdf:Description>
+            </rdf:RDF>
+          </COPASI>
+        </annotation>
+      </parameter>
+      <parameter metaid="COPASI35" id="Lead_polymerisation_rate" name="Lead_polymerisation_rate" value="10" constant="true">
+        <annotation>
+          <COPASI xmlns="http://www.copasi.org/static/sbml">
+            <rdf:RDF xmlns:dcterms="http://purl.org/dc/terms/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+              <rdf:Description rdf:about="#COPASI35">
+                <dcterms:created>
+                  <rdf:Description>
+                    <dcterms:W3CDTF>2015-03-11T15:30:32Z</dcterms:W3CDTF>
+                  </rdf:Description>
+                </dcterms:created>
+              </rdf:Description>
+            </rdf:RDF>
+          </COPASI>
+        </annotation>
+      </parameter>
+      <parameter metaid="COPASI36" id="okazaki_polymerisation_rate" name="okazaki_polymerisation_rate" value="1" constant="true">
+        <annotation>
+          <COPASI xmlns="http://www.copasi.org/static/sbml">
+            <rdf:RDF xmlns:dcterms="http://purl.org/dc/terms/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+              <rdf:Description rdf:about="#COPASI36">
+                <dcterms:created>
+                  <rdf:Description>
+                    <dcterms:W3CDTF>2015-03-11T15:31:00Z</dcterms:W3CDTF>
+                  </rdf:Description>
+                </dcterms:created>
+              </rdf:Description>
+            </rdf:RDF>
+          </COPASI>
+        </annotation>
+      </parameter>
+      <parameter metaid="COPASI37" id="polymerase_complex_creation_rate" name="polymerase_complex_creation_rate" value="1" constant="true">
+        <annotation>
+          <COPASI xmlns="http://www.copasi.org/static/sbml">
+            <rdf:RDF xmlns:dcterms="http://purl.org/dc/terms/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+              <rdf:Description rdf:about="#COPASI37">
+                <dcterms:created>
+                  <rdf:Description>
+                    <dcterms:W3CDTF>2015-03-11T15:31:33Z</dcterms:W3CDTF>
+                  </rdf:Description>
+                </dcterms:created>
+              </rdf:Description>
+            </rdf:RDF>
+          </COPASI>
+        </annotation>
+      </parameter>
+      <parameter metaid="COPASI38" id="ssb_binding_rate" name="ssb_binding_rate" value="1" constant="true">
+        <annotation>
+          <COPASI xmlns="http://www.copasi.org/static/sbml">
+            <rdf:RDF xmlns:dcterms="http://purl.org/dc/terms/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+              <rdf:Description rdf:about="#COPASI38">
+                <dcterms:created>
+                  <rdf:Description>
+                    <dcterms:W3CDTF>2015-03-11T15:31:52Z</dcterms:W3CDTF>
+                  </rdf:Description>
+                </dcterms:created>
+              </rdf:Description>
+            </rdf:RDF>
+          </COPASI>
+        </annotation>
+      </parameter>
+      <parameter metaid="COPASI39" id="SSB_transformation_rate" name="SSB_transformation_rate" value="1" constant="true">
+        <annotation>
+          <COPASI xmlns="http://www.copasi.org/static/sbml">
+            <rdf:RDF xmlns:dcterms="http://purl.org/dc/terms/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+              <rdf:Description rdf:about="#COPASI39">
+                <dcterms:created>
+                  <rdf:Description>
+                    <dcterms:W3CDTF>2015-03-11T15:32:00Z</dcterms:W3CDTF>
+                  </rdf:Description>
+                </dcterms:created>
+              </rdf:Description>
+            </rdf:RDF>
+          </COPASI>
+        </annotation>
+      </parameter>
+      <parameter metaid="COPASI40" id="terminal_lag_ligation_rate" name="terminal_lag_ligation_rate" value="1" constant="true">
+        <annotation>
+          <COPASI xmlns="http://www.copasi.org/static/sbml">
+            <rdf:RDF xmlns:dcterms="http://purl.org/dc/terms/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+              <rdf:Description rdf:about="#COPASI40">
+                <dcterms:created>
+                  <rdf:Description>
+                    <dcterms:W3CDTF>2015-03-11T15:32:11Z</dcterms:W3CDTF>
+                  </rdf:Description>
+                </dcterms:created>
+              </rdf:Description>
+            </rdf:RDF>
+          </COPASI>
+        </annotation>
+      </parameter>
+      <parameter metaid="COPASI41" id="termination_rate" name="termination_rate" value="1" constant="true">
+        <annotation>
+          <COPASI xmlns="http://www.copasi.org/static/sbml">
+            <rdf:RDF xmlns:dcterms="http://purl.org/dc/terms/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+              <rdf:Description rdf:about="#COPASI41">
+                <dcterms:created>
+                  <rdf:Description>
+                    <dcterms:W3CDTF>2015-03-11T15:32:23Z</dcterms:W3CDTF>
+                  </rdf:Description>
+                </dcterms:created>
+              </rdf:Description>
+            </rdf:RDF>
+          </COPASI>
+        </annotation>
+      </parameter>
+      <parameter metaid="COPASI42" id="unwinding_rate" name="unwinding_rate" value="1" constant="true">
+        <annotation>
+          <COPASI xmlns="http://www.copasi.org/static/sbml">
+            <rdf:RDF xmlns:dcterms="http://purl.org/dc/terms/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+              <rdf:Description rdf:about="#COPASI42">
+                <dcterms:created>
+                  <rdf:Description>
+                    <dcterms:W3CDTF>2015-03-11T15:32:29Z</dcterms:W3CDTF>
+                  </rdf:Description>
+                </dcterms:created>
+              </rdf:Description>
+            </rdf:RDF>
+          </COPASI>
+        </annotation>
+      </parameter>
+    </listOfParameters>
     <listOfReactions>
       <reaction metaid="COPASI18" id="re20" name="unwinding" reversible="false">
         <annotation>
@@ -300,6 +731,20 @@
         <listOfModifiers>
           <modifierSpeciesReference species="MG_094_HEXAMER"/>
         </listOfModifiers>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> default </ci>
+              <apply>
+                <ci> Rate_Law_1_substrate_1_modifier </ci>
+                <ci> unwinding_rate </ci>
+                <ci> dsDNA </ci>
+                <ci> MG_094_HEXAMER </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
       </reaction>
       <reaction metaid="COPASI19" id="re22" name="terminal_lag_ligation" reversible="false">
         <annotation>
@@ -319,11 +764,25 @@
           <speciesReference species="lagDsDNA" stoichiometry="500"/>
         </listOfReactants>
         <listOfProducts>
-          <speciesReference species="dsDNA" stoichiometry="500"/>
+          <speciesReference species="Complete_DNA" stoichiometry="1"/>
         </listOfProducts>
         <listOfModifiers>
           <modifierSpeciesReference species="MG_254_MONOMER"/>
         </listOfModifiers>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> default </ci>
+              <apply>
+                <ci> Rate_Law_1_substrate_1_modifier </ci>
+                <ci> terminal_lag_ligation_rate </ci>
+                <ci> lagDsDNA </ci>
+                <ci> MG_254_MONOMER </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
       </reaction>
       <reaction metaid="COPASI27" id="re23" name="lead_ligation" reversible="false">
         <annotation>
@@ -343,11 +802,25 @@
           <speciesReference species="leadDsDNA" stoichiometry="500"/>
         </listOfReactants>
         <listOfProducts>
-          <speciesReference species="dsDNA" stoichiometry="500"/>
+          <speciesReference species="Complete_DNA" stoichiometry="1"/>
         </listOfProducts>
         <listOfModifiers>
           <modifierSpeciesReference species="MG_254_MONOMER"/>
         </listOfModifiers>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> default </ci>
+              <apply>
+                <ci> Rate_Law_1_substrate_1_modifier </ci>
+                <ci> Lead_ligation_rate </ci>
+                <ci> leadDsDNA </ci>
+                <ci> MG_254_MONOMER </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
       </reaction>
       <reaction metaid="COPASI20" id="re24" name="lead_polymerisation" reversible="false">
         <annotation>
@@ -373,6 +846,21 @@
           <modifierSpeciesReference species="MG_250_MONOMER"/>
           <modifierSpeciesReference species="DNA_POLYMERASE_CORE_BETA_CLAMP_GAMMA_COMPLEX"/>
         </listOfModifiers>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> default </ci>
+              <apply>
+                <ci> Rate_Law_1_substrate_2_modifier </ci>
+                <ci> Lead_polymerisation_rate </ci>
+                <ci> leadSsDNA </ci>
+                <ci> MG_250_MONOMER </ci>
+                <ci> DNA_POLYMERASE_CORE_BETA_CLAMP_GAMMA_COMPLEX </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
       </reaction>
       <reaction metaid="COPASI28" id="re25" name="okazaki_creation" reversible="false">
         <annotation>
@@ -400,6 +888,22 @@
           <modifierSpeciesReference species="DNA_POLYMERASE_CORE_BETA_CLAMP_GAMMA_COMPLEX"/>
           <modifierSpeciesReference species="MG_001_DIMER"/>
         </listOfModifiers>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> default </ci>
+              <apply>
+                <ci> Rate_Law_1_substrate_3_modifier </ci>
+                <ci> okazaki_polymerisation_rate </ci>
+                <ci> lagSsDNA_MG_091_OCTAMER </ci>
+                <ci> MG_250_MONOMER </ci>
+                <ci> DNA_POLYMERASE_CORE_BETA_CLAMP_GAMMA_COMPLEX </ci>
+                <ci> MG_001_DIMER </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
       </reaction>
       <reaction metaid="COPASI21" id="re26" name="ssb_binding" reversible="false">
         <annotation>
@@ -422,6 +926,20 @@
         <listOfProducts>
           <speciesReference species="lagSsDNA_MG_091_OCTAMER" stoichiometry="1"/>
         </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> default </ci>
+              <apply>
+                <ci> Rate_Law_2_substrate </ci>
+                <ci> ssb_binding_rate </ci>
+                <ci> lagSsDNA </ci>
+                <ci> MG_091_OCTAMER </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
       </reaction>
       <reaction metaid="COPASI22" id="re27" name="lag_ligation" reversible="false">
         <annotation>
@@ -446,6 +964,20 @@
         <listOfModifiers>
           <modifierSpeciesReference species="MG_254_MONOMER"/>
         </listOfModifiers>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> default </ci>
+              <apply>
+                <ci> Rate_Law_1_substrate_1_modifier </ci>
+                <ci> Lag_ligation_rate </ci>
+                <ci> okazaki_fragment </ci>
+                <ci> MG_254_MONOMER </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
       </reaction>
       <reaction metaid="COPASI23" id="re29" name="polymerase_complex_creation" reversible="false">
         <annotation>
@@ -469,6 +1001,21 @@
         <listOfProducts>
           <speciesReference species="DNA_POLYMERASE_CORE_BETA_CLAMP_GAMMA_COMPLEX" stoichiometry="1"/>
         </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> default </ci>
+              <apply>
+                <ci> Rate_Law_3_substrate </ci>
+                <ci> polymerase_complex_creation_rate </ci>
+                <ci> DNA_POLYMERASE_CORE </ci>
+                <ci> DNA_POLYMERASE_GAMMA_COMPLEX </ci>
+                <ci> MG_001_DIMER </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
       </reaction>
       <reaction metaid="COPASI24" id="re30" name="SSB_transformation" reversible="true">
         <annotation>
@@ -490,6 +1037,27 @@
         <listOfProducts>
           <speciesReference species="MG_091_TETRAMER" stoichiometry="1"/>
         </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> default </ci>
+              <apply>
+                <minus/>
+                <apply>
+                  <times/>
+                  <ci> SSB_transformation_rate </ci>
+                  <ci> MG_091_OCTAMER </ci>
+                </apply>
+                <apply>
+                  <times/>
+                  <ci> SSB_transformation_rate </ci>
+                  <ci> MG_091_TETRAMER </ci>
+                </apply>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
       </reaction>
       <reaction metaid="COPASI25" id="re32" name="initiation" reversible="false">
         <annotation>
@@ -505,12 +1073,27 @@
             </rdf:RDF>
           </COPASI>
         </annotation>
+        <listOfReactants>
+          <speciesReference species="Complete_DNA" stoichiometry="1"/>
+          <speciesReference species="DnaA_ATP_complex" stoichiometry="1"/>
+        </listOfReactants>
         <listOfProducts>
           <speciesReference species="dsDNA" stoichiometry="500"/>
         </listOfProducts>
-        <listOfModifiers>
-          <modifierSpeciesReference species="s110"/>
-        </listOfModifiers>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> default </ci>
+              <apply>
+                <ci> Rate_Law_2_substrate </ci>
+                <ci> Initiation_rate </ci>
+                <ci> Complete_DNA </ci>
+                <ci> DnaA_ATP_complex </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
       </reaction>
       <reaction metaid="COPASI26" id="re33" name="termination" reversible="false">
         <annotation>
@@ -527,8 +1110,21 @@
           </COPASI>
         </annotation>
         <listOfReactants>
-          <speciesReference species="dsDNA" stoichiometry="1000"/>
+          <speciesReference species="Complete_DNA" stoichiometry="2"/>
         </listOfReactants>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> default </ci>
+              <apply>
+                <ci> Rate_Law_1_substrate </ci>
+                <ci> Complete_DNA </ci>
+                <ci> termination_rate </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
       </reaction>
     </listOfReactions>
   </model>
