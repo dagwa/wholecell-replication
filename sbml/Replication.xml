@@ -36,7 +36,7 @@
 <species metaid="s1" id="s1" name="dsDNA" compartment="default" initialAmount="0">
 <annotation/>
 </species>
-<species metaid="s2" id="s2" name="Helicase" compartment="default" initialAmount="0">
+<species metaid="s2" id="MG_094_HEXAMER" name="Helicase" compartment="default" initialAmount="0">
 <annotation/>
 </species>
 <species metaid="s13" id="s13" name="leading ssDNA" compartment="default" initialAmount="0">
@@ -45,34 +45,46 @@
 <species metaid="s14" id="s14" name="lagging ssDNA" compartment="default" initialAmount="0">
 <annotation/>
 </species>
-<species metaid="s18" id="s18" name="ligase" compartment="default" initialAmount="0">
+<species metaid="s18" id="MG_254_MONOMER" name="ligase" compartment="default" initialAmount="0">
 <annotation/>
 </species>
-<species metaid="s23" id="s23" name="SSBP" compartment="default" initialAmount="0">
+<species metaid="s28" id="DNA_POLYMERASE_CORE" name="core subunit" compartment="default" initialAmount="0">
 <annotation/>
 </species>
-<species metaid="s28" id="s28" name="core subunit" compartment="default" initialAmount="0">
+<species metaid="s29" id="MG_001_DIMER" name="beta-clamp" compartment="default" initialAmount="0">
 <annotation/>
 </species>
-<species metaid="s29" id="s29" name="beta-clamp" compartment="default" initialAmount="0">
+<species metaid="s32" id="MG_250_MONOMER" name="primase" compartment="default" initialAmount="0">
 <annotation/>
 </species>
-<species metaid="s32" id="s32" name="primase" compartment="default" initialAmount="0">
-<annotation/>
-</species>
-<species metaid="s58" id="s58" name="gamma complex" compartment="default" initialAmount="0">
+<species metaid="s58" id="DNA_POLYMERASE_GAMMA_COMPLEX" name="gamma complex" compartment="default" initialAmount="0">
 <annotation/>
 </species>
 <species metaid="s96" id="s96" name="dsDNA with a break" compartment="default" initialAmount="0">
 <annotation/>
 </species>
-<species metaid="s102" id="s102" name="the DNA polymerase III" compartment="default" initialAmount="0">
-<annotation/>
-</species>
-<species metaid="s106" id="s106" name="lagging ssDNA with SSBP binded" compartment="default" initialAmount="0">
-<annotation/>
-</species>
 <species metaid="s98" id="s98" name="lagging ssDNA with an Okazaki fragment" compartment="default" initialAmount="0">
+<annotation/>
+</species>
+<species metaid="MG_091_TETRAMER" id="MG_091_TETRAMER" name="SSB tetramer" compartment="default" initialAmount="0">
+<annotation/>
+</species>
+<species metaid="MG_091_OCTAMER" id="MG_091_OCTAMER" name="SSB octamer" compartment="default" initialAmount="0">
+<annotation/>
+</species>
+<species metaid="s106" id="s106" name="lagging ssDNA with SSBP bound" compartment="default" initialAmount="0">
+<annotation/>
+</species>
+<species metaid="s109" id="s109" name="s109" compartment="default" initialAmount="0">
+<annotation/>
+</species>
+<species metaid="s110" id="s110" name="DnaA-ATP complex " compartment="default" initialAmount="0">
+<annotation/>
+</species>
+<species metaid="s111" id="s111" name="s111" compartment="default" initialAmount="0">
+<annotation/>
+</species>
+<species metaid="s102" id="DNA_POLYMERASE_CORE_BETA_CLAMP_GAMMA_COMPLEX" name="DNA polymerase III" compartment="default" initialAmount="0">
 <annotation/>
 </species>
 </listOfSpecies>
@@ -87,7 +99,7 @@
 <speciesReference metaid="CDMT00044" species="s14"/>
 </listOfProducts>
 <listOfModifiers>
-<modifierSpeciesReference metaid="CDMT00045" species="s2"/>
+<modifierSpeciesReference metaid="CDMT00045" species="MG_094_HEXAMER"/>
 </listOfModifiers>
 </reaction>
 <reaction metaid="re23" id="re23" reversible="false">
@@ -99,7 +111,7 @@
 <speciesReference metaid="CDMT00047" species="s1"/>
 </listOfProducts>
 <listOfModifiers>
-<modifierSpeciesReference metaid="CDMT00048" species="s18"/>
+<modifierSpeciesReference metaid="CDMT00048" species="MG_254_MONOMER"/>
 </listOfModifiers>
 </reaction>
 <reaction metaid="re24" id="re24" reversible="false">
@@ -111,8 +123,8 @@
 <speciesReference metaid="CDMT00050" species="s96"/>
 </listOfProducts>
 <listOfModifiers>
-<modifierSpeciesReference metaid="CDMT00051" species="s32"/>
-<modifierSpeciesReference metaid="CDMT00052" species="s102"/>
+<modifierSpeciesReference metaid="CDMT00051" species="MG_250_MONOMER"/>
+<modifierSpeciesReference metaid="CDMT00052" species="DNA_POLYMERASE_CORE_BETA_CLAMP_GAMMA_COMPLEX"/>
 </listOfModifiers>
 </reaction>
 <reaction metaid="re25" id="re25" reversible="false">
@@ -122,19 +134,19 @@
 </listOfReactants>
 <listOfProducts>
 <speciesReference metaid="CDMT00054" species="s98"/>
-<speciesReference metaid="CDMT00055" species="s23"/>
+<speciesReference metaid="CDMT00055" species="MG_091_OCTAMER"/>
 </listOfProducts>
 <listOfModifiers>
-<modifierSpeciesReference metaid="CDMT00056" species="s32"/>
-<modifierSpeciesReference metaid="CDMT00057" species="s102"/>
-<modifierSpeciesReference metaid="CDMT00058" species="s29"/>
+<modifierSpeciesReference metaid="CDMT00056" species="MG_250_MONOMER"/>
+<modifierSpeciesReference metaid="CDMT00057" species="DNA_POLYMERASE_CORE_BETA_CLAMP_GAMMA_COMPLEX"/>
+<modifierSpeciesReference metaid="CDMT00058" species="MG_001_DIMER"/>
 </listOfModifiers>
 </reaction>
 <reaction metaid="re26" id="re26" reversible="false">
 <annotation/>
 <listOfReactants>
 <speciesReference metaid="CDMT00059" species="s14"/>
-<speciesReference metaid="CDMT00060" species="s23"/>
+<speciesReference metaid="CDMT00060" species="MG_091_OCTAMER"/>
 </listOfReactants>
 <listOfProducts>
 <speciesReference metaid="CDMT00061" species="s106"/>
@@ -149,18 +161,48 @@
 <speciesReference metaid="CDMT00063" species="s1"/>
 </listOfProducts>
 <listOfModifiers>
-<modifierSpeciesReference metaid="CDMT00064" species="s18"/>
+<modifierSpeciesReference metaid="CDMT00064" species="MG_254_MONOMER"/>
 </listOfModifiers>
 </reaction>
 <reaction metaid="re29" id="re29" reversible="false">
 <annotation/>
 <listOfReactants>
-<speciesReference metaid="CDMT00065" species="s28"/>
-<speciesReference metaid="CDMT00066" species="s58"/>
-<speciesReference metaid="CDMT00067" species="s29"/>
+<speciesReference metaid="CDMT00065" species="DNA_POLYMERASE_CORE"/>
+<speciesReference metaid="CDMT00066" species="DNA_POLYMERASE_GAMMA_COMPLEX"/>
+<speciesReference metaid="CDMT00067" species="MG_001_DIMER"/>
 </listOfReactants>
 <listOfProducts>
-<speciesReference metaid="CDMT00068" species="s102"/>
+<speciesReference metaid="CDMT00068" species="DNA_POLYMERASE_CORE_BETA_CLAMP_GAMMA_COMPLEX"/>
+</listOfProducts>
+</reaction>
+<reaction metaid="re30" id="re30">
+<annotation/>
+<listOfReactants>
+<speciesReference metaid="CDMT00069" species="MG_091_OCTAMER"/>
+</listOfReactants>
+<listOfProducts>
+<speciesReference metaid="CDMT00070" species="MG_091_TETRAMER"/>
+</listOfProducts>
+</reaction>
+<reaction metaid="re32" id="re32" reversible="false">
+<annotation/>
+<listOfReactants>
+<speciesReference metaid="CDMT00071" species="s109"/>
+</listOfReactants>
+<listOfProducts>
+<speciesReference metaid="CDMT00072" species="s1"/>
+</listOfProducts>
+<listOfModifiers>
+<modifierSpeciesReference metaid="CDMT00073" species="s110"/>
+</listOfModifiers>
+</reaction>
+<reaction metaid="re33" id="re33" reversible="false">
+<annotation/>
+<listOfReactants>
+<speciesReference metaid="CDMT00074" species="s1"/>
+</listOfReactants>
+<listOfProducts>
+<speciesReference metaid="CDMT00075" species="s111"/>
 </listOfProducts>
 </reaction>
 </listOfReactions>
