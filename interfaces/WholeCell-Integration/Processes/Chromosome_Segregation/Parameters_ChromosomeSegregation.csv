@@ -1,0 +1,2 @@
+Parameter,Description,read only,Read and write,write only
+segregation,boolean indicating whether or not the chromsomes are segregated,,x,
