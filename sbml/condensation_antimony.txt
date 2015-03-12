@@ -1,38 +1,52 @@
 model condensation()
-    species _state, DNA_region0, DNA_region1, DNA_region2, DNA_region3, DNA_region4;
-    species SMC_position0, SMC_position1, SMC_position2, SMC_position3, SMC_position4; 
-    species num_SMC, num_free_ATP, num_H2O, num_SMC_ADP, num_Pi, num_H;
-    species num_free_SMC_ADP, num_bound_SMC_ADP, num_free_ATP, num_free_ADP, num_free_SMC;
-    species SMC_binding_limit; 
-    species r0, r1, r2, r3, r4;
-    species Pbindingaccessiblebase; 
+species _state;
+species DNA_region0, DNA_region1, DNA_region2, DNA_region3, DNA_region4;
+species SMC_position0, SMC_position1, SMC_position2, SMC_position3, SMC_position4; 
+species num_SMC, num_free_ATP, num_H2O, num_SMC_ADP, num_Pi, num_H;
+species num_free_SMC_ADP, num_bound_SMC_ADP, num_free_ATP, num_free_ADP, num_free_SMC;
+species SMC_binding_limit; 
+species r0, r1, r2, r3, r4;
+species Pbindingaccessiblebase; 
 
-    at 0.5 after _state == 0, t0 = false, fromTrigger=false, persistent=false : 
+at 1/3 after _state == 0, t0 = false, fromTrigger=false, persistent=false : 
     num_free_SMC = num_free_SMC + num_SMC_ADP, 
     num_free_ADP = num_free_ADP + num_SMC_ADP, 
     num_SMC_ADP = 0, 
     _state = 1;
 
-at(_state == 1 && num_free_ATP > num_H2O)  : SMC_binding_limit = num_H2O, _state = 2; 
-at(_state == 1 && num_free_ATP <= num_H2O) : SMC_binding_limit = num_free_ATP, _state = 2; 
+at(_state == 1 && num_free_ATP > num_H2O)  : 
+    SMC_binding_limit = num_H2O, 
+    _state = 2; 
+at(_state == 1 && num_free_ATP <= num_H2O) : 
+    SMC_binding_limit = num_free_ATP, 
+    _state = 2; 
 
-at(_state == 2 && SMC_binding_limit > num_free_SMC) : SMC_binding_limit = num_free_SMC, _state = 10;
-at(_state == 2 && SMC_binding_limit <= num_free_SMC) : _state = 10;
+at(_state == 2 && SMC_binding_limit > num_free_SMC) : 
+    SMC_binding_limit = num_free_SMC, 
+    _state = 10;
 
-at 1e-3 after (r0 < Pbindingaccessiblebase && _state == 10 && DNA_region0 == 0 && num_bound_SMC_ADP <= SMC_binding_limit ), t0=false, fromTrigger=false, persistent=false : 
-SMC_position0 = 1, num_free_SMC_ADP = num_free_ADP - 1, num_bound_SMC_ADP = num_bound_SMC_ADP + 1;
+at(_state == 2 && SMC_binding_limit <= num_free_SMC) : 
+    _state = 10;
 
-at 1e-3 after (r1 < Pbindingaccessiblebase && _state == 10 && DNA_region1 == 0 && num_bound_SMC_ADP <= SMC_binding_limit ), t0=false, fromTrigger=false, persistent=false : 
-SMC_position1 = 1, num_free_SMC_ADP = num_free_ADP - 1, num_bound_SMC_ADP = num_bound_SMC_ADP + 1;
+at 2/3 after (r0 < Pbindingaccessiblebase && _state == 10 && DNA_region0 == 0 && num_bound_SMC_ADP <= SMC_binding_limit ), t0=false, fromTrigger=false, persistent=false : 
+    SMC_position0 = 1, num_free_SMC_ADP = num_free_ADP - 1, num_bound_SMC_ADP = num_bound_SMC_ADP + 1, 
+    num_free_ATP = num_free_ATP - 1, num_H2O = num_H2O - 1, num_Pi = num_Pi + 1, num_H = num_H + 1, num_free_SMC = num_free_SMC - 1;
 
-at 1e-3 after (r2 < Pbindingaccessiblebase && _state == 10 && DNA_region2 == 0 && num_bound_SMC_ADP <= SMC_binding_limit ), t0=false, fromTrigger=false, persistent=false : 
-SMC_position2 = 1, num_free_SMC_ADP = num_free_ADP - 1, num_bound_SMC_ADP = num_bound_SMC_ADP + 1;
+at 2/3 after (r1 < Pbindingaccessiblebase && _state == 10 && DNA_region1 == 0 && num_bound_SMC_ADP <= SMC_binding_limit ), t0=false, fromTrigger=false, persistent=false : 
+    SMC_position1 = 1, num_free_SMC_ADP = num_free_ADP - 1, num_bound_SMC_ADP = num_bound_SMC_ADP + 1, 
+    num_free_ATP = num_free_ATP - 1, num_H2O = num_H2O - 1, num_Pi = num_Pi + 1, num_H = num_H + 1, num_free_SMC = num_free_SMC - 1;
 
-at 1e-3 after (r3 < Pbindingaccessiblebase && _state == 10 && DNA_region3 == 0 && num_bound_SMC_ADP <= SMC_binding_limit ), t0=false, fromTrigger=false, persistent=false : 
-SMC_position3 = 1, num_free_SMC_ADP = num_free_ADP - 1, num_bound_SMC_ADP = num_bound_SMC_ADP + 1;
+at 1/3 after (r2 < Pbindingaccessiblebase && _state == 10 && DNA_region2 == 0 && num_bound_SMC_ADP <= SMC_binding_limit ), t0=false, fromTrigger=false, persistent=false : 
+    SMC_position2 = 1, num_free_SMC_ADP = num_free_ADP - 1, num_bound_SMC_ADP = num_bound_SMC_ADP + 1, 
+    num_free_ATP = num_free_ATP - 1, num_H2O = num_H2O - 1, num_Pi = num_Pi + 1, num_H = num_H + 1, num_free_SMC = num_free_SMC - 1;
 
-at 1e-3 after (r4 < Pbindingaccessiblebase && _state == 10 && DNA_region4 == 0 && num_bound_SMC_ADP <= SMC_binding_limit ), t0=false, fromTrigger=false, persistent=false : 
-SMC_position4 = 1, num_free_SMC_ADP = num_free_ADP - 1, num_bound_SMC_ADP = num_bound_SMC_ADP + 1;
+at 1/3 after (r3 < Pbindingaccessiblebase && _state == 10 && DNA_region3 == 0 && num_bound_SMC_ADP <= SMC_binding_limit ), t0=false, fromTrigger=false, persistent=false : 
+    SMC_position3 = 1, num_free_SMC_ADP = num_free_ADP - 1, num_bound_SMC_ADP = num_bound_SMC_ADP + 1, 
+    num_free_ATP = num_free_ATP - 1, num_H2O = num_H2O - 1, num_Pi = num_Pi + 1, num_H = num_H + 1, num_free_SMC = num_free_SMC - 1;
+
+at 1/3 after (r4 < Pbindingaccessiblebase && _state == 10 && DNA_region4 == 0 && num_bound_SMC_ADP <= SMC_binding_limit ), t0=false, fromTrigger=false, persistent=false : 
+    SMC_position4 = 1, num_free_SMC_ADP = num_free_ADP - 1, num_bound_SMC_ADP = num_bound_SMC_ADP + 1, 
+    num_free_ATP = num_free_ATP - 1, num_H2O = num_H2O - 1, num_Pi = num_Pi + 1, num_H = num_H + 1, num_free_SMC = num_free_SMC - 1;
 
 // chromosome positions status. free?  
 DNA_region0 = 0; 
@@ -52,7 +66,7 @@ SMC_position4 = 0;
 num_SMC = 5; 
 num_free_ATP = 6;
 num_H2O = 3; 
-num_SMC_ADP = 10;
+num_SMC_ADP = 5;
 num_Pi = 10;
 num_H = 0; 
 num_free_SMC_ADP = 0;
