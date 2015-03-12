@@ -1,7 +1,7 @@
 //Created by libAntimony v2.7.0
 
 function my_hill(x)
-  ( x ) / ( 1 + x)
+  ( x ) / ( 0.01 + x)
 end
 
 
@@ -10,11 +10,13 @@ model Replication()
   // events
   FinishOkazakiFragment: at ( unfinished_okazaki_fragment >= okazaki_fragment_length ): \
   			 unfinished_okazaki_fragment = unfinished_okazaki_fragment - okazaki_fragment_length, \
-  			 okazaki_fragment = okazaki_fragment + 1;
+  			 okazaki_fragment = okazaki_fragment + 1, \
+			 lagDsDNA = lagDsDNA + okazaki_fragment_length;
 
-  LigateOkazakiFragments: at ( okazaki_fragment >= 2 ): \
-  			  okazaki_fragment = okazaki_fragment - 2, \
-	  		  lagDsDNA = lagDsDNA + 2*okazaki_fragment_length;
+  #LigateOkazakiFragments: at ( okazaki_fragment >= 2 ): \
+  # 			  okazaki_fragment = okazaki_fragment - 2, \
+  # 			  lagDsDNA = lagDsDNA + okazaki_fragment_length;
+	  		  
 
   #CompleteReplication:    at ( leadDsDNA >= genome_length and lagDsDNA >= genome_length-okazaki_fragment_length ): \
   # 			  leadDsDNA = 0, lagDsDNA = 0, Complete_DNA = Complete_DNA + 1;
@@ -33,7 +35,7 @@ model Replication()
   species dsDNA in default;
   species leadSsDNA in default;
   species lagSsDNA in default;
-  species MG_094_HEXAMER in default;   #H elicase
+  species MG_094_HEXAMER in default;   #Helicase
   species leadDsDNA in default;
   species lagDsDNA in default;
   species okazaki_fragment in default;
@@ -71,6 +73,7 @@ model Replication()
   Complete_DNA = 0;
 
   DnaA_ATP_complex = 0;
+  MG_250_MONOMER = 5;
 
   // Compartment initializations:
   default = 1;
