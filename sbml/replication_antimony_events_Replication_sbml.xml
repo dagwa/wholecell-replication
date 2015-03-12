@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Created by libAntimony version v2.7.0 on 2015-03-12 18:03 with libSBML version 5.11.3. -->
+<!-- Created by libAntimony version v2.7.0 on 2015-03-12 18:34 with libSBML version 5.11.3. -->
 <sbml xmlns="http://www.sbml.org/sbml/level3/version1/core" level="3" version="1">
-  <model id="Replication" name="Replication" substanceUnits="substance" timeUnits="time_unit" volumeUnits="volume">
+  <model id="Replication" name="Replication" substanceUnits="substance" timeUnits="time_unit" volumeUnits="volume" areaUnits="area" lengthUnits="length" extentUnits="extent">
     <listOfFunctionDefinitions>
       <functionDefinition id="my_hill">
         <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -14,7 +14,7 @@
               <ci> x </ci>
               <apply>
                 <plus/>
-                <cn> 0.01 </cn>
+                <cn type="integer"> 1 </cn>
                 <ci> x </ci>
               </apply>
             </apply>
@@ -25,17 +25,32 @@
     <listOfUnitDefinitions>
       <unitDefinition id="volume">
         <listOfUnits>
-          <unit kind="dimensionless" exponent="1" scale="0" multiplier="1"/>
+          <unit kind="litre" exponent="1" scale="0" multiplier="1"/>
         </listOfUnits>
       </unitDefinition>
       <unitDefinition id="time_unit" name="time">
         <listOfUnits>
-          <unit kind="dimensionless" exponent="1" scale="0" multiplier="1"/>
+          <unit kind="second" exponent="1" scale="0" multiplier="1"/>
         </listOfUnits>
       </unitDefinition>
       <unitDefinition id="substance">
         <listOfUnits>
           <unit kind="item" exponent="1" scale="0" multiplier="1"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="extent">
+        <listOfUnits>
+          <unit kind="item" exponent="1" scale="0" multiplier="1"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="length">
+        <listOfUnits>
+          <unit kind="metre" exponent="1" scale="0" multiplier="1"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="area">
+        <listOfUnits>
+          <unit kind="dimensionless" exponent="1" scale="0" multiplier="1"/>
         </listOfUnits>
       </unitDefinition>
     </listOfUnitDefinitions>
@@ -53,19 +68,21 @@
       <species id="dsDNA" compartment="default" initialConcentration="580076" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
       <species id="lagSsDNA" name="lagging ssDNA" compartment="default" initialConcentration="0" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
       <species id="MG_094_HEXAMER" name="Helicase" compartment="default" initialConcentration="50" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
-      <species id="DNA_POLYMERASE_CORE_BETA_CLAMP_GAMMA_COMPLEX" name="DNA polymerase III" compartment="default" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="DNA_POLYMERASE_CORE_BETA_CLAMP_GAMMA_COMPLEX" name="DNA polymerase III" compartment="default" initialConcentration="0" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
       <species id="MG_250_MONOMER" name="primase" compartment="default" initialConcentration="5" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
-      <species id="DNA_POLYMERASE_CORE" name="core subunit" compartment="default" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
-      <species id="DNA_POLYMERASE_GAMMA_COMPLEX" name="gamma complex" compartment="default" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
-      <species id="MG_001_DIMER" name="beta-clamp" compartment="default" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="DNA_POLYMERASE_CORE" name="core subunit" compartment="default" initialConcentration="0" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="DNA_POLYMERASE_GAMMA_COMPLEX" name="gamma complex" compartment="default" initialConcentration="1" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="MG_001_DIMER" name="beta-clamp" compartment="default" initialConcentration="5" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
     </listOfSpecies>
     <listOfParameters>
       <parameter id="okazaki_fragment_length" value="1500" constant="true"/>
+      <parameter id="MG_254_MONOMER" name="ligase" value="5" constant="true"/>
       <parameter id="DnaA_ATP_complex_creation_rate" value="1" constant="false"/>
       <parameter id="unwinding_rate" value="0" constant="false"/>
       <parameter id="bp_before_polymerization" value="100" constant="true"/>
       <parameter id="Lead_polymerisation_rate" value="0" constant="false"/>
       <parameter id="genome_length" value="580076" constant="true"/>
+      <parameter id="primase" value="5" constant="true"/>
       <parameter id="okazaki_polymerisation_rate" value="100" constant="true"/>
       <parameter id="Initiation_rate" value="1" constant="true"/>
       <parameter id="Lag_ligation_rate" value="0.04" constant="true"/>
@@ -77,22 +94,6 @@
       <parameter id="termination_rate" value="1" constant="true"/>
       <parameter id="re26_k1" value="0" constant="true"/>
       <parameter id="re32_k" value="0" constant="true"/>
-      <parameter id="MG_254_MONOMER" name="ligase" constant="true"/>
-      <parameter id="primase" constant="true"/>
-      <parameter id="MG_091_TETRAMER" name="SSB tetramer" constant="true"/>
-      <parameter id="lagSsDNA_MG_091_OCTAMER" name="lagging ssDNA with SSBP bound" constant="true"/>
-      <parameter id="MG_091_OCTAMER" name="SSB octamer" constant="true"/>
-      <parameter id="block_of_100_bases_of_leading_ssDNA" name="block of 100 bases of leading ssDNA" constant="true"/>
-      <parameter id="re22" name="terminal lagging strand ligation" constant="true"/>
-      <parameter id="re23" name="terminal leading strand ligation" constant="true"/>
-      <parameter id="re26" name="SSB binding" constant="true"/>
-      <parameter id="re27" name="lagging strand ligation" constant="true"/>
-      <parameter id="re29" name="Polymerase complex creation" constant="true"/>
-      <parameter id="re30" name="SSB dissociation" constant="true"/>
-      <parameter id="re32" name="initiation" constant="true"/>
-      <parameter id="re33" name="termination" constant="true"/>
-      <parameter id="SSB_association" name="SSB association" constant="true"/>
-      <parameter id="lead_ssDNA_block_creation" name="lead ssDNA block creation" constant="true"/>
     </listOfParameters>
     <listOfReactions>
       <reaction id="re20" name="unwinding" reversible="false" fast="false">
@@ -160,6 +161,9 @@
         <listOfProducts>
           <speciesReference species="unfinished_okazaki_fragment" stoichiometry="1" constant="true"/>
         </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference species="DNA_POLYMERASE_CORE_BETA_CLAMP_GAMMA_COMPLEX"/>
+        </listOfModifiers>
         <kineticLaw>
           <math xmlns="http://www.w3.org/1998/Math/MathML">
             <apply>
@@ -169,6 +173,14 @@
               <apply>
                 <ci> my_hill </ci>
                 <ci> lagSsDNA </ci>
+              </apply>
+              <apply>
+                <ci> my_hill </ci>
+                <ci> primase </ci>
+              </apply>
+              <apply>
+                <ci> my_hill </ci>
+                <ci> DNA_POLYMERASE_CORE_BETA_CLAMP_GAMMA_COMPLEX </ci>
               </apply>
             </apply>
           </math>

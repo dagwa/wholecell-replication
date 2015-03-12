@@ -1,7 +1,7 @@
 //Created by libAntimony v2.7.0
 
 function my_hill(x)
-  ( x ) / ( 0.01 + x)
+  ( x ) / ( 1 + x)
 end
 
 
@@ -53,8 +53,10 @@ model Replication()
 
   // Reactions:
   re20: dsDNA => leadSsDNA + lagSsDNA; default * unwinding_rate * MG_094_HEXAMER * my_hill(dsDNA);
-  re24: leadSsDNA => leadDsDNA; default * Lead_polymerisation_rate * my_hill( leadSsDNA ) * my_hill( primase ) *  my_hill( DNA_POLYMERASE_CORE_BETA_CLAMP_GAMMA_COMPLEX );
-  re25: lagSsDNA => unfinished_okazaki_fragment; default * okazaki_polymerisation_rate * my_hill(lagSsDNA);
+  re24: leadSsDNA => leadDsDNA; \
+  	default * Lead_polymerisation_rate * my_hill( leadSsDNA ) * my_hill( primase ) *  my_hill( DNA_POLYMERASE_CORE_BETA_CLAMP_GAMMA_COMPLEX );
+  re25: lagSsDNA => unfinished_okazaki_fragment; \
+  	default * okazaki_polymerisation_rate * my_hill(lagSsDNA) * my_hill( primase ) *  my_hill( DNA_POLYMERASE_CORE_BETA_CLAMP_GAMMA_COMPLEX );
   
   DnaA_ATP_complex_creation:  => DnaA_ATP_complex; default * DnaA_ATP_complex_creation_rate;
   Polymerase_complex_reaction: 2 DNA_POLYMERASE_CORE + DNA_POLYMERASE_GAMMA_COMPLEX + MG_001_DIMER => DNA_POLYMERASE_CORE_BETA_CLAMP_GAMMA_COMPLEX; \
@@ -72,11 +74,20 @@ model Replication()
   unfinished_okazaki_fragment = 0;
   Complete_DNA = 0;
 
-  DnaA_ATP_complex = 0;
-  MG_250_MONOMER = 5;
+  DnaA_ATP_complex                             = 0;
+  MG_250_MONOMER                               = 5;       # primase
+  MG_254_MONOMER                               = 5;       # ligase
+  MG_001_DIMER                                 = 5;       # beta-clamp
+  DNA_POLYMERASE_GAMMA_COMPLEX                 = 1;
+  DNA_POLYMERASE_CORE                          = 0;
+  DNA_POLYMERASE_CORE_BETA_CLAMP_GAMMA_COMPLEX = 0;
+  primase                                      = 5;
+
+
 
   // Compartment initializations:
   default = 1;
+    
 
   // Variable initializations:
   Initiation_rate = 1;
@@ -105,9 +116,12 @@ model Replication()
   #const unwinding_rate
 
   // Unit definitions:
-  unit volume = dimensionless;
-  unit time_unit = dimensionless;
+  unit volume = litre;
+  unit time_unit = second;
   unit substance = item;
+  unit extent = item;
+  unit length = metre;
+  unit area = dimensionless;
 
   // Display Names:
   time_unit is "time";
@@ -123,24 +137,10 @@ model Replication()
   leadDsDNA is "leading dsDNA bp with a break";
   lagDsDNA is "lagDsDNA bp";
   okazaki_fragment is "lagging ssDNA with an Okazaki fragment";
-  MG_091_TETRAMER is "SSB tetramer";
-  lagSsDNA_MG_091_OCTAMER is "lagging ssDNA with SSBP bound";
-  MG_091_OCTAMER is "SSB octamer";
   DNA_POLYMERASE_CORE_BETA_CLAMP_GAMMA_COMPLEX is "DNA polymerase III";
   DnaA_ATP_complex is "DnaA-ATP complex";
   Complete_DNA is "Complete DNA";
-  block_of_100_bases_of_leading_ssDNA is "block of 100 bases of leading ssDNA";
   re20 is "unwinding";
-  re22 is "terminal lagging strand ligation";
-  re23 is "terminal leading strand ligation";
   re24 is "leading strand polymerisation";
   re25 is "Okazaki creation";
-  re26 is "SSB binding";
-  re27 is "lagging strand ligation";
-  re29 is "Polymerase complex creation";
-  re30 is "SSB dissociation";
-  re32 is "initiation";
-  re33 is "termination";
-  SSB_association is "SSB association";
-  lead_ssDNA_block_creation is "lead ssDNA block creation";
 end
