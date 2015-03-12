@@ -1,7 +1,7 @@
 //Created by libAntimony v2.7.0
 
 function my_hill(x)
-  ( x ) / ( 1 + x)
+  ( x ) / ( 0.01 + x)
 end
 
 
@@ -33,7 +33,7 @@ model Replication()
   species dsDNA in default;
   species leadSsDNA in default;
   species lagSsDNA in default;
-  species MG_094_HEXAMER in default;   #H elicase
+  species MG_094_HEXAMER in default;   #Helicase
   species leadDsDNA in default;
   species lagDsDNA in default;
   species okazaki_fragment in default;
@@ -71,6 +71,7 @@ model Replication()
   Complete_DNA = 0;
 
   DnaA_ATP_complex = 0;
+  MG_250_MONOMER = 5;
 
   // Compartment initializations:
   default = 1;

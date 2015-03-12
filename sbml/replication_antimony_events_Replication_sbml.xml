@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Created by libAntimony version v2.7.0 on 2015-03-12 17:41 with libSBML version 5.11.3. -->
+<!-- Created by libAntimony version v2.7.0 on 2015-03-12 17:51 with libSBML version 5.11.3. -->
 <sbml xmlns="http://www.sbml.org/sbml/level3/version1/core" level="3" version="1">
   <model id="Replication" name="Replication" substanceUnits="substance" timeUnits="time_unit" volumeUnits="volume">
     <listOfFunctionDefinitions>
@@ -14,7 +14,7 @@
               <ci> x </ci>
               <apply>
                 <plus/>
-                <cn type="integer"> 1 </cn>
+                <cn> 0.01 </cn>
                 <ci> x </ci>
               </apply>
             </apply>
@@ -54,7 +54,7 @@
       <species id="lagSsDNA" name="lagging ssDNA" compartment="default" initialConcentration="0" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
       <species id="MG_094_HEXAMER" name="Helicase" compartment="default" initialConcentration="50" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
       <species id="DNA_POLYMERASE_CORE_BETA_CLAMP_GAMMA_COMPLEX" name="DNA polymerase III" compartment="default" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
-      <species id="MG_250_MONOMER" name="primase" compartment="default" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="MG_250_MONOMER" name="primase" compartment="default" initialConcentration="5" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
       <species id="DNA_POLYMERASE_CORE" name="core subunit" compartment="default" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
       <species id="DNA_POLYMERASE_GAMMA_COMPLEX" name="gamma complex" compartment="default" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
       <species id="MG_001_DIMER" name="beta-clamp" compartment="default" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
