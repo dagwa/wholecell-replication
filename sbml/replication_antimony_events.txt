@@ -54,9 +54,9 @@ model Replication()
   // Reactions:
   re20: dsDNA => leadSsDNA + lagSsDNA; default * unwinding_rate * MG_094_HEXAMER * my_hill(dsDNA);
   re24: leadSsDNA => leadDsDNA; \
-  	default * Lead_polymerisation_rate * my_hill( leadSsDNA ) * my_hill( primase ) *  my_hill( DNA_POLYMERASE_CORE_BETA_CLAMP_GAMMA_COMPLEX );
+  	default * Lead_polymerisation_rate * my_hill( leadSsDNA ) * my_hill( MG_250_MONOMER ) *  my_hill( DNA_POLYMERASE_CORE_BETA_CLAMP_GAMMA_COMPLEX );
   re25: lagSsDNA => unfinished_okazaki_fragment; \
-  	default * okazaki_polymerisation_rate * my_hill(lagSsDNA) * my_hill( primase ) *  my_hill( DNA_POLYMERASE_CORE_BETA_CLAMP_GAMMA_COMPLEX );
+  	default * okazaki_polymerisation_rate * my_hill(lagSsDNA) * my_hill( MG_250_MONOMER ) *  my_hill( DNA_POLYMERASE_CORE_BETA_CLAMP_GAMMA_COMPLEX );
   
   DnaA_ATP_complex_creation:  => DnaA_ATP_complex; default * DnaA_ATP_complex_creation_rate;
   Polymerase_complex_reaction: 2 DNA_POLYMERASE_CORE + DNA_POLYMERASE_GAMMA_COMPLEX + MG_001_DIMER => DNA_POLYMERASE_CORE_BETA_CLAMP_GAMMA_COMPLEX; \
@@ -65,7 +65,7 @@ model Replication()
 
   // Species initializations:
   dsDNA = 580076;
-  MG_094_HEXAMER = 50;
+  MG_094_HEXAMER = 50; # "Helicase"
   leadSsDNA = 0;
   lagSsDNA = 0;
   leadDsDNA = 0;
@@ -79,9 +79,8 @@ model Replication()
   MG_254_MONOMER                               = 5;       # ligase
   MG_001_DIMER                                 = 5;       # beta-clamp
   DNA_POLYMERASE_GAMMA_COMPLEX                 = 1;
-  DNA_POLYMERASE_CORE                          = 0;
+  DNA_POLYMERASE_CORE                          = 2;
   DNA_POLYMERASE_CORE_BETA_CLAMP_GAMMA_COMPLEX = 0;
-  primase                                      = 5;
 
 
 
@@ -120,7 +119,7 @@ model Replication()
   unit time_unit = second;
   unit substance = item;
   unit extent = item;
-  unit length = metre;
+  unit length = meter;
   unit area = dimensionless;
 
   // Display Names:

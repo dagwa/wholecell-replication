@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Created by libAntimony version v2.7.0 on 2015-03-12 18:34 with libSBML version 5.11.3. -->
+<!-- Created by libAntimony version v2.7.0 on 2015-03-12 18:47 with libSBML version 5.11.3. -->
 <sbml xmlns="http://www.sbml.org/sbml/level3/version1/core" level="3" version="1">
   <model id="Replication" name="Replication" substanceUnits="substance" timeUnits="time_unit" volumeUnits="volume" areaUnits="area" lengthUnits="length" extentUnits="extent">
     <listOfFunctionDefinitions>
@@ -70,7 +70,7 @@
       <species id="MG_094_HEXAMER" name="Helicase" compartment="default" initialConcentration="50" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
       <species id="DNA_POLYMERASE_CORE_BETA_CLAMP_GAMMA_COMPLEX" name="DNA polymerase III" compartment="default" initialConcentration="0" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
       <species id="MG_250_MONOMER" name="primase" compartment="default" initialConcentration="5" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
-      <species id="DNA_POLYMERASE_CORE" name="core subunit" compartment="default" initialConcentration="0" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="DNA_POLYMERASE_CORE" name="core subunit" compartment="default" initialConcentration="2" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
       <species id="DNA_POLYMERASE_GAMMA_COMPLEX" name="gamma complex" compartment="default" initialConcentration="1" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
       <species id="MG_001_DIMER" name="beta-clamp" compartment="default" initialConcentration="5" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
     </listOfSpecies>
@@ -82,7 +82,6 @@
       <parameter id="bp_before_polymerization" value="100" constant="true"/>
       <parameter id="Lead_polymerisation_rate" value="0" constant="false"/>
       <parameter id="genome_length" value="580076" constant="true"/>
-      <parameter id="primase" value="5" constant="true"/>
       <parameter id="okazaki_polymerisation_rate" value="100" constant="true"/>
       <parameter id="Initiation_rate" value="1" constant="true"/>
       <parameter id="Lag_ligation_rate" value="0.04" constant="true"/>
@@ -131,6 +130,7 @@
         </listOfProducts>
         <listOfModifiers>
           <modifierSpeciesReference species="DNA_POLYMERASE_CORE_BETA_CLAMP_GAMMA_COMPLEX"/>
+          <modifierSpeciesReference species="MG_250_MONOMER"/>
         </listOfModifiers>
         <kineticLaw>
           <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -144,7 +144,7 @@
               </apply>
               <apply>
                 <ci> my_hill </ci>
-                <ci> primase </ci>
+                <ci> MG_250_MONOMER </ci>
               </apply>
               <apply>
                 <ci> my_hill </ci>
@@ -163,6 +163,7 @@
         </listOfProducts>
         <listOfModifiers>
           <modifierSpeciesReference species="DNA_POLYMERASE_CORE_BETA_CLAMP_GAMMA_COMPLEX"/>
+          <modifierSpeciesReference species="MG_250_MONOMER"/>
         </listOfModifiers>
         <kineticLaw>
           <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -176,7 +177,7 @@
               </apply>
               <apply>
                 <ci> my_hill </ci>
-                <ci> primase </ci>
+                <ci> MG_250_MONOMER </ci>
               </apply>
               <apply>
                 <ci> my_hill </ci>
