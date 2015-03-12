@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- generated with COPASI 4.15 (Build 95) (http://www.copasi.org) at 2015-03-12 14:43:41 UTC -->
+<!-- generated with COPASI 4.15 (Build 95) (http://www.copasi.org) at 2015-03-12 15:16:51 UTC -->
 <?oxygen RNGSchema="http://www.copasi.org/static/schema/CopasiML.rng" type="xml"?>
 <COPASI xmlns="http://www.copasi.org/static/schema" versionMajor="4" versionMinor="15" versionDevel="95" copasiSourcesModified="0">
   <ListOfFunctions>
@@ -492,7 +492,7 @@ Reaction scheme where the products are created from the reactants and the change
           <Modifier metabolite="Metabolite_69" stoichiometry="1"/>
         </ListOfModifiers>
         <ListOfConstants>
-          <Constant key="Parameter_4093" name="unwinding_rate" value="0.00173"/>
+          <Constant key="Parameter_4093" name="unwinding_rate" value="0.000173"/>
         </ListOfConstants>
         <KineticLaw function="Function_44">
           <ListOfCallParameters>
@@ -534,7 +534,7 @@ Reaction scheme where the products are created from the reactants and the change
           <Modifier metabolite="Metabolite_99" stoichiometry="1"/>
         </ListOfModifiers>
         <ListOfConstants>
-          <Constant key="Parameter_4039" name="Lead_polymerisation_rate" value="100"/>
+          <Constant key="Parameter_4039" name="Lead_polymerisation_rate" value="10"/>
         </ListOfConstants>
         <KineticLaw function="Function_46">
           <ListOfCallParameters>
@@ -611,12 +611,17 @@ Reaction scheme where the products are created from the reactants and the change
 
         </MiriamAnnotation>
         <TriggerExpression>
-          &lt;CN=Root,Model=Replication,Vector=Compartments[default],Vector=Metabolites[leading dsDNA bp with a break],Reference=ParticleNumber&gt; &gt;= 58007.6
+          &lt;CN=Root,Model=Replication,Vector=Compartments[default],Vector=Metabolites[leading dsDNA bp with a break],Reference=ParticleNumber&gt; &gt;= 58007
         </TriggerExpression>
         <ListOfAssignments>
           <Assignment targetKey="Metabolite_103">
             <Expression>
               &lt;CN=Root,Model=Replication,Vector=Compartments[default],Vector=Metabolites[Complete DNA],Reference=ParticleNumber&gt;+1
+            </Expression>
+          </Assignment>
+          <Assignment targetKey="Metabolite_95">
+            <Expression>
+              0
             </Expression>
           </Assignment>
         </ListOfAssignments>
@@ -631,7 +636,7 @@ Reaction scheme where the products are created from the reactants and the change
           <ModelParameter cn="CN=Root,Model=Replication,Vector=Compartments[default]" value="1" type="Compartment" simulationType="fixed"/>
         </ModelParameterGroup>
         <ModelParameterGroup cn="String=Initial Species Values" type="Group">
-          <ModelParameter cn="CN=Root,Model=Replication,Vector=Compartments[default],Vector=Metabolites[dsDNA bp]" value="580076" type="Species" simulationType="reactions"/>
+          <ModelParameter cn="CN=Root,Model=Replication,Vector=Compartments[default],Vector=Metabolites[dsDNA bp]" value="58090" type="Species" simulationType="reactions"/>
           <ModelParameter cn="CN=Root,Model=Replication,Vector=Compartments[default],Vector=Metabolites[Helicase]" value="50" type="Species" simulationType="reactions"/>
           <ModelParameter cn="CN=Root,Model=Replication,Vector=Compartments[default],Vector=Metabolites[leading ssDNA base]" value="0" type="Species" simulationType="reactions"/>
           <ModelParameter cn="CN=Root,Model=Replication,Vector=Compartments[default],Vector=Metabolites[lagging ssDNA base]" value="0" type="Species" simulationType="reactions"/>
@@ -712,7 +717,7 @@ Reaction scheme where the products are created from the reactants and the change
       <StateTemplateVariable objectReference="ModelValue_12"/>
     </StateTemplate>
     <InitialState type="initialState">
-      0 50 0 0 580076 50 50 0 5 50 50 50 0 1 0 1 999999 0.004 0.004 10 10 0.1 0.1 0.1 0.004 99999 0.000173 10 
+      0 50 0 0 58090 50 50 0 5 50 50 50 0 1 0 1 999999 0.004 0.004 10 10 0.1 0.1 0.1 0.004 99999 0.000173 10 
     </InitialState>
   </Model>
   <ListOfTasks>
