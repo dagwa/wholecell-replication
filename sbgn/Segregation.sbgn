@@ -62,18 +62,18 @@
             <port y="388.0" x="480.0" id="glyph13.1"/>
             <port y="472.0" x="480.0" id="glyph13.2"/>
         </glyph>
-        <glyph id="glyph2" class="nucleic acid feature">
+        <glyph id="glyph2x" class="nucleic acid feature">
             <label text="Chromosome"/>
             <bbox y="470.0" x="176.0" h="60.0" w="108.0"/>
-            <glyph id="glyph2a" class="state variable">
+            <glyph id="glyph2y" class="state variable">
                 <state value="isSupercoiled"/>
                 <bbox y="516.0" x="161.5" h="28.0" w="83.0"/>
             </glyph>
-            <glyph id="glyph2b" class="state variable">
+            <glyph id="glyph2z" class="state variable">
                 <state value="isPolymerized"/>
                 <bbox y="455.0" x="161.0" h="30.0" w="84.0"/>
             </glyph>
-            <glyph id="glyph2c" class="state variable">
+            <glyph id="glyph2g" class="state variable">
                 <bbox y="490.0" x="274.0" h="20.0" w="20.0"/>
             </glyph>
         </glyph>
