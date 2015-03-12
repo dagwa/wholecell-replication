@@ -142,7 +142,7 @@
       <species id="H" compartment="default_compartment" initialConcentration="500" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
       <species id="H2O" compartment="default_compartment" initialConcentration="4" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
       <species id="P" compartment="default_compartment" initialConcentration="500" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
-      <species id="dummy" compartment="default_compartment" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="dummy" compartment="default_compartment" initialConcentration="0" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
     </listOfSpecies>
     <listOfParameters>
       <parameter id="ChromosomeIsSegregated" value="0" constant="false"/>

@@ -32,7 +32,7 @@ model chromosomeSegregation
   species P             = 500;         # !!!! ATTENTION !!! ID in WCM is PI, but this conflicts with the constant pi, has to be manually annotated
 
   # dummy reaction to make the system compatible with different solvers
-  #species dummy         = 0; 
+  species dummy         = 0; 
   => dummy; 1;
 
 
