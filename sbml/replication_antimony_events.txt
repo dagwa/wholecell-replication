@@ -8,7 +8,7 @@ end
 model Replication()
 
   // events
-  FinishOkazakiFragment: at ( unfinished_okazaki_fragment >= okazaki_fragment_length ): \
+  FinishOkazakiFragment: at ( unfinished_okazaki_fragment >= okazaki_fragment_length and MG_254_MONOMER >= 1): \
   			 unfinished_okazaki_fragment = unfinished_okazaki_fragment - okazaki_fragment_length, \
   			 okazaki_fragment = okazaki_fragment + 1, \
 			 lagDsDNA = lagDsDNA + okazaki_fragment_length;
