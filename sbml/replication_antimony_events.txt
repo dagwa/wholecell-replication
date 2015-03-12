@@ -23,7 +23,8 @@ model Replication()
 
   start_polymerisation: at leadSsDNA*default >= bp_before_polymerization: Lead_polymerisation_rate = 100;
 
-  terminate: at leadDsDNA*default >= genome_length-1 and MG_254_MONOMER >= 1: leadDsDNA = 0, Complete_DNA = Complete_DNA + 1;
+  terminate_lead: at leadDsDNA*default >= genome_length-1 and MG_254_MONOMER >= 1: leadDsDNA = 0, Complete_DNA = Complete_DNA + 1;
+  terminate_lag:  at lagDsDNA*default >= genome_length-okazaki_fragment_length and MG_254_MONOMER >= 1: lagDsDNA = 0, Complete_DNA = Complete_DNA + 1;
 
 
 
@@ -86,7 +87,6 @@ model Replication()
   terminal_lag_ligation_rate = 0.04;
   termination_rate = 1;
   unwinding_rate = 0;
-  Lead_ss_dna_block_rate = 100;
   re26_k1 = 0;
   re32_k = 0;
   okazaki_fragment_length = 1500;
@@ -99,7 +99,7 @@ model Replication()
   const default, Initiation_rate, Lag_ligation_rate, Lead_ligation_rate;
   const okazaki_polymerisation_rate, polymerase_complex_creation_rate, ssb_binding_rate;
   const SSB_transformation_rate, terminal_lag_ligation_rate, termination_rate;
-  #const unwinding_rate, Lead_ss_dna_block_rate;
+  #const unwinding_rate
 
   // Unit definitions:
   unit volume = dimensionless;

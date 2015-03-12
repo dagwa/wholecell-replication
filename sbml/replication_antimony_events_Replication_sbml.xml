@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Created by libAntimony version v2.7.0 on 2015-03-12 17:15 with libSBML version 5.11.3. -->
+<!-- Created by libAntimony version v2.7.0 on 2015-03-12 17:41 with libSBML version 5.11.3. -->
 <sbml xmlns="http://www.sbml.org/sbml/level3/version1/core" level="3" version="1">
   <model id="Replication" name="Replication" substanceUnits="substance" timeUnits="time_unit" volumeUnits="volume">
     <listOfFunctionDefinitions>
@@ -75,7 +75,6 @@
       <parameter id="SSB_transformation_rate" value="1" constant="true"/>
       <parameter id="terminal_lag_ligation_rate" value="0.04" constant="true"/>
       <parameter id="termination_rate" value="1" constant="true"/>
-      <parameter id="Lead_ss_dna_block_rate" value="100" constant="true"/>
       <parameter id="re26_k1" value="0" constant="true"/>
       <parameter id="re32_k" value="0" constant="true"/>
       <parameter id="MG_254_MONOMER" name="ligase" constant="true"/>
@@ -335,7 +334,7 @@
           </eventAssignment>
         </listOfEventAssignments>
       </event>
-      <event id="terminate" useValuesFromTriggerTime="true">
+      <event id="terminate_lead" useValuesFromTriggerTime="true">
         <trigger initialValue="true" persistent="true">
           <math xmlns="http://www.w3.org/1998/Math/MathML">
             <apply>
@@ -372,6 +371,49 @@
             </math>
           </eventAssignment>
           <eventAssignment variable="leadDsDNA">
+            <math xmlns="http://www.w3.org/1998/Math/MathML">
+              <cn type="integer"> 0 </cn>
+            </math>
+          </eventAssignment>
+        </listOfEventAssignments>
+      </event>
+      <event id="terminate_lag" useValuesFromTriggerTime="true">
+        <trigger initialValue="true" persistent="true">
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <and/>
+              <apply>
+                <geq/>
+                <apply>
+                  <times/>
+                  <ci> lagDsDNA </ci>
+                  <ci> default </ci>
+                </apply>
+                <apply>
+                  <minus/>
+                  <ci> genome_length </ci>
+                  <ci> okazaki_fragment_length </ci>
+                </apply>
+              </apply>
+              <apply>
+                <geq/>
+                <ci> MG_254_MONOMER </ci>
+                <cn type="integer"> 1 </cn>
+              </apply>
+            </apply>
+          </math>
+        </trigger>
+        <listOfEventAssignments>
+          <eventAssignment variable="Complete_DNA">
+            <math xmlns="http://www.w3.org/1998/Math/MathML">
+              <apply>
+                <plus/>
+                <ci> Complete_DNA </ci>
+                <cn type="integer"> 1 </cn>
+              </apply>
+            </math>
+          </eventAssignment>
+          <eventAssignment variable="lagDsDNA">
             <math xmlns="http://www.w3.org/1998/Math/MathML">
               <cn type="integer"> 0 </cn>
             </math>
