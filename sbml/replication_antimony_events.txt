@@ -5,10 +5,8 @@ function my_hill(x)
 end
 
 
-model *Replication()
+model Replication()
 
-
-  # 
   // events
   FinishOkazakiFragment: at ( unfinished_okazaki_fragment >= okazaki_fragment_length ): \
   			 unfinished_okazaki_fragment = unfinished_okazaki_fragment - okazaki_fragment_length, \
@@ -18,8 +16,15 @@ model *Replication()
   			  okazaki_fragment = okazaki_fragment - 2, \
 	  		  lagDsDNA = lagDsDNA + 2*okazaki_fragment_length;
 
-  CompleteReplication:    at ( leadDsDNA >= genome_length and lagDsDNA >= genome_length-okazaki_fragment_length ): \
-  			  leadDsDNA = 0, lagDsDNA = 0, Complete_DNA = Complete_DNA + 1;
+  #CompleteReplication:    at ( leadDsDNA >= genome_length and lagDsDNA >= genome_length-okazaki_fragment_length ): \
+  # 			  leadDsDNA = 0, lagDsDNA = 0, Complete_DNA = Complete_DNA + 1;
+
+  replication_initiation: at ( DnaA_ATP_complex*default >= 1): DnaA_ATP_complex_creation_rate = 0, DnaA_ATP_complex = 0, unwinding_rate = 2; #0.000173;
+
+  start_polymerisation: at leadSsDNA*default >= bp_before_polymerization: Lead_polymerisation_rate = 100;
+
+  terminate: at leadDsDNA*default >= genome_length-1 and MG_254_MONOMER >= 1: leadDsDNA = 0, Complete_DNA = Complete_DNA + 1;
+
 
 
   // Compartments and Species:
@@ -32,14 +37,26 @@ model *Replication()
   species lagDsDNA in default;
   species okazaki_fragment in default;
   species unfinished_okazaki_fragment in default;
-  species Complete_DNA in default;       
-  
+  species Complete_DNA in default;
+
+  species DnaA_ATP_complex in default;
+  species DNA_POLYMERASE_CORE_BETA_CLAMP_GAMMA_COMPLEX in default;
+  species MG_250_MONOMER in default;
+  species DNA_POLYMERASE_CORE in default;
+  species DNA_POLYMERASE_GAMMA_COMPLEX in default;
+  species MG_001_DIMER in default;
+
+
 
   // Reactions:
   re20: dsDNA => leadSsDNA + lagSsDNA; default * unwinding_rate * MG_094_HEXAMER * my_hill(dsDNA);
-  re24: leadSsDNA => leadDsDNA; default * Lead_polymerisation_rate * my_hill( leadSsDNA );
+  re24: leadSsDNA => leadDsDNA; default * Lead_polymerisation_rate * my_hill( leadSsDNA ) * my_hill( primase ) *  my_hill( DNA_POLYMERASE_CORE_BETA_CLAMP_GAMMA_COMPLEX );
   re25: lagSsDNA => unfinished_okazaki_fragment; default * okazaki_polymerisation_rate * my_hill(lagSsDNA);
   
+  DnaA_ATP_complex_creation:  => DnaA_ATP_complex; default * DnaA_ATP_complex_creation_rate;
+  Polymerase_complex_reaction: 2 DNA_POLYMERASE_CORE + DNA_POLYMERASE_GAMMA_COMPLEX + MG_001_DIMER => DNA_POLYMERASE_CORE_BETA_CLAMP_GAMMA_COMPLEX; \
+      			       DNA_POLYMERASE_CORE^2 * DNA_POLYMERASE_GAMMA_COMPLEX * MG_001_DIMER;
+
 
   // Species initializations:
   dsDNA = 580076;
@@ -52,6 +69,8 @@ model *Replication()
   unfinished_okazaki_fragment = 0;
   Complete_DNA = 0;
 
+  DnaA_ATP_complex = 0;
+
   // Compartment initializations:
   default = 1;
 
@@ -59,26 +78,28 @@ model *Replication()
   Initiation_rate = 1;
   Lag_ligation_rate = 0.04;
   Lead_ligation_rate = 0.04;
-  Lead_polymerisation_rate = 100;
+  Lead_polymerisation_rate = 0;
   okazaki_polymerisation_rate = 100;
   polymerase_complex_creation_rate = 1;
   ssb_binding_rate = 1;
   SSB_transformation_rate = 1;
   terminal_lag_ligation_rate = 0.04;
   termination_rate = 1;
-  unwinding_rate = 2;
+  unwinding_rate = 0;
   Lead_ss_dna_block_rate = 100;
   re26_k1 = 0;
   re32_k = 0;
   okazaki_fragment_length = 1500;
   genome_length = 580076;
 
+  DnaA_ATP_complex_creation_rate = 1;
+  bp_before_polymerization = 100;
 
   // Other declarations:
-  const default, Initiation_rate, Lag_ligation_rate, Lead_ligation_rate, Lead_polymerisation_rate;
+  const default, Initiation_rate, Lag_ligation_rate, Lead_ligation_rate;
   const okazaki_polymerisation_rate, polymerase_complex_creation_rate, ssb_binding_rate;
   const SSB_transformation_rate, terminal_lag_ligation_rate, termination_rate;
-  const unwinding_rate, Lead_ss_dna_block_rate;
+  #const unwinding_rate, Lead_ss_dna_block_rate;
 
   // Unit definitions:
   unit volume = dimensionless;
