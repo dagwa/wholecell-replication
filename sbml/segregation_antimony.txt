@@ -6,47 +6,54 @@ model chromosomeSegregation
   Chromosome_supercoiled          = 4;
 
 
-  # input enzymes
-  species CobQ          = 1;             # MG_470_MONOMER           # CobQ/CobB/MinD/ParA nucleotide binding domain
-  species mraZ          = 1;             # MG_221_OCTAMER           # mraZ protein
-  species Era           = 1;             # MG_387_MONOMER           # GTP-binding protein Era
-  species Obg           = 1;             # MG_384_MONOMER           # GTPase1 Obg
-  species topoisomerase = 1;             # MG_203_204_TETRAMER      # DNA topoisomerase IV
-
-
-  # input metabolites
-  species gtp           = 500;
-  species gdp           = 500;
-  species h             = 500;
-  species h2o           = 4;
-  species p             = 500;
-
-  # dummy reaction to test the system
-  #=> h2o; 1;
-  
   # parameters
   Chromosome_nCompartments  = 4; # this should come directly from the chromosome class
   Chromosome_sequenceLen    = 58076; # value taken from knowlege base 
-  gtpCost                   = 1; # TODO check this value in the knowlege base
+  gtpCost                   = 1; # 
+
+  # input enzymes
+  species MG_470_MONOMER      = 1;           # CobQ/CobB/MinD/ParA nucleotide binding domain
+  MG_470_MONOMER is "CobQ";           
+  species MG_221_OCTAMER      = 1;           # mraZ protein
+  MG_221_OCTAMER is "mraZ";
+  species MG_387_MONOMER      = 1;           # GTP-binding protein Era
+  MG_387_MONOMER is "Era";
+  species MG_384_MONOMER      = 1;           # GTPase1 Obg
+  MG_384_MONOMER is "Obg";
+  species MG_203_204_TETRAMER = 1;           # DNA topoisomerase IV
+  MG_203_204_TETRAMER is "topoisomerase";
+
+
+  # input metabolites
+  species GTP           = 500;
+  species GDP           = 500;
+  species H             = 500;
+  species H2O           = 4;
+  species P             = 500;         # !!!! ATTENTION !!! ID in WCM is PI, but this conflicts with the constant pi, has to be manually annotated
+
+  # dummy reaction to make the system compatible with different solvers
+  #species dummy         = 0; 
+  => dummy; 1;
 
 
   # the propagation-logic is encoded as an event
   # if conditions are fulfilled segregation is executed
-  TriggerChromosomeSegregation: at (h2o >= gtpCost \
+  TriggerChromosomeSegregation: at ( dummy > 0 \
+  				and H2O >= gtpCost \
      				and Chromosome_polymerizedRegions == Chromosome_nCompartments * Chromosome_sequenceLen \   
      				and Chromosome_supercoiled == Chromosome_nCompartments \                                   
-     				and CobQ >= 1 \
-				and mraZ >= 1 \
-     				and Era >= 1 \
-     				and Obg >= 1 \
-     				and topoisomerase >= 1 \
-     				and gtp >= gtpCost \
-     				and h2o >= gtpCost), \
+     				and MG_470_MONOMER >= 1 \
+				and MG_221_OCTAMER >= 1 \
+     				and MG_387_MONOMER >= 1 \
+     				and MG_384_MONOMER >= 1 \
+     				and MG_203_204_TETRAMER >= 1 \
+     				and GTP >= gtpCost \
+     				and H2O >= gtpCost), \
 				t0=false: \
-     				h2o = h2o - gtpCost, \
-     				gtp = gtp - gtpCost, \ 
-     				gdp = gdp + gtpCost, \
-    				p   = p   + gtpCost, \
-     				h   = h   + gtpCost, \
+     				H2O = H2O - gtpCost, \
+     				GTP = GTP - gtpCost, \ 
+     				GDP = GDP + gtpCost, \
+    				P   = P   + gtpCost, \
+     				H   = H   + gtpCost, \
      				ChromosomeIsSegregated = 1;
 end 

@@ -1,21 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Created by libAntimony version v2.7.0 on 2015-03-11 10:54 with libSBML version 5.11.3. -->
+<!-- Created by libAntimony version v2.7.0 on 2015-03-12 11:09 with libSBML version 5.11.3. -->
 <sbml xmlns="http://www.sbml.org/sbml/level3/version1/core" level="3" version="1">
   <model id="chromosomeSegregation" name="chromosomeSegregation">
     <listOfCompartments>
       <compartment sboTerm="SBO:0000410" id="default_compartment" spatialDimensions="3" size="1" constant="true"/>
     </listOfCompartments>
     <listOfSpecies>
-      <species id="CobQ" compartment="default_compartment" initialConcentration="1" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
-      <species id="mraZ" compartment="default_compartment" initialConcentration="1" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
-      <species id="Era" compartment="default_compartment" initialConcentration="1" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
-      <species id="Obg" compartment="default_compartment" initialConcentration="1" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
-      <species id="topoisomerase" compartment="default_compartment" initialConcentration="1" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
-      <species id="gtp" compartment="default_compartment" initialConcentration="500" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
-      <species id="gdp" compartment="default_compartment" initialConcentration="500" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
-      <species id="h" compartment="default_compartment" initialConcentration="500" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
-      <species id="h2o" compartment="default_compartment" initialConcentration="4" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
-      <species id="p" compartment="default_compartment" initialConcentration="500" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="MG_470_MONOMER" name="CobQ" compartment="default_compartment" initialConcentration="1" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="MG_221_OCTAMER" name="mraZ" compartment="default_compartment" initialConcentration="1" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="MG_387_MONOMER" name="Era" compartment="default_compartment" initialConcentration="1" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="MG_384_MONOMER" name="Obg" compartment="default_compartment" initialConcentration="1" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="MG_203_204_TETRAMER" name="topoisomerase" compartment="default_compartment" initialConcentration="1" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="GTP" compartment="default_compartment" initialConcentration="500" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="GDP" compartment="default_compartment" initialConcentration="500" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="H" compartment="default_compartment" initialConcentration="500" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="H2O" compartment="default_compartment" initialConcentration="4" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="P" compartment="default_compartment" initialConcentration="500" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="dummy" compartment="default_compartment" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
     </listOfSpecies>
     <listOfParameters>
       <parameter id="ChromosomeIsSegregated" value="0" constant="false"/>
@@ -25,6 +26,18 @@
       <parameter id="Chromosome_sequenceLen" value="58076" constant="true"/>
       <parameter id="gtpCost" value="1" constant="true"/>
     </listOfParameters>
+    <listOfReactions>
+      <reaction id="_J0" reversible="false" fast="false">
+        <listOfProducts>
+          <speciesReference species="dummy" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <cn type="integer"> 1 </cn>
+          </math>
+        </kineticLaw>
+      </reaction>
+    </listOfReactions>
     <listOfEvents>
       <event id="TriggerChromosomeSegregation" useValuesFromTriggerTime="true">
         <trigger initialValue="false" persistent="true">
@@ -32,8 +45,13 @@
             <apply>
               <and/>
               <apply>
+                <gt/>
+                <ci> dummy </ci>
+                <cn type="integer"> 0 </cn>
+              </apply>
+              <apply>
                 <geq/>
-                <ci> h2o </ci>
+                <ci> H2O </ci>
                 <ci> gtpCost </ci>
               </apply>
               <apply>
@@ -52,37 +70,37 @@
               </apply>
               <apply>
                 <geq/>
-                <ci> CobQ </ci>
+                <ci> MG_470_MONOMER </ci>
                 <cn type="integer"> 1 </cn>
               </apply>
               <apply>
                 <geq/>
-                <ci> mraZ </ci>
+                <ci> MG_221_OCTAMER </ci>
                 <cn type="integer"> 1 </cn>
               </apply>
               <apply>
                 <geq/>
-                <ci> Era </ci>
+                <ci> MG_387_MONOMER </ci>
                 <cn type="integer"> 1 </cn>
               </apply>
               <apply>
                 <geq/>
-                <ci> Obg </ci>
+                <ci> MG_384_MONOMER </ci>
                 <cn type="integer"> 1 </cn>
               </apply>
               <apply>
                 <geq/>
-                <ci> topoisomerase </ci>
+                <ci> MG_203_204_TETRAMER </ci>
                 <cn type="integer"> 1 </cn>
               </apply>
               <apply>
                 <geq/>
-                <ci> gtp </ci>
+                <ci> GTP </ci>
                 <ci> gtpCost </ci>
               </apply>
               <apply>
                 <geq/>
-                <ci> h2o </ci>
+                <ci> H2O </ci>
                 <ci> gtpCost </ci>
               </apply>
             </apply>
@@ -94,47 +112,47 @@
               <cn type="integer"> 1 </cn>
             </math>
           </eventAssignment>
-          <eventAssignment variable="h">
+          <eventAssignment variable="H">
             <math xmlns="http://www.w3.org/1998/Math/MathML">
               <apply>
                 <plus/>
-                <ci> h </ci>
+                <ci> H </ci>
                 <ci> gtpCost </ci>
               </apply>
             </math>
           </eventAssignment>
-          <eventAssignment variable="p">
+          <eventAssignment variable="P">
             <math xmlns="http://www.w3.org/1998/Math/MathML">
               <apply>
                 <plus/>
-                <ci> p </ci>
+                <ci> P </ci>
                 <ci> gtpCost </ci>
               </apply>
             </math>
           </eventAssignment>
-          <eventAssignment variable="gdp">
+          <eventAssignment variable="GDP">
             <math xmlns="http://www.w3.org/1998/Math/MathML">
               <apply>
                 <plus/>
-                <ci> gdp </ci>
+                <ci> GDP </ci>
                 <ci> gtpCost </ci>
               </apply>
             </math>
           </eventAssignment>
-          <eventAssignment variable="gtp">
+          <eventAssignment variable="GTP">
             <math xmlns="http://www.w3.org/1998/Math/MathML">
               <apply>
                 <minus/>
-                <ci> gtp </ci>
+                <ci> GTP </ci>
                 <ci> gtpCost </ci>
               </apply>
             </math>
           </eventAssignment>
-          <eventAssignment variable="h2o">
+          <eventAssignment variable="H2O">
             <math xmlns="http://www.w3.org/1998/Math/MathML">
               <apply>
                 <minus/>
-                <ci> h2o </ci>
+                <ci> H2O </ci>
                 <ci> gtpCost </ci>
               </apply>
             </math>
