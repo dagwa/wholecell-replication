@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- generated with COPASI 4.14 (Build 89) (http://www.copasi.org) at 2015-03-12 11:34:16 UTC -->
+<!-- generated with COPASI 4.14 (Build 89) (http://www.copasi.org) at 2015-03-12 13:20:46 UTC -->
 <?oxygen RNGSchema="http://www.copasi.org/static/schema/CopasiML.rng" type="xml"?>
 <COPASI xmlns="http://www.copasi.org/static/schema" versionMajor="4" versionMinor="14" versionDevel="89" copasiSourcesModified="0">
   <ListOfFunctions>
@@ -32,72 +32,43 @@ Reaction scheme where the products are created from the reactants and the change
         <ParameterDescription key="FunctionParameter_79" name="substrate" order="1" role="substrate"/>
       </ListOfParameterDescriptions>
     </Function>
-    <Function key="Function_40" name="Rate Law 1 substrate 1 modifier" type="UserDefined" reversible="false">
-      <MiriamAnnotation>
-<rdf:RDF xmlns:dcterms="http://purl.org/dc/terms/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
-  <rdf:Description rdf:about="#Function_40">
-    <dcterms:created>
-      <rdf:Description>
-        <dcterms:W3CDTF>2015-03-11T16:18:09Z</dcterms:W3CDTF>
-      </rdf:Description>
-    </dcterms:created>
-  </rdf:Description>
-</rdf:RDF>
-      </MiriamAnnotation>
+    <Function key="Function_43" name="Rate Law 1 substrate 1 modifier_1" type="UserDefined" reversible="false">
       <Expression>
-        k*s*m
+        unwinding_rate*dsDNA*MG_094_HEXAMER
       </Expression>
       <ListOfParameterDescriptions>
-        <ParameterDescription key="FunctionParameter_264" name="k" order="0" role="constant"/>
-        <ParameterDescription key="FunctionParameter_254" name="s" order="1" role="substrate"/>
-        <ParameterDescription key="FunctionParameter_258" name="m" order="2" role="modifier"/>
+        <ParameterDescription key="FunctionParameter_268" name="MG_094_HEXAMER" order="0" role="modifier"/>
+        <ParameterDescription key="FunctionParameter_283" name="dsDNA" order="1" role="substrate"/>
+        <ParameterDescription key="FunctionParameter_280" name="unwinding_rate" order="2" role="constant"/>
       </ListOfParameterDescriptions>
     </Function>
-    <Function key="Function_41" name="Rate Law 1 substrate" type="UserDefined" reversible="false">
-      <MiriamAnnotation>
-<rdf:RDF xmlns:dcterms="http://purl.org/dc/terms/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
-  <rdf:Description rdf:about="#Function_41">
-    <dcterms:created>
-      <rdf:Description>
-        <dcterms:W3CDTF>2015-03-11T16:33:35Z</dcterms:W3CDTF>
-      </rdf:Description>
-    </dcterms:created>
-  </rdf:Description>
-</rdf:RDF>
-      </MiriamAnnotation>
+    <Function key="Function_44" name="Function for terminal leading strand ligation" type="UserDefined" reversible="false">
       <Expression>
-        s*k
+        Lead_ligation_rate*leadDsDNA
       </Expression>
       <ListOfParameterDescriptions>
-        <ParameterDescription key="FunctionParameter_265" name="s" order="0" role="substrate"/>
-        <ParameterDescription key="FunctionParameter_262" name="k" order="1" role="constant"/>
+        <ParameterDescription key="FunctionParameter_303" name="Lead_ligation_rate" order="0" role="constant"/>
+        <ParameterDescription key="FunctionParameter_273" name="leadDsDNA" order="1" role="substrate"/>
       </ListOfParameterDescriptions>
     </Function>
-    <Function key="Function_42" name="Rate Law for terminal leading strand ligation" type="UserDefined" reversible="unspecified">
-      <MiriamAnnotation>
-<rdf:RDF xmlns:dcterms="http://purl.org/dc/terms/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
-  <rdf:Description rdf:about="#Function_42">
-    <dcterms:created>
-      <rdf:Description>
-        <dcterms:W3CDTF>2015-03-12T12:29:51Z</dcterms:W3CDTF>
-      </rdf:Description>
-    </dcterms:created>
-  </rdf:Description>
-</rdf:RDF>
-      </MiriamAnnotation>
+    <Function key="Function_49" name="Function for leading strand polymerisation_1_1" type="UserDefined" reversible="false">
       <Expression>
-        
+        Lead_polymerisation_rate*leadSsDNA*MG_250_MONOMER*DNA_POLYMERASE_CORE_BETA_CLAMP_GAMMA_COMPLEX
       </Expression>
       <ListOfParameterDescriptions>
+        <ParameterDescription key="FunctionParameter_286" name="DNA_POLYMERASE_CORE_BETA_CLAMP_GAMMA_COMPLEX" order="0" role="modifier"/>
+        <ParameterDescription key="FunctionParameter_295" name="Lead_polymerisation_rate" order="1" role="constant"/>
+        <ParameterDescription key="FunctionParameter_269" name="MG_250_MONOMER" order="2" role="modifier"/>
+        <ParameterDescription key="FunctionParameter_301" name="leadSsDNA" order="3" role="substrate"/>
       </ListOfParameterDescriptions>
     </Function>
   </ListOfFunctions>
-  <Model key="Model_4" name="Replication" simulationType="time" timeUnit="dimensionless" volumeUnit="dimensionless" areaUnit="m²" lengthUnit="m" quantityUnit="#" type="deterministic" avogadroConstant="6.02214179e+23">
+  <Model key="Model_14" name="Replication" simulationType="time" timeUnit="dimensionless" volumeUnit="dimensionless" areaUnit="m²" lengthUnit="m" quantityUnit="#" type="stochastic" avogadroConstant="6.02214179e+23">
     <MiriamAnnotation>
 <rdf:RDF
    xmlns:dcterms="http://purl.org/dc/terms/"
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
-  <rdf:Description rdf:about="#Model_4">
+  <rdf:Description rdf:about="#Model_14">
     <dcterms:created>
       <rdf:Description>
         <dcterms:W3CDTF>2015-03-11T14:41:17Z</dcterms:W3CDTF>
@@ -108,10 +79,10 @@ Reaction scheme where the products are created from the reactants and the change
 
     </MiriamAnnotation>
     <ListOfCompartments>
-      <Compartment key="Compartment_1" name="default" simulationType="fixed" dimensionality="3">
+      <Compartment key="Compartment_6" name="default" simulationType="fixed" dimensionality="3">
         <MiriamAnnotation>
 <rdf:RDF xmlns:dcterms="http://purl.org/dc/terms/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
-  <rdf:Description rdf:about="#Compartment_1">
+  <rdf:Description rdf:about="#Compartment_6">
     <dcterms:created>
       <rdf:Description>
         <dcterms:W3CDTF>2015-03-11T16:08:29Z</dcterms:W3CDTF>
@@ -123,10 +94,10 @@ Reaction scheme where the products are created from the reactants and the change
       </Compartment>
     </ListOfCompartments>
     <ListOfMetabolites>
-      <Metabolite key="Metabolite_1" name="dsDNA bp" simulationType="reactions" compartment="Compartment_1">
+      <Metabolite key="Metabolite_81" name="dsDNA bp" simulationType="reactions" compartment="Compartment_6">
         <MiriamAnnotation>
 <rdf:RDF xmlns:dcterms="http://purl.org/dc/terms/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
-  <rdf:Description rdf:about="#Metabolite_1">
+  <rdf:Description rdf:about="#Metabolite_81">
     <dcterms:created>
       <rdf:Description>
         <dcterms:W3CDTF>2015-03-11T14:41:48Z</dcterms:W3CDTF>
@@ -136,10 +107,10 @@ Reaction scheme where the products are created from the reactants and the change
 </rdf:RDF>
         </MiriamAnnotation>
       </Metabolite>
-      <Metabolite key="Metabolite_3" name="Helicase" simulationType="reactions" compartment="Compartment_1">
+      <Metabolite key="Metabolite_77" name="Helicase" simulationType="reactions" compartment="Compartment_6">
         <MiriamAnnotation>
 <rdf:RDF xmlns:dcterms="http://purl.org/dc/terms/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
-  <rdf:Description rdf:about="#Metabolite_3">
+  <rdf:Description rdf:about="#Metabolite_77">
     <dcterms:created>
       <rdf:Description>
         <dcterms:W3CDTF>2015-03-11T14:46:28Z</dcterms:W3CDTF>
@@ -149,10 +120,10 @@ Reaction scheme where the products are created from the reactants and the change
 </rdf:RDF>
         </MiriamAnnotation>
       </Metabolite>
-      <Metabolite key="Metabolite_5" name="leading ssDNA base" simulationType="reactions" compartment="Compartment_1">
+      <Metabolite key="Metabolite_73" name="leading ssDNA base" simulationType="reactions" compartment="Compartment_6">
         <MiriamAnnotation>
 <rdf:RDF xmlns:dcterms="http://purl.org/dc/terms/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
-  <rdf:Description rdf:about="#Metabolite_5">
+  <rdf:Description rdf:about="#Metabolite_73">
     <dcterms:created>
       <rdf:Description>
         <dcterms:W3CDTF>2015-03-11T14:46:11Z</dcterms:W3CDTF>
@@ -162,10 +133,10 @@ Reaction scheme where the products are created from the reactants and the change
 </rdf:RDF>
         </MiriamAnnotation>
       </Metabolite>
-      <Metabolite key="Metabolite_7" name="lagging ssDNA base" simulationType="reactions" compartment="Compartment_1">
+      <Metabolite key="Metabolite_53" name="lagging ssDNA base" simulationType="reactions" compartment="Compartment_6">
         <MiriamAnnotation>
 <rdf:RDF xmlns:dcterms="http://purl.org/dc/terms/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
-  <rdf:Description rdf:about="#Metabolite_7">
+  <rdf:Description rdf:about="#Metabolite_53">
     <dcterms:created>
       <rdf:Description>
         <dcterms:W3CDTF>2015-03-11T14:47:55Z</dcterms:W3CDTF>
@@ -175,10 +146,10 @@ Reaction scheme where the products are created from the reactants and the change
 </rdf:RDF>
         </MiriamAnnotation>
       </Metabolite>
-      <Metabolite key="Metabolite_9" name="ligase" simulationType="reactions" compartment="Compartment_1">
+      <Metabolite key="Metabolite_37" name="ligase" simulationType="reactions" compartment="Compartment_6">
         <MiriamAnnotation>
 <rdf:RDF xmlns:dcterms="http://purl.org/dc/terms/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
-  <rdf:Description rdf:about="#Metabolite_9">
+  <rdf:Description rdf:about="#Metabolite_37">
     <dcterms:created>
       <rdf:Description>
         <dcterms:W3CDTF>2015-03-11T14:46:08Z</dcterms:W3CDTF>
@@ -188,10 +159,10 @@ Reaction scheme where the products are created from the reactants and the change
 </rdf:RDF>
         </MiriamAnnotation>
       </Metabolite>
-      <Metabolite key="Metabolite_11" name="core subunit" simulationType="reactions" compartment="Compartment_1">
+      <Metabolite key="Metabolite_63" name="core subunit" simulationType="reactions" compartment="Compartment_6">
         <MiriamAnnotation>
 <rdf:RDF xmlns:dcterms="http://purl.org/dc/terms/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
-  <rdf:Description rdf:about="#Metabolite_11">
+  <rdf:Description rdf:about="#Metabolite_63">
     <dcterms:created>
       <rdf:Description>
         <dcterms:W3CDTF>2015-03-11T14:46:46Z</dcterms:W3CDTF>
@@ -201,10 +172,10 @@ Reaction scheme where the products are created from the reactants and the change
 </rdf:RDF>
         </MiriamAnnotation>
       </Metabolite>
-      <Metabolite key="Metabolite_13" name="beta-clamp" simulationType="reactions" compartment="Compartment_1">
+      <Metabolite key="Metabolite_17" name="beta-clamp" simulationType="reactions" compartment="Compartment_6">
         <MiriamAnnotation>
 <rdf:RDF xmlns:dcterms="http://purl.org/dc/terms/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
-  <rdf:Description rdf:about="#Metabolite_13">
+  <rdf:Description rdf:about="#Metabolite_17">
     <dcterms:created>
       <rdf:Description>
         <dcterms:W3CDTF>2015-03-11T14:45:11Z</dcterms:W3CDTF>
@@ -214,10 +185,10 @@ Reaction scheme where the products are created from the reactants and the change
 </rdf:RDF>
         </MiriamAnnotation>
       </Metabolite>
-      <Metabolite key="Metabolite_15" name="primase" simulationType="reactions" compartment="Compartment_1">
+      <Metabolite key="Metabolite_85" name="primase" simulationType="reactions" compartment="Compartment_6">
         <MiriamAnnotation>
 <rdf:RDF xmlns:dcterms="http://purl.org/dc/terms/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
-  <rdf:Description rdf:about="#Metabolite_15">
+  <rdf:Description rdf:about="#Metabolite_85">
     <dcterms:created>
       <rdf:Description>
         <dcterms:W3CDTF>2015-03-11T14:46:06Z</dcterms:W3CDTF>
@@ -227,10 +198,10 @@ Reaction scheme where the products are created from the reactants and the change
 </rdf:RDF>
         </MiriamAnnotation>
       </Metabolite>
-      <Metabolite key="Metabolite_17" name="gamma complex" simulationType="reactions" compartment="Compartment_1">
+      <Metabolite key="Metabolite_87" name="gamma complex" simulationType="reactions" compartment="Compartment_6">
         <MiriamAnnotation>
 <rdf:RDF xmlns:dcterms="http://purl.org/dc/terms/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
-  <rdf:Description rdf:about="#Metabolite_17">
+  <rdf:Description rdf:about="#Metabolite_87">
     <dcterms:created>
       <rdf:Description>
         <dcterms:W3CDTF>2015-03-11T14:46:32Z</dcterms:W3CDTF>
@@ -240,10 +211,10 @@ Reaction scheme where the products are created from the reactants and the change
 </rdf:RDF>
         </MiriamAnnotation>
       </Metabolite>
-      <Metabolite key="Metabolite_19" name="leading dsDNA bp with a break" simulationType="reactions" compartment="Compartment_1">
+      <Metabolite key="Metabolite_89" name="leading dsDNA bp with a break" simulationType="reactions" compartment="Compartment_6">
         <MiriamAnnotation>
 <rdf:RDF xmlns:dcterms="http://purl.org/dc/terms/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
-  <rdf:Description rdf:about="#Metabolite_19">
+  <rdf:Description rdf:about="#Metabolite_89">
     <dcterms:created>
       <rdf:Description>
         <dcterms:W3CDTF>2015-03-11T14:46:35Z</dcterms:W3CDTF>
@@ -253,10 +224,10 @@ Reaction scheme where the products are created from the reactants and the change
 </rdf:RDF>
         </MiriamAnnotation>
       </Metabolite>
-      <Metabolite key="Metabolite_21" name="lagDsDNA bp" simulationType="reactions" compartment="Compartment_1">
+      <Metabolite key="Metabolite_91" name="lagDsDNA bp" simulationType="reactions" compartment="Compartment_6">
         <MiriamAnnotation>
 <rdf:RDF xmlns:dcterms="http://purl.org/dc/terms/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
-  <rdf:Description rdf:about="#Metabolite_21">
+  <rdf:Description rdf:about="#Metabolite_91">
     <dcterms:created>
       <rdf:Description>
         <dcterms:W3CDTF>2015-03-11T14:47:52Z</dcterms:W3CDTF>
@@ -266,10 +237,10 @@ Reaction scheme where the products are created from the reactants and the change
 </rdf:RDF>
         </MiriamAnnotation>
       </Metabolite>
-      <Metabolite key="Metabolite_23" name="DNA polymerase III" simulationType="reactions" compartment="Compartment_1">
+      <Metabolite key="Metabolite_93" name="DNA polymerase III" simulationType="reactions" compartment="Compartment_6">
         <MiriamAnnotation>
 <rdf:RDF xmlns:dcterms="http://purl.org/dc/terms/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
-  <rdf:Description rdf:about="#Metabolite_23">
+  <rdf:Description rdf:about="#Metabolite_93">
     <dcterms:created>
       <rdf:Description>
         <dcterms:W3CDTF>2015-03-11T14:46:42Z</dcterms:W3CDTF>
@@ -279,10 +250,10 @@ Reaction scheme where the products are created from the reactants and the change
 </rdf:RDF>
         </MiriamAnnotation>
       </Metabolite>
-      <Metabolite key="Metabolite_25" name="DnaA-ATP complex" simulationType="reactions" compartment="Compartment_1">
+      <Metabolite key="Metabolite_95" name="DnaA-ATP complex" simulationType="reactions" compartment="Compartment_6">
         <MiriamAnnotation>
 <rdf:RDF xmlns:dcterms="http://purl.org/dc/terms/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
-  <rdf:Description rdf:about="#Metabolite_25">
+  <rdf:Description rdf:about="#Metabolite_95">
     <dcterms:created>
       <rdf:Description>
         <dcterms:W3CDTF>2015-03-11T18:42:31Z</dcterms:W3CDTF>
@@ -292,10 +263,10 @@ Reaction scheme where the products are created from the reactants and the change
 </rdf:RDF>
         </MiriamAnnotation>
       </Metabolite>
-      <Metabolite key="Metabolite_27" name="Complete DNA" simulationType="reactions" compartment="Compartment_1">
+      <Metabolite key="Metabolite_97" name="Complete DNA" simulationType="reactions" compartment="Compartment_6">
         <MiriamAnnotation>
 <rdf:RDF xmlns:dcterms="http://purl.org/dc/terms/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
-  <rdf:Description rdf:about="#Metabolite_27">
+  <rdf:Description rdf:about="#Metabolite_97">
     <dcterms:created>
       <rdf:Description>
         <dcterms:W3CDTF>2015-03-11T16:29:10Z</dcterms:W3CDTF>
@@ -307,10 +278,10 @@ Reaction scheme where the products are created from the reactants and the change
       </Metabolite>
     </ListOfMetabolites>
     <ListOfModelValues>
-      <ModelValue key="ModelValue_0" name="Initiation_rate" simulationType="fixed">
+      <ModelValue key="ModelValue_23" name="Initiation_rate" simulationType="fixed">
         <MiriamAnnotation>
 <rdf:RDF xmlns:dcterms="http://purl.org/dc/terms/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
-  <rdf:Description rdf:about="#ModelValue_0">
+  <rdf:Description rdf:about="#ModelValue_23">
     <dcterms:created>
       <rdf:Description>
         <dcterms:W3CDTF>2015-03-11T15:31:27Z</dcterms:W3CDTF>
@@ -320,10 +291,10 @@ Reaction scheme where the products are created from the reactants and the change
 </rdf:RDF>
         </MiriamAnnotation>
       </ModelValue>
-      <ModelValue key="ModelValue_1" name="Lag_ligation_rate" simulationType="fixed">
+      <ModelValue key="ModelValue_22" name="Lag_ligation_rate" simulationType="fixed">
         <MiriamAnnotation>
 <rdf:RDF xmlns:dcterms="http://purl.org/dc/terms/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
-  <rdf:Description rdf:about="#ModelValue_1">
+  <rdf:Description rdf:about="#ModelValue_22">
     <dcterms:created>
       <rdf:Description>
         <dcterms:W3CDTF>2015-03-11T15:30:12Z</dcterms:W3CDTF>
@@ -333,10 +304,10 @@ Reaction scheme where the products are created from the reactants and the change
 </rdf:RDF>
         </MiriamAnnotation>
       </ModelValue>
-      <ModelValue key="ModelValue_2" name="Lead_ligation_rate" simulationType="fixed">
+      <ModelValue key="ModelValue_21" name="Lead_ligation_rate" simulationType="fixed">
         <MiriamAnnotation>
 <rdf:RDF xmlns:dcterms="http://purl.org/dc/terms/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
-  <rdf:Description rdf:about="#ModelValue_2">
+  <rdf:Description rdf:about="#ModelValue_21">
     <dcterms:created>
       <rdf:Description>
         <dcterms:W3CDTF>2015-03-11T15:30:24Z</dcterms:W3CDTF>
@@ -346,10 +317,10 @@ Reaction scheme where the products are created from the reactants and the change
 </rdf:RDF>
         </MiriamAnnotation>
       </ModelValue>
-      <ModelValue key="ModelValue_3" name="Lead_polymerisation_rate" simulationType="fixed">
+      <ModelValue key="ModelValue_20" name="Lead_polymerisation_rate" simulationType="fixed">
         <MiriamAnnotation>
 <rdf:RDF xmlns:dcterms="http://purl.org/dc/terms/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
-  <rdf:Description rdf:about="#ModelValue_3">
+  <rdf:Description rdf:about="#ModelValue_20">
     <dcterms:created>
       <rdf:Description>
         <dcterms:W3CDTF>2015-03-11T15:30:32Z</dcterms:W3CDTF>
@@ -359,10 +330,10 @@ Reaction scheme where the products are created from the reactants and the change
 </rdf:RDF>
         </MiriamAnnotation>
       </ModelValue>
-      <ModelValue key="ModelValue_4" name="okazaki_polymerisation_rate" simulationType="fixed">
+      <ModelValue key="ModelValue_19" name="okazaki_polymerisation_rate" simulationType="fixed">
         <MiriamAnnotation>
 <rdf:RDF xmlns:dcterms="http://purl.org/dc/terms/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
-  <rdf:Description rdf:about="#ModelValue_4">
+  <rdf:Description rdf:about="#ModelValue_19">
     <dcterms:created>
       <rdf:Description>
         <dcterms:W3CDTF>2015-03-11T15:31:00Z</dcterms:W3CDTF>
@@ -372,10 +343,10 @@ Reaction scheme where the products are created from the reactants and the change
 </rdf:RDF>
         </MiriamAnnotation>
       </ModelValue>
-      <ModelValue key="ModelValue_5" name="polymerase_complex_creation_rate" simulationType="fixed">
+      <ModelValue key="ModelValue_18" name="polymerase_complex_creation_rate" simulationType="fixed">
         <MiriamAnnotation>
 <rdf:RDF xmlns:dcterms="http://purl.org/dc/terms/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
-  <rdf:Description rdf:about="#ModelValue_5">
+  <rdf:Description rdf:about="#ModelValue_18">
     <dcterms:created>
       <rdf:Description>
         <dcterms:W3CDTF>2015-03-11T15:31:33Z</dcterms:W3CDTF>
@@ -385,10 +356,10 @@ Reaction scheme where the products are created from the reactants and the change
 </rdf:RDF>
         </MiriamAnnotation>
       </ModelValue>
-      <ModelValue key="ModelValue_6" name="ssb_binding_rate" simulationType="fixed">
+      <ModelValue key="ModelValue_17" name="ssb_binding_rate" simulationType="fixed">
         <MiriamAnnotation>
 <rdf:RDF xmlns:dcterms="http://purl.org/dc/terms/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
-  <rdf:Description rdf:about="#ModelValue_6">
+  <rdf:Description rdf:about="#ModelValue_17">
     <dcterms:created>
       <rdf:Description>
         <dcterms:W3CDTF>2015-03-11T15:31:52Z</dcterms:W3CDTF>
@@ -398,10 +369,10 @@ Reaction scheme where the products are created from the reactants and the change
 </rdf:RDF>
         </MiriamAnnotation>
       </ModelValue>
-      <ModelValue key="ModelValue_7" name="SSB_transformation_rate" simulationType="fixed">
+      <ModelValue key="ModelValue_16" name="SSB_transformation_rate" simulationType="fixed">
         <MiriamAnnotation>
 <rdf:RDF xmlns:dcterms="http://purl.org/dc/terms/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
-  <rdf:Description rdf:about="#ModelValue_7">
+  <rdf:Description rdf:about="#ModelValue_16">
     <dcterms:created>
       <rdf:Description>
         <dcterms:W3CDTF>2015-03-11T15:32:00Z</dcterms:W3CDTF>
@@ -411,10 +382,10 @@ Reaction scheme where the products are created from the reactants and the change
 </rdf:RDF>
         </MiriamAnnotation>
       </ModelValue>
-      <ModelValue key="ModelValue_8" name="terminal_lag_ligation_rate" simulationType="fixed">
+      <ModelValue key="ModelValue_15" name="terminal_lag_ligation_rate" simulationType="fixed">
         <MiriamAnnotation>
 <rdf:RDF xmlns:dcterms="http://purl.org/dc/terms/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
-  <rdf:Description rdf:about="#ModelValue_8">
+  <rdf:Description rdf:about="#ModelValue_15">
     <dcterms:created>
       <rdf:Description>
         <dcterms:W3CDTF>2015-03-11T15:32:11Z</dcterms:W3CDTF>
@@ -424,10 +395,10 @@ Reaction scheme where the products are created from the reactants and the change
 </rdf:RDF>
         </MiriamAnnotation>
       </ModelValue>
-      <ModelValue key="ModelValue_9" name="termination_rate" simulationType="fixed">
+      <ModelValue key="ModelValue_14" name="termination_rate" simulationType="fixed">
         <MiriamAnnotation>
 <rdf:RDF xmlns:dcterms="http://purl.org/dc/terms/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
-  <rdf:Description rdf:about="#ModelValue_9">
+  <rdf:Description rdf:about="#ModelValue_14">
     <dcterms:created>
       <rdf:Description>
         <dcterms:W3CDTF>2015-03-11T15:32:23Z</dcterms:W3CDTF>
@@ -437,10 +408,10 @@ Reaction scheme where the products are created from the reactants and the change
 </rdf:RDF>
         </MiriamAnnotation>
       </ModelValue>
-      <ModelValue key="ModelValue_10" name="unwinding_rate" simulationType="fixed">
+      <ModelValue key="ModelValue_13" name="unwinding_rate" simulationType="fixed">
         <MiriamAnnotation>
 <rdf:RDF xmlns:dcterms="http://purl.org/dc/terms/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
-  <rdf:Description rdf:about="#ModelValue_10">
+  <rdf:Description rdf:about="#ModelValue_13">
     <dcterms:created>
       <rdf:Description>
         <dcterms:W3CDTF>2015-03-11T15:32:29Z</dcterms:W3CDTF>
@@ -450,10 +421,10 @@ Reaction scheme where the products are created from the reactants and the change
 </rdf:RDF>
         </MiriamAnnotation>
       </ModelValue>
-      <ModelValue key="ModelValue_11" name="Lead_ss_dna_block_rate" simulationType="fixed">
+      <ModelValue key="ModelValue_12" name="Lead_ss_dna_block_rate" simulationType="fixed">
         <MiriamAnnotation>
 <rdf:RDF xmlns:dcterms="http://purl.org/dc/terms/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
-  <rdf:Description rdf:about="#ModelValue_11">
+  <rdf:Description rdf:about="#ModelValue_12">
     <dcterms:created>
       <rdf:Description>
         <dcterms:W3CDTF>2015-03-12T09:31:56Z</dcterms:W3CDTF>
@@ -465,12 +436,10 @@ Reaction scheme where the products are created from the reactants and the change
       </ModelValue>
     </ListOfModelValues>
     <ListOfReactions>
-      <Reaction key="Reaction_0" name="unwinding" reversible="false" fast="false">
+      <Reaction key="Reaction_7" name="unwinding" reversible="false" fast="false">
         <MiriamAnnotation>
-<rdf:RDF
-   xmlns:dcterms="http://purl.org/dc/terms/"
-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
-  <rdf:Description rdf:about="#Reaction_0">
+<rdf:RDF xmlns:dcterms="http://purl.org/dc/terms/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <rdf:Description rdf:about="#Reaction_7">
     <dcterms:created>
       <rdf:Description>
         <dcterms:W3CDTF>2015-03-11T14:41:23Z</dcterms:W3CDTF>
@@ -478,41 +447,38 @@ Reaction scheme where the products are created from the reactants and the change
     </dcterms:created>
   </rdf:Description>
 </rdf:RDF>
-
         </MiriamAnnotation>
         <ListOfSubstrates>
-          <Substrate metabolite="Metabolite_1" stoichiometry="1"/>
+          <Substrate metabolite="Metabolite_81" stoichiometry="1"/>
         </ListOfSubstrates>
         <ListOfProducts>
-          <Product metabolite="Metabolite_5" stoichiometry="1"/>
-          <Product metabolite="Metabolite_7" stoichiometry="1"/>
+          <Product metabolite="Metabolite_73" stoichiometry="1"/>
+          <Product metabolite="Metabolite_53" stoichiometry="1"/>
         </ListOfProducts>
         <ListOfModifiers>
-          <Modifier metabolite="Metabolite_3" stoichiometry="1"/>
+          <Modifier metabolite="Metabolite_77" stoichiometry="1"/>
         </ListOfModifiers>
         <ListOfConstants>
-          <Constant key="Parameter_4394" name="k" value="0.00173"/>
+          <Constant key="Parameter_4074" name="unwinding_rate" value="0.00173"/>
         </ListOfConstants>
-        <KineticLaw function="Function_40">
+        <KineticLaw function="Function_43">
           <ListOfCallParameters>
-            <CallParameter functionParameter="FunctionParameter_264">
-              <SourceParameter reference="ModelValue_10"/>
+            <CallParameter functionParameter="FunctionParameter_268">
+              <SourceParameter reference="Metabolite_77"/>
             </CallParameter>
-            <CallParameter functionParameter="FunctionParameter_254">
-              <SourceParameter reference="Metabolite_1"/>
+            <CallParameter functionParameter="FunctionParameter_283">
+              <SourceParameter reference="Metabolite_81"/>
             </CallParameter>
-            <CallParameter functionParameter="FunctionParameter_258">
-              <SourceParameter reference="Metabolite_3"/>
+            <CallParameter functionParameter="FunctionParameter_280">
+              <SourceParameter reference="ModelValue_13"/>
             </CallParameter>
           </ListOfCallParameters>
         </KineticLaw>
       </Reaction>
-      <Reaction key="Reaction_1" name="terminal leading strand ligation" reversible="false" fast="false">
+      <Reaction key="Reaction_6" name="terminal leading strand ligation" reversible="false" fast="false">
         <MiriamAnnotation>
-<rdf:RDF
-   xmlns:dcterms="http://purl.org/dc/terms/"
-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
-  <rdf:Description rdf:about="#Reaction_1">
+<rdf:RDF xmlns:dcterms="http://purl.org/dc/terms/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <rdf:Description rdf:about="#Reaction_6">
     <dcterms:created>
       <rdf:Description>
         <dcterms:W3CDTF>2015-03-11T15:10:56Z</dcterms:W3CDTF>
@@ -520,26 +486,34 @@ Reaction scheme where the products are created from the reactants and the change
     </dcterms:created>
   </rdf:Description>
 </rdf:RDF>
-
         </MiriamAnnotation>
         <ListOfSubstrates>
-          <Substrate metabolite="Metabolite_19" stoichiometry="580076"/>
+          <Substrate metabolite="Metabolite_89" stoichiometry="580076"/>
         </ListOfSubstrates>
         <ListOfProducts>
-          <Product metabolite="Metabolite_27" stoichiometry="1"/>
+          <Product metabolite="Metabolite_97" stoichiometry="1"/>
         </ListOfProducts>
         <ListOfModifiers>
-          <Modifier metabolite="Metabolite_9" stoichiometry="1"/>
+          <Modifier metabolite="Metabolite_37" stoichiometry="1"/>
         </ListOfModifiers>
-        <KineticLaw function="Function_42">
+        <ListOfConstants>
+          <Constant key="Parameter_4073" name="Lead_ligation_rate" value="0.04"/>
+        </ListOfConstants>
+        <KineticLaw function="Function_44">
+          <ListOfCallParameters>
+            <CallParameter functionParameter="FunctionParameter_303">
+              <SourceParameter reference="ModelValue_21"/>
+            </CallParameter>
+            <CallParameter functionParameter="FunctionParameter_273">
+              <SourceParameter reference="Metabolite_89"/>
+            </CallParameter>
+          </ListOfCallParameters>
         </KineticLaw>
       </Reaction>
-      <Reaction key="Reaction_2" name="leading strand polymerisation" reversible="false" fast="false">
+      <Reaction key="Reaction_1" name="leading strand polymerisation" reversible="false" fast="false">
         <MiriamAnnotation>
-<rdf:RDF
-   xmlns:dcterms="http://purl.org/dc/terms/"
-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
-  <rdf:Description rdf:about="#Reaction_2">
+<rdf:RDF xmlns:dcterms="http://purl.org/dc/terms/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <rdf:Description rdf:about="#Reaction_1">
     <dcterms:created>
       <rdf:Description>
         <dcterms:W3CDTF>2015-03-11T14:41:24Z</dcterms:W3CDTF>
@@ -547,38 +521,41 @@ Reaction scheme where the products are created from the reactants and the change
     </dcterms:created>
   </rdf:Description>
 </rdf:RDF>
-
         </MiriamAnnotation>
         <ListOfSubstrates>
-          <Substrate metabolite="Metabolite_5" stoichiometry="1"/>
+          <Substrate metabolite="Metabolite_73" stoichiometry="1"/>
         </ListOfSubstrates>
         <ListOfProducts>
-          <Product metabolite="Metabolite_19" stoichiometry="1"/>
+          <Product metabolite="Metabolite_89" stoichiometry="1"/>
         </ListOfProducts>
         <ListOfModifiers>
-          <Modifier metabolite="Metabolite_15" stoichiometry="1"/>
-          <Modifier metabolite="Metabolite_23" stoichiometry="1"/>
+          <Modifier metabolite="Metabolite_85" stoichiometry="1"/>
+          <Modifier metabolite="Metabolite_93" stoichiometry="1"/>
         </ListOfModifiers>
         <ListOfConstants>
-          <Constant key="Parameter_4395" name="k" value="0"/>
+          <Constant key="Parameter_4291" name="Lead_polymerisation_rate" value="100"/>
         </ListOfConstants>
-        <KineticLaw function="Function_41">
+        <KineticLaw function="Function_49">
           <ListOfCallParameters>
-            <CallParameter functionParameter="FunctionParameter_265">
-              <SourceParameter reference="Metabolite_5"/>
+            <CallParameter functionParameter="FunctionParameter_286">
+              <SourceParameter reference="Metabolite_93"/>
             </CallParameter>
-            <CallParameter functionParameter="FunctionParameter_262">
-              <SourceParameter reference="ModelValue_3"/>
+            <CallParameter functionParameter="FunctionParameter_295">
+              <SourceParameter reference="ModelValue_20"/>
+            </CallParameter>
+            <CallParameter functionParameter="FunctionParameter_269">
+              <SourceParameter reference="Metabolite_85"/>
+            </CallParameter>
+            <CallParameter functionParameter="FunctionParameter_301">
+              <SourceParameter reference="Metabolite_73"/>
             </CallParameter>
           </ListOfCallParameters>
         </KineticLaw>
       </Reaction>
-      <Reaction key="Reaction_3" name="Polymerase complex creation" reversible="false" fast="false">
+      <Reaction key="Reaction_2" name="Polymerase complex creation" reversible="false" fast="false">
         <MiriamAnnotation>
-<rdf:RDF
-   xmlns:dcterms="http://purl.org/dc/terms/"
-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
-  <rdf:Description rdf:about="#Reaction_3">
+<rdf:RDF xmlns:dcterms="http://purl.org/dc/terms/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <rdf:Description rdf:about="#Reaction_2">
     <dcterms:created>
       <rdf:Description>
         <dcterms:W3CDTF>2015-03-11T14:41:27Z</dcterms:W3CDTF>
@@ -586,59 +563,33 @@ Reaction scheme where the products are created from the reactants and the change
     </dcterms:created>
   </rdf:Description>
 </rdf:RDF>
-
         </MiriamAnnotation>
         <ListOfSubstrates>
-          <Substrate metabolite="Metabolite_11" stoichiometry="2"/>
+          <Substrate metabolite="Metabolite_63" stoichiometry="2"/>
+          <Substrate metabolite="Metabolite_87" stoichiometry="1"/>
           <Substrate metabolite="Metabolite_17" stoichiometry="1"/>
-          <Substrate metabolite="Metabolite_13" stoichiometry="1"/>
         </ListOfSubstrates>
         <ListOfProducts>
-          <Product metabolite="Metabolite_23" stoichiometry="1"/>
+          <Product metabolite="Metabolite_93" stoichiometry="1"/>
         </ListOfProducts>
         <ListOfConstants>
-          <Constant key="Parameter_4396" name="k1" value="1"/>
+          <Constant key="Parameter_4292" name="k1" value="0"/>
         </ListOfConstants>
         <KineticLaw function="Function_13">
           <ListOfCallParameters>
             <CallParameter functionParameter="FunctionParameter_81">
-              <SourceParameter reference="ModelValue_5"/>
+              <SourceParameter reference="Parameter_4292"/>
             </CallParameter>
             <CallParameter functionParameter="FunctionParameter_79">
-              <SourceParameter reference="Metabolite_11"/>
-              <SourceParameter reference="Metabolite_11"/>
+              <SourceParameter reference="Metabolite_63"/>
+              <SourceParameter reference="Metabolite_63"/>
+              <SourceParameter reference="Metabolite_87"/>
               <SourceParameter reference="Metabolite_17"/>
-              <SourceParameter reference="Metabolite_13"/>
             </CallParameter>
           </ListOfCallParameters>
         </KineticLaw>
       </Reaction>
     </ListOfReactions>
-    <ListOfEvents>
-      <Event key="Event_0" name="start polymerisation" fireAtInitialTime="0" persistentTrigger="0">
-        <MiriamAnnotation>
-<rdf:RDF xmlns:dcterms="http://purl.org/dc/terms/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
-  <rdf:Description rdf:about="#Event_0">
-    <dcterms:created>
-      <rdf:Description>
-        <dcterms:W3CDTF>2015-03-12T12:09:47Z</dcterms:W3CDTF>
-      </rdf:Description>
-    </dcterms:created>
-  </rdf:Description>
-</rdf:RDF>
-        </MiriamAnnotation>
-        <TriggerExpression>
-          &lt;CN=Root,Model=Replication,Vector=Compartments[default],Vector=Metabolites[leading ssDNA base],Reference=ParticleNumber&gt; &gt;= 100
-        </TriggerExpression>
-        <ListOfAssignments>
-          <Assignment targetKey="ModelValue_3">
-            <Expression>
-              100
-            </Expression>
-          </Assignment>
-        </ListOfAssignments>
-      </Event>
-    </ListOfEvents>
     <ListOfModelParameterSets activeSet="ModelParameterSet_0">
       <ModelParameterSet key="ModelParameterSet_0" name="Initial State">
         <ModelParameterGroup cn="String=Initial Time" type="Group">
@@ -649,17 +600,17 @@ Reaction scheme where the products are created from the reactants and the change
         </ModelParameterGroup>
         <ModelParameterGroup cn="String=Initial Species Values" type="Group">
           <ModelParameter cn="CN=Root,Model=Replication,Vector=Compartments[default],Vector=Metabolites[dsDNA bp]" value="580076" type="Species" simulationType="reactions"/>
-          <ModelParameter cn="CN=Root,Model=Replication,Vector=Compartments[default],Vector=Metabolites[Helicase]" value="50.00000000000001" type="Species" simulationType="reactions"/>
+          <ModelParameter cn="CN=Root,Model=Replication,Vector=Compartments[default],Vector=Metabolites[Helicase]" value="50" type="Species" simulationType="reactions"/>
           <ModelParameter cn="CN=Root,Model=Replication,Vector=Compartments[default],Vector=Metabolites[leading ssDNA base]" value="0" type="Species" simulationType="reactions"/>
           <ModelParameter cn="CN=Root,Model=Replication,Vector=Compartments[default],Vector=Metabolites[lagging ssDNA base]" value="0" type="Species" simulationType="reactions"/>
-          <ModelParameter cn="CN=Root,Model=Replication,Vector=Compartments[default],Vector=Metabolites[ligase]" value="50.00000000000001" type="Species" simulationType="reactions"/>
-          <ModelParameter cn="CN=Root,Model=Replication,Vector=Compartments[default],Vector=Metabolites[core subunit]" value="50.00000000000001" type="Species" simulationType="reactions"/>
+          <ModelParameter cn="CN=Root,Model=Replication,Vector=Compartments[default],Vector=Metabolites[ligase]" value="50" type="Species" simulationType="reactions"/>
+          <ModelParameter cn="CN=Root,Model=Replication,Vector=Compartments[default],Vector=Metabolites[core subunit]" value="50" type="Species" simulationType="reactions"/>
           <ModelParameter cn="CN=Root,Model=Replication,Vector=Compartments[default],Vector=Metabolites[beta-clamp]" value="50" type="Species" simulationType="reactions"/>
-          <ModelParameter cn="CN=Root,Model=Replication,Vector=Compartments[default],Vector=Metabolites[primase]" value="50.00000000000001" type="Species" simulationType="reactions"/>
-          <ModelParameter cn="CN=Root,Model=Replication,Vector=Compartments[default],Vector=Metabolites[gamma complex]" value="50.00000000000001" type="Species" simulationType="reactions"/>
+          <ModelParameter cn="CN=Root,Model=Replication,Vector=Compartments[default],Vector=Metabolites[primase]" value="50" type="Species" simulationType="reactions"/>
+          <ModelParameter cn="CN=Root,Model=Replication,Vector=Compartments[default],Vector=Metabolites[gamma complex]" value="50" type="Species" simulationType="reactions"/>
           <ModelParameter cn="CN=Root,Model=Replication,Vector=Compartments[default],Vector=Metabolites[leading dsDNA bp with a break]" value="0" type="Species" simulationType="reactions"/>
           <ModelParameter cn="CN=Root,Model=Replication,Vector=Compartments[default],Vector=Metabolites[lagDsDNA bp]" value="0" type="Species" simulationType="reactions"/>
-          <ModelParameter cn="CN=Root,Model=Replication,Vector=Compartments[default],Vector=Metabolites[DNA polymerase III]" value="0" type="Species" simulationType="reactions"/>
+          <ModelParameter cn="CN=Root,Model=Replication,Vector=Compartments[default],Vector=Metabolites[DNA polymerase III]" value="5" type="Species" simulationType="reactions"/>
           <ModelParameter cn="CN=Root,Model=Replication,Vector=Compartments[default],Vector=Metabolites[DnaA-ATP complex]" value="1" type="Species" simulationType="reactions"/>
           <ModelParameter cn="CN=Root,Model=Replication,Vector=Compartments[default],Vector=Metabolites[Complete DNA]" value="0" type="Species" simulationType="reactions"/>
         </ModelParameterGroup>
@@ -667,7 +618,7 @@ Reaction scheme where the products are created from the reactants and the change
           <ModelParameter cn="CN=Root,Model=Replication,Vector=Values[Initiation_rate]" value="999999" type="ModelValue" simulationType="fixed"/>
           <ModelParameter cn="CN=Root,Model=Replication,Vector=Values[Lag_ligation_rate]" value="0.04" type="ModelValue" simulationType="fixed"/>
           <ModelParameter cn="CN=Root,Model=Replication,Vector=Values[Lead_ligation_rate]" value="0.04" type="ModelValue" simulationType="fixed"/>
-          <ModelParameter cn="CN=Root,Model=Replication,Vector=Values[Lead_polymerisation_rate]" value="0" type="ModelValue" simulationType="fixed"/>
+          <ModelParameter cn="CN=Root,Model=Replication,Vector=Values[Lead_polymerisation_rate]" value="100" type="ModelValue" simulationType="fixed"/>
           <ModelParameter cn="CN=Root,Model=Replication,Vector=Values[okazaki_polymerisation_rate]" value="100" type="ModelValue" simulationType="fixed"/>
           <ModelParameter cn="CN=Root,Model=Replication,Vector=Values[polymerase_complex_creation_rate]" value="1" type="ModelValue" simulationType="fixed"/>
           <ModelParameter cn="CN=Root,Model=Replication,Vector=Values[ssb_binding_rate]" value="1" type="ModelValue" simulationType="fixed"/>
@@ -679,68 +630,69 @@ Reaction scheme where the products are created from the reactants and the change
         </ModelParameterGroup>
         <ModelParameterGroup cn="String=Kinetic Parameters" type="Group">
           <ModelParameterGroup cn="CN=Root,Model=Replication,Vector=Reactions[unwinding]" type="Reaction">
-            <ModelParameter cn="CN=Root,Model=Replication,Vector=Reactions[unwinding],ParameterGroup=Parameters,Parameter=k" value="0.00173" type="ReactionParameter" simulationType="assignment">
+            <ModelParameter cn="CN=Root,Model=Replication,Vector=Reactions[unwinding],ParameterGroup=Parameters,Parameter=unwinding_rate" value="0.00173" type="ReactionParameter" simulationType="assignment">
               <InitialExpression>
                 &lt;CN=Root,Model=Replication,Vector=Values[unwinding_rate],Reference=InitialValue&gt;
               </InitialExpression>
             </ModelParameter>
           </ModelParameterGroup>
           <ModelParameterGroup cn="CN=Root,Model=Replication,Vector=Reactions[terminal leading strand ligation]" type="Reaction">
+            <ModelParameter cn="CN=Root,Model=Replication,Vector=Reactions[terminal leading strand ligation],ParameterGroup=Parameters,Parameter=Lead_ligation_rate" value="0.04" type="ReactionParameter" simulationType="assignment">
+              <InitialExpression>
+                &lt;CN=Root,Model=Replication,Vector=Values[Lead_ligation_rate],Reference=InitialValue&gt;
+              </InitialExpression>
+            </ModelParameter>
           </ModelParameterGroup>
           <ModelParameterGroup cn="CN=Root,Model=Replication,Vector=Reactions[leading strand polymerisation]" type="Reaction">
-            <ModelParameter cn="CN=Root,Model=Replication,Vector=Reactions[leading strand polymerisation],ParameterGroup=Parameters,Parameter=k" value="0" type="ReactionParameter" simulationType="assignment">
+            <ModelParameter cn="CN=Root,Model=Replication,Vector=Reactions[leading strand polymerisation],ParameterGroup=Parameters,Parameter=Lead_polymerisation_rate" value="100" type="ReactionParameter" simulationType="assignment">
               <InitialExpression>
                 &lt;CN=Root,Model=Replication,Vector=Values[Lead_polymerisation_rate],Reference=InitialValue&gt;
               </InitialExpression>
             </ModelParameter>
           </ModelParameterGroup>
           <ModelParameterGroup cn="CN=Root,Model=Replication,Vector=Reactions[Polymerase complex creation]" type="Reaction">
-            <ModelParameter cn="CN=Root,Model=Replication,Vector=Reactions[Polymerase complex creation],ParameterGroup=Parameters,Parameter=k1" value="1" type="ReactionParameter" simulationType="assignment">
-              <InitialExpression>
-                &lt;CN=Root,Model=Replication,Vector=Values[polymerase_complex_creation_rate],Reference=InitialValue&gt;
-              </InitialExpression>
-            </ModelParameter>
+            <ModelParameter cn="CN=Root,Model=Replication,Vector=Reactions[Polymerase complex creation],ParameterGroup=Parameters,Parameter=k1" value="0" type="ReactionParameter" simulationType="fixed"/>
           </ModelParameterGroup>
         </ModelParameterGroup>
       </ModelParameterSet>
     </ListOfModelParameterSets>
     <StateTemplate>
-      <StateTemplateVariable objectReference="Model_4"/>
-      <StateTemplateVariable objectReference="Metabolite_19"/>
-      <StateTemplateVariable objectReference="Metabolite_11"/>
-      <StateTemplateVariable objectReference="Metabolite_5"/>
-      <StateTemplateVariable objectReference="Metabolite_7"/>
-      <StateTemplateVariable objectReference="Metabolite_13"/>
+      <StateTemplateVariable objectReference="Model_14"/>
+      <StateTemplateVariable objectReference="Metabolite_89"/>
+      <StateTemplateVariable objectReference="Metabolite_63"/>
+      <StateTemplateVariable objectReference="Metabolite_73"/>
+      <StateTemplateVariable objectReference="Metabolite_53"/>
       <StateTemplateVariable objectReference="Metabolite_17"/>
-      <StateTemplateVariable objectReference="Metabolite_1"/>
-      <StateTemplateVariable objectReference="Metabolite_23"/>
-      <StateTemplateVariable objectReference="Metabolite_27"/>
-      <StateTemplateVariable objectReference="Metabolite_3"/>
-      <StateTemplateVariable objectReference="Metabolite_9"/>
-      <StateTemplateVariable objectReference="Metabolite_15"/>
-      <StateTemplateVariable objectReference="Metabolite_21"/>
-      <StateTemplateVariable objectReference="Metabolite_25"/>
-      <StateTemplateVariable objectReference="Compartment_1"/>
-      <StateTemplateVariable objectReference="ModelValue_0"/>
-      <StateTemplateVariable objectReference="ModelValue_1"/>
-      <StateTemplateVariable objectReference="ModelValue_2"/>
-      <StateTemplateVariable objectReference="ModelValue_3"/>
-      <StateTemplateVariable objectReference="ModelValue_4"/>
-      <StateTemplateVariable objectReference="ModelValue_5"/>
-      <StateTemplateVariable objectReference="ModelValue_6"/>
-      <StateTemplateVariable objectReference="ModelValue_7"/>
-      <StateTemplateVariable objectReference="ModelValue_8"/>
-      <StateTemplateVariable objectReference="ModelValue_9"/>
-      <StateTemplateVariable objectReference="ModelValue_10"/>
-      <StateTemplateVariable objectReference="ModelValue_11"/>
+      <StateTemplateVariable objectReference="Metabolite_87"/>
+      <StateTemplateVariable objectReference="Metabolite_81"/>
+      <StateTemplateVariable objectReference="Metabolite_93"/>
+      <StateTemplateVariable objectReference="Metabolite_97"/>
+      <StateTemplateVariable objectReference="Metabolite_77"/>
+      <StateTemplateVariable objectReference="Metabolite_37"/>
+      <StateTemplateVariable objectReference="Metabolite_85"/>
+      <StateTemplateVariable objectReference="Metabolite_91"/>
+      <StateTemplateVariable objectReference="Metabolite_95"/>
+      <StateTemplateVariable objectReference="Compartment_6"/>
+      <StateTemplateVariable objectReference="ModelValue_23"/>
+      <StateTemplateVariable objectReference="ModelValue_22"/>
+      <StateTemplateVariable objectReference="ModelValue_21"/>
+      <StateTemplateVariable objectReference="ModelValue_20"/>
+      <StateTemplateVariable objectReference="ModelValue_19"/>
+      <StateTemplateVariable objectReference="ModelValue_18"/>
+      <StateTemplateVariable objectReference="ModelValue_17"/>
+      <StateTemplateVariable objectReference="ModelValue_16"/>
+      <StateTemplateVariable objectReference="ModelValue_15"/>
+      <StateTemplateVariable objectReference="ModelValue_14"/>
+      <StateTemplateVariable objectReference="ModelValue_13"/>
+      <StateTemplateVariable objectReference="ModelValue_12"/>
     </StateTemplate>
     <InitialState type="initialState">
-      0 0 50.00000000000001 0 0 50 50.00000000000001 580076 0 0 50.00000000000001 50.00000000000001 50.00000000000001 0 1 1 999999 0.04 0.04 0 100 1 1 1 0.04 99999 0.00173 100 
+      0 0 50 0 0 50 50 580076 5 0 50 50 50 0 1 1 999999 0.04 0.04 100 100 1 1 1 0.04 99999 0.00173 100 
     </InitialState>
   </Model>
   <ListOfTasks>
     <Task key="Task_12" name="Steady-State" type="steadyState" scheduled="false" updateModel="false">
-      <Report reference="Report_8" target="" append="1" confirmOverwrite="1"/>
+      <Report reference="Report_0" target="" append="1" confirmOverwrite="1"/>
       <Problem>
         <Parameter name="JacobianRequested" type="bool" value="1"/>
         <Parameter name="StabilityAnalysisRequested" type="bool" value="1"/>
@@ -757,12 +709,12 @@ Reaction scheme where the products are created from the reactants and the change
         <Parameter name="Maximum duration for backward integration" type="unsignedFloat" value="1000000"/>
       </Method>
     </Task>
-    <Task key="Task_11" name="Time-Course" type="timeCourse" scheduled="false" updateModel="false">
+    <Task key="Task_1" name="Time-Course" type="timeCourse" scheduled="false" updateModel="false">
       <Problem>
         <Parameter name="StepNumber" type="unsignedInteger" value="100"/>
         <Parameter name="StepSize" type="float" value="0.01"/>
         <Parameter name="Duration" type="float" value="1"/>
-        <Parameter name="TimeSeriesRequested" type="bool" value="0"/>
+        <Parameter name="TimeSeriesRequested" type="bool" value="1"/>
         <Parameter name="OutputStartTime" type="float" value="0"/>
         <Parameter name="Output Event" type="bool" value="0"/>
         <Parameter name="Continue on Simultaneous Events" type="bool" value="1"/>
@@ -774,18 +726,10 @@ Reaction scheme where the products are created from the reactants and the change
         <Parameter name="Max Internal Steps" type="unsignedInteger" value="10000"/>
       </Method>
     </Task>
-    <Task key="Task_10" name="Scan" type="scan" scheduled="false" updateModel="false">
+    <Task key="Task_2" name="Scan" type="scan" scheduled="false" updateModel="false">
       <Problem>
         <Parameter name="Subtask" type="unsignedInteger" value="1"/>
         <ParameterGroup name="ScanItems">
-          <ParameterGroup name="ScanItem">
-            <Parameter name="Maximum" type="float" value="1000"/>
-            <Parameter name="Minimum" type="float" value="250"/>
-            <Parameter name="Number of steps" type="unsignedInteger" value="10"/>
-            <Parameter name="Object" type="cn" value="CN=Root,Model=Replication,Vector=Values[Initiation_rate],Reference=InitialValue"/>
-            <Parameter name="Type" type="unsignedInteger" value="1"/>
-            <Parameter name="log" type="bool" value="0"/>
-          </ParameterGroup>
         </ParameterGroup>
         <Parameter name="Output in subtask" type="bool" value="1"/>
         <Parameter name="Adjust initial conditions" type="bool" value="0"/>
@@ -793,15 +737,15 @@ Reaction scheme where the products are created from the reactants and the change
       <Method name="Scan Framework" type="ScanFramework">
       </Method>
     </Task>
-    <Task key="Task_9" name="Elementary Flux Modes" type="fluxMode" scheduled="false" updateModel="false">
-      <Report reference="Report_7" target="" append="1" confirmOverwrite="1"/>
+    <Task key="Task_3" name="Elementary Flux Modes" type="fluxMode" scheduled="false" updateModel="false">
+      <Report reference="Report_1" target="" append="1" confirmOverwrite="1"/>
       <Problem>
       </Problem>
       <Method name="EFM Algorithm" type="EFMAlgorithm">
       </Method>
     </Task>
-    <Task key="Task_8" name="Optimization" type="optimization" scheduled="false" updateModel="false">
-      <Report reference="Report_6" target="" append="1" confirmOverwrite="1"/>
+    <Task key="Task_4" name="Optimization" type="optimization" scheduled="false" updateModel="false">
+      <Report reference="Report_2" target="" append="1" confirmOverwrite="1"/>
       <Problem>
         <Parameter name="Subtask" type="cn" value="CN=Root,Vector=TaskList[Steady-State]"/>
         <ParameterText name="ObjectiveExpression" type="expression">
@@ -821,8 +765,8 @@ Reaction scheme where the products are created from the reactants and the change
         <Parameter name="Seed" type="unsignedInteger" value="0"/>
       </Method>
     </Task>
-    <Task key="Task_7" name="Parameter Estimation" type="parameterFitting" scheduled="false" updateModel="false">
-      <Report reference="Report_5" target="" append="1" confirmOverwrite="1"/>
+    <Task key="Task_5" name="Parameter Estimation" type="parameterFitting" scheduled="false" updateModel="false">
+      <Report reference="Report_3" target="" append="1" confirmOverwrite="1"/>
       <Problem>
         <Parameter name="Maximize" type="bool" value="0"/>
         <Parameter name="Randomize Start Values" type="bool" value="0"/>
@@ -837,8 +781,8 @@ Reaction scheme where the products are created from the reactants and the change
         <ParameterGroup name="Experiment Set">
         </ParameterGroup>
         <ParameterGroup name="Validation Set">
-          <Parameter name="Threshold" type="unsignedInteger" value="5"/>
           <Parameter name="Weight" type="unsignedFloat" value="1"/>
+          <Parameter name="Threshold" type="unsignedInteger" value="5"/>
         </ParameterGroup>
       </Problem>
       <Method name="Evolutionary Programming" type="EvolutionaryProgram">
@@ -857,8 +801,8 @@ Reaction scheme where the products are created from the reactants and the change
         <Parameter name="Modulation Factor" type="unsignedFloat" value="1e-09"/>
       </Method>
     </Task>
-    <Task key="Task_5" name="Lyapunov Exponents" type="lyapunovExponents" scheduled="false" updateModel="false">
-      <Report reference="Report_3" target="" append="1" confirmOverwrite="1"/>
+    <Task key="Task_7" name="Lyapunov Exponents" type="lyapunovExponents" scheduled="false" updateModel="false">
+      <Report reference="Report_5" target="" append="1" confirmOverwrite="1"/>
       <Problem>
         <Parameter name="ExponentNumber" type="unsignedInteger" value="3"/>
         <Parameter name="DivergenceRequested" type="bool" value="1"/>
@@ -872,8 +816,8 @@ Reaction scheme where the products are created from the reactants and the change
         <Parameter name="Max Internal Steps" type="unsignedInteger" value="10000"/>
       </Method>
     </Task>
-    <Task key="Task_4" name="Time Scale Separation Analysis" type="timeScaleSeparationAnalysis" scheduled="false" updateModel="false">
-      <Report reference="Report_2" target="" append="1" confirmOverwrite="1"/>
+    <Task key="Task_8" name="Time Scale Separation Analysis" type="timeScaleSeparationAnalysis" scheduled="false" updateModel="false">
+      <Report reference="Report_6" target="" append="1" confirmOverwrite="1"/>
       <Problem>
         <Parameter name="StepNumber" type="unsignedInteger" value="100"/>
         <Parameter name="StepSize" type="float" value="0.01"/>
@@ -885,8 +829,8 @@ Reaction scheme where the products are created from the reactants and the change
         <Parameter name="Deuflhard Tolerance" type="unsignedFloat" value="1e-06"/>
       </Method>
     </Task>
-    <Task key="Task_3" name="Sensitivities" type="sensitivities" scheduled="false" updateModel="false">
-      <Report reference="Report_1" target="" append="1" confirmOverwrite="1"/>
+    <Task key="Task_9" name="Sensitivities" type="sensitivities" scheduled="false" updateModel="false">
+      <Report reference="Report_7" target="" append="1" confirmOverwrite="1"/>
       <Problem>
         <Parameter name="SubtaskType" type="unsignedInteger" value="1"/>
         <ParameterGroup name="TargetFunctions">
@@ -905,13 +849,13 @@ Reaction scheme where the products are created from the reactants and the change
         <Parameter name="Delta minimum" type="unsignedFloat" value="1e-12"/>
       </Method>
     </Task>
-    <Task key="Task_2" name="Moieties" type="moieties" scheduled="false" updateModel="false">
+    <Task key="Task_10" name="Moieties" type="moieties" scheduled="false" updateModel="false">
       <Problem>
       </Problem>
       <Method name="Householder Reduction" type="Householder">
       </Method>
     </Task>
-    <Task key="Task_1" name="Cross Section" type="crosssection" scheduled="false" updateModel="false">
+    <Task key="Task_11" name="Cross Section" type="crosssection" scheduled="false" updateModel="false">
       <Problem>
         <Parameter name="StepNumber" type="unsignedInteger" value="100"/>
         <Parameter name="StepSize" type="float" value="0.01"/>
@@ -944,7 +888,7 @@ Reaction scheme where the products are created from the reactants and the change
       </Method>
     </Task>
     <Task key="Task_13" name="Linear Noise Approximation" type="linearNoiseApproximation" scheduled="false" updateModel="false">
-      <Report reference="Report_0" target="" append="1" confirmOverwrite="1"/>
+      <Report reference="Report_8" target="" append="1" confirmOverwrite="1"/>
       <Problem>
         <Parameter name="Steady-State" type="key" value="Task_12"/>
       </Problem>
@@ -953,7 +897,7 @@ Reaction scheme where the products are created from the reactants and the change
     </Task>
   </ListOfTasks>
   <ListOfReports>
-    <Report key="Report_8" name="Steady-State" taskType="steadyState" separator="&#x09;" precision="6">
+    <Report key="Report_0" name="Steady-State" taskType="steadyState" separator="&#x09;" precision="6">
       <Comment>
         Automatically generated report.
       </Comment>
@@ -961,7 +905,7 @@ Reaction scheme where the products are created from the reactants and the change
         <Object cn="CN=Root,Vector=TaskList[Steady-State]"/>
       </Footer>
     </Report>
-    <Report key="Report_7" name="Elementary Flux Modes" taskType="fluxMode" separator="&#x09;" precision="6">
+    <Report key="Report_1" name="Elementary Flux Modes" taskType="fluxMode" separator="&#x09;" precision="6">
       <Comment>
         Automatically generated report.
       </Comment>
@@ -969,7 +913,7 @@ Reaction scheme where the products are created from the reactants and the change
         <Object cn="CN=Root,Vector=TaskList[Elementary Flux Modes],Object=Result"/>
       </Footer>
     </Report>
-    <Report key="Report_6" name="Optimization" taskType="optimization" separator="&#x09;" precision="6">
+    <Report key="Report_2" name="Optimization" taskType="optimization" separator="&#x09;" precision="6">
       <Comment>
         Automatically generated report.
       </Comment>
@@ -993,7 +937,7 @@ Reaction scheme where the products are created from the reactants and the change
         <Object cn="CN=Root,Vector=TaskList[Optimization],Object=Result"/>
       </Footer>
     </Report>
-    <Report key="Report_5" name="Parameter Estimation" taskType="parameterFitting" separator="&#x09;" precision="6">
+    <Report key="Report_3" name="Parameter Estimation" taskType="parameterFitting" separator="&#x09;" precision="6">
       <Comment>
         Automatically generated report.
       </Comment>
@@ -1029,7 +973,7 @@ Reaction scheme where the products are created from the reactants and the change
         <Object cn="CN=Root,Vector=TaskList[Metabolic Control Analysis],Object=Result"/>
       </Footer>
     </Report>
-    <Report key="Report_3" name="Lyapunov Exponents" taskType="lyapunovExponents" separator="&#x09;" precision="6">
+    <Report key="Report_5" name="Lyapunov Exponents" taskType="lyapunovExponents" separator="&#x09;" precision="6">
       <Comment>
         Automatically generated report.
       </Comment>
@@ -1041,7 +985,7 @@ Reaction scheme where the products are created from the reactants and the change
         <Object cn="CN=Root,Vector=TaskList[Lyapunov Exponents],Object=Result"/>
       </Footer>
     </Report>
-    <Report key="Report_2" name="Time Scale Separation Analysis" taskType="timeScaleSeparationAnalysis" separator="&#x09;" precision="6">
+    <Report key="Report_6" name="Time Scale Separation Analysis" taskType="timeScaleSeparationAnalysis" separator="&#x09;" precision="6">
       <Comment>
         Automatically generated report.
       </Comment>
@@ -1053,7 +997,7 @@ Reaction scheme where the products are created from the reactants and the change
         <Object cn="CN=Root,Vector=TaskList[Time Scale Separation Analysis],Object=Result"/>
       </Footer>
     </Report>
-    <Report key="Report_1" name="Sensitivities" taskType="sensitivities" separator="&#x09;" precision="6">
+    <Report key="Report_7" name="Sensitivities" taskType="sensitivities" separator="&#x09;" precision="6">
       <Comment>
         Automatically generated report.
       </Comment>
@@ -1065,7 +1009,7 @@ Reaction scheme where the products are created from the reactants and the change
         <Object cn="CN=Root,Vector=TaskList[Sensitivities],Object=Result"/>
       </Footer>
     </Report>
-    <Report key="Report_0" name="Linear Noise Approximation" taskType="linearNoiseApproximation" separator="&#x09;" precision="6">
+    <Report key="Report_8" name="Linear Noise Approximation" taskType="linearNoiseApproximation" separator="&#x09;" precision="6">
       <Comment>
         Automatically generated report.
       </Comment>
@@ -1148,39 +1092,40 @@ Reaction scheme where the products are created from the reactants and the change
   </ListOfPlots>
   <GUI>
   </GUI>
-  <SBMLReference file="replication_v3.xml">
-    <SBMLMap SBMLid="Complete_DNA" COPASIkey="Metabolite_27"/>
-    <SBMLMap SBMLid="DNA_POLYMERASE_CORE" COPASIkey="Metabolite_11"/>
-    <SBMLMap SBMLid="DNA_POLYMERASE_CORE_BETA_CLAMP_GAMMA_COMPLEX" COPASIkey="Metabolite_23"/>
-    <SBMLMap SBMLid="DNA_POLYMERASE_GAMMA_COMPLEX" COPASIkey="Metabolite_17"/>
-    <SBMLMap SBMLid="DnaA_ATP_complex" COPASIkey="Metabolite_25"/>
-    <SBMLMap SBMLid="Initiation_rate" COPASIkey="ModelValue_0"/>
-    <SBMLMap SBMLid="Lag_ligation_rate" COPASIkey="ModelValue_1"/>
-    <SBMLMap SBMLid="Lead_ligation_rate" COPASIkey="ModelValue_2"/>
-    <SBMLMap SBMLid="Lead_polymerisation_rate" COPASIkey="ModelValue_3"/>
-    <SBMLMap SBMLid="Lead_ss_dna_block_rate" COPASIkey="ModelValue_11"/>
-    <SBMLMap SBMLid="MG_001_DIMER" COPASIkey="Metabolite_13"/>
-    <SBMLMap SBMLid="MG_094_HEXAMER" COPASIkey="Metabolite_3"/>
-    <SBMLMap SBMLid="MG_250_MONOMER" COPASIkey="Metabolite_15"/>
-    <SBMLMap SBMLid="MG_254_MONOMER" COPASIkey="Metabolite_9"/>
-    <SBMLMap SBMLid="Rate_Law_1_substrate" COPASIkey="Function_41"/>
-    <SBMLMap SBMLid="Rate_Law_1_substrate_1_modifier" COPASIkey="Function_40"/>
-    <SBMLMap SBMLid="SSB_transformation_rate" COPASIkey="ModelValue_7"/>
-    <SBMLMap SBMLid="default" COPASIkey="Compartment_1"/>
-    <SBMLMap SBMLid="dsDNA" COPASIkey="Metabolite_1"/>
-    <SBMLMap SBMLid="lagDsDNA" COPASIkey="Metabolite_21"/>
-    <SBMLMap SBMLid="lagSsDNA" COPASIkey="Metabolite_7"/>
-    <SBMLMap SBMLid="leadDsDNA" COPASIkey="Metabolite_19"/>
-    <SBMLMap SBMLid="leadSsDNA" COPASIkey="Metabolite_5"/>
-    <SBMLMap SBMLid="okazaki_polymerisation_rate" COPASIkey="ModelValue_4"/>
-    <SBMLMap SBMLid="polymerase_complex_creation_rate" COPASIkey="ModelValue_5"/>
-    <SBMLMap SBMLid="re20" COPASIkey="Reaction_0"/>
-    <SBMLMap SBMLid="re23" COPASIkey="Reaction_1"/>
-    <SBMLMap SBMLid="re24" COPASIkey="Reaction_2"/>
-    <SBMLMap SBMLid="re29" COPASIkey="Reaction_3"/>
-    <SBMLMap SBMLid="ssb_binding_rate" COPASIkey="ModelValue_6"/>
-    <SBMLMap SBMLid="terminal_lag_ligation_rate" COPASIkey="ModelValue_8"/>
-    <SBMLMap SBMLid="termination_rate" COPASIkey="ModelValue_9"/>
-    <SBMLMap SBMLid="unwinding_rate" COPASIkey="ModelValue_10"/>
+  <SBMLReference file="lead_strand.xml">
+    <SBMLMap SBMLid="Complete_DNA" COPASIkey="Metabolite_97"/>
+    <SBMLMap SBMLid="DNA_POLYMERASE_CORE" COPASIkey="Metabolite_63"/>
+    <SBMLMap SBMLid="DNA_POLYMERASE_CORE_BETA_CLAMP_GAMMA_COMPLEX" COPASIkey="Metabolite_93"/>
+    <SBMLMap SBMLid="DNA_POLYMERASE_GAMMA_COMPLEX" COPASIkey="Metabolite_87"/>
+    <SBMLMap SBMLid="DnaA_ATP_complex" COPASIkey="Metabolite_95"/>
+    <SBMLMap SBMLid="Function_for_leading_strand_polymerisation_1_1" COPASIkey="Function_49"/>
+    <SBMLMap SBMLid="Function_for_terminal_leading_strand_ligation_0" COPASIkey="Function_44"/>
+    <SBMLMap SBMLid="Initiation_rate" COPASIkey="ModelValue_23"/>
+    <SBMLMap SBMLid="Lag_ligation_rate" COPASIkey="ModelValue_22"/>
+    <SBMLMap SBMLid="Lead_ligation_rate" COPASIkey="ModelValue_21"/>
+    <SBMLMap SBMLid="Lead_polymerisation_rate" COPASIkey="ModelValue_20"/>
+    <SBMLMap SBMLid="Lead_ss_dna_block_rate" COPASIkey="ModelValue_12"/>
+    <SBMLMap SBMLid="MG_001_DIMER" COPASIkey="Metabolite_17"/>
+    <SBMLMap SBMLid="MG_094_HEXAMER" COPASIkey="Metabolite_77"/>
+    <SBMLMap SBMLid="MG_250_MONOMER" COPASIkey="Metabolite_85"/>
+    <SBMLMap SBMLid="MG_254_MONOMER" COPASIkey="Metabolite_37"/>
+    <SBMLMap SBMLid="Rate_Law_1_substrate_1_modifier_1_0" COPASIkey="Function_43"/>
+    <SBMLMap SBMLid="SSB_transformation_rate" COPASIkey="ModelValue_16"/>
+    <SBMLMap SBMLid="default" COPASIkey="Compartment_6"/>
+    <SBMLMap SBMLid="dsDNA" COPASIkey="Metabolite_81"/>
+    <SBMLMap SBMLid="lagDsDNA" COPASIkey="Metabolite_91"/>
+    <SBMLMap SBMLid="lagSsDNA" COPASIkey="Metabolite_53"/>
+    <SBMLMap SBMLid="leadDsDNA" COPASIkey="Metabolite_89"/>
+    <SBMLMap SBMLid="leadSsDNA" COPASIkey="Metabolite_73"/>
+    <SBMLMap SBMLid="okazaki_polymerisation_rate" COPASIkey="ModelValue_19"/>
+    <SBMLMap SBMLid="polymerase_complex_creation_rate" COPASIkey="ModelValue_18"/>
+    <SBMLMap SBMLid="re20" COPASIkey="Reaction_7"/>
+    <SBMLMap SBMLid="re23" COPASIkey="Reaction_6"/>
+    <SBMLMap SBMLid="re24" COPASIkey="Reaction_1"/>
+    <SBMLMap SBMLid="re29" COPASIkey="Reaction_2"/>
+    <SBMLMap SBMLid="ssb_binding_rate" COPASIkey="ModelValue_17"/>
+    <SBMLMap SBMLid="terminal_lag_ligation_rate" COPASIkey="ModelValue_15"/>
+    <SBMLMap SBMLid="termination_rate" COPASIkey="ModelValue_14"/>
+    <SBMLMap SBMLid="unwinding_rate" COPASIkey="ModelValue_13"/>
   </SBMLReference>
 </COPASI>
