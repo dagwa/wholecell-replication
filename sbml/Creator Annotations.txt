@@ -1,0 +1,84 @@
+		  <dc:creator>
+            <rdf:Bag>
+              <rdf:li rdf:parseType="Resource">
+                <vCard:N rdf:parseType="Resource">
+                  <vCard:Family>Uhlendorf</vCard:Family>
+                  <vCard:Given>Jannis</vCard:Given>
+                </vCard:N>				
+                <vCard:EMAIL>jannis.uhlendorf@hu-berlin.de</vCard:EMAIL>
+                <vCard:ORG rdf:parseType="Resource">
+                  <vCard:Orgname>Humboldt University Berlin</vCard:Orgname>
+                </vCard:ORG>
+              </rdf:li>
+            </rdf:Bag>
+          </dc:creator>
+		  <dc:creator>
+            <rdf:Bag>
+              <rdf:li rdf:parseType="Resource">
+                <vCard:N rdf:parseType="Resource">
+                  <vCard:Family>Song</vCard:Family>
+                  <vCard:Given>Je-Hoon</vCard:Given>
+                </vCard:N>				
+                <vCard:EMAIL>song.jehoon@gmail.com</vCard:EMAIL>
+                <vCard:ORG rdf:parseType="Resource">
+                  <vCard:Orgname>KAIST</vCard:Orgname>
+                </vCard:ORG>
+              </rdf:li>
+            </rdf:Bag>
+          </dc:creator>
+		  <dc:creator>
+            <rdf:Bag>
+              <rdf:li rdf:parseType="Resource">
+                <vCard:N rdf:parseType="Resource">
+                  <vCard:Family>Yurkovich</vCard:Family>
+                  <vCard:Given>James</vCard:Given>
+                </vCard:N>				
+                <vCard:EMAIL>jyurkovich@ucsd.edu</vCard:EMAIL>
+                <vCard:ORG rdf:parseType="Resource">
+                  <vCard:Orgname>University of California, San Diego</vCard:Orgname>
+                </vCard:ORG>
+              </rdf:li>
+            </rdf:Bag>
+          </dc:creator>
+		  <dc:creator>
+            <rdf:Bag>
+              <rdf:li rdf:parseType="Resource">
+                <vCard:N rdf:parseType="Resource">
+                  <vCard:Family>Zhukova</vCard:Family>
+                  <vCard:Given>Anna</vCard:Given>
+                </vCard:N>				
+                <vCard:EMAIL>zhutchok@gmail.com</vCard:EMAIL>
+                <vCard:ORG rdf:parseType="Resource">
+                  <vCard:Orgname>University of Bordeaux</vCard:Orgname>
+                </vCard:ORG>
+              </rdf:li>
+            </rdf:Bag>
+          </dc:creator>
+		  <dc:creator>
+            <rdf:Bag>
+              <rdf:li rdf:parseType="Resource">
+                <vCard:N rdf:parseType="Resource">
+                  <vCard:Family>Waltemath</vCard:Family>
+                  <vCard:Given>Dagmar</vCard:Given>
+                </vCard:N>				
+                <vCard:EMAIL>dagmar.waltemath@uni-rostock.de</vCard:EMAIL>
+                <vCard:ORG rdf:parseType="Resource">
+                  <vCard:Orgname>University of Rostock</vCard:Orgname>
+                </vCard:ORG>
+              </rdf:li>
+            </rdf:Bag>
+          </dc:creator>
+		  <dc:creator>
+            <rdf:Bag>
+              <rdf:li rdf:parseType="Resource">
+                <vCard:N rdf:parseType="Resource">
+                  <vCard:Family>Knight-Schrijver</vCard:Family>
+                  <vCard:Given>Vincent</vCard:Given>
+                </vCard:N>				
+                <vCard:EMAIL>vincent.knight-schrijver@babraham.ac.uk</vCard:EMAIL>
+                <vCard:ORG rdf:parseType="Resource">
+                  <vCard:Orgname>Babraham Institute</vCard:Orgname>
+                </vCard:ORG>
+              </rdf:li>
+            </rdf:Bag>
+          </dc:creator>
