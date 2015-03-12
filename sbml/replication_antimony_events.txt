@@ -1,0 +1,122 @@
+//Created by libAntimony v2.7.0
+
+function my_hill(x)
+  ( x ) / ( 1 + x)
+end
+
+
+model *Replication()
+
+
+  # 
+  // events
+  FinishOkazakiFragment: at ( unfinished_okazaki_fragment >= okazaki_fragment_length ): \
+  			 unfinished_okazaki_fragment = unfinished_okazaki_fragment - okazaki_fragment_length, \
+  			 okazaki_fragment = okazaki_fragment + 1;
+
+  LigateOkazakiFragments: at ( okazaki_fragment >= 2 ): \
+  			  okazaki_fragment = okazaki_fragment - 2, \
+	  		  lagDsDNA = lagDsDNA + 2*okazaki_fragment_length;
+
+  CompleteReplication:    at ( leadDsDNA >= genome_length and lagDsDNA >= genome_length-okazaki_fragment_length ): \
+  			  leadDsDNA = 0, lagDsDNA = 0, Complete_DNA = Complete_DNA + 1;
+
+
+  // Compartments and Species:
+  compartment default;
+  species dsDNA in default;
+  species leadSsDNA in default;
+  species lagSsDNA in default;
+  species MG_094_HEXAMER in default;   #H elicase
+  species leadDsDNA in default;
+  species lagDsDNA in default;
+  species okazaki_fragment in default;
+  species unfinished_okazaki_fragment in default;
+  species Complete_DNA in default;       
+  
+
+  // Reactions:
+  re20: dsDNA => leadSsDNA + lagSsDNA; default * unwinding_rate * MG_094_HEXAMER * my_hill(dsDNA);
+  re24: leadSsDNA => leadDsDNA; default * Lead_polymerisation_rate * my_hill( leadSsDNA );
+  re25: lagSsDNA => unfinished_okazaki_fragment; default * okazaki_polymerisation_rate * my_hill(lagSsDNA);
+  
+
+  // Species initializations:
+  dsDNA = 580076;
+  MG_094_HEXAMER = 50;
+  leadSsDNA = 0;
+  lagSsDNA = 0;
+  leadDsDNA = 0;
+  lagDsDNA = 0;
+  okazaki_fragment = 0;
+  unfinished_okazaki_fragment = 0;
+  Complete_DNA = 0;
+
+  // Compartment initializations:
+  default = 1;
+
+  // Variable initializations:
+  Initiation_rate = 1;
+  Lag_ligation_rate = 0.04;
+  Lead_ligation_rate = 0.04;
+  Lead_polymerisation_rate = 100;
+  okazaki_polymerisation_rate = 100;
+  polymerase_complex_creation_rate = 1;
+  ssb_binding_rate = 1;
+  SSB_transformation_rate = 1;
+  terminal_lag_ligation_rate = 0.04;
+  termination_rate = 1;
+  unwinding_rate = 2;
+  Lead_ss_dna_block_rate = 100;
+  re26_k1 = 0;
+  re32_k = 0;
+  okazaki_fragment_length = 1500;
+  genome_length = 580076;
+
+
+  // Other declarations:
+  const default, Initiation_rate, Lag_ligation_rate, Lead_ligation_rate, Lead_polymerisation_rate;
+  const okazaki_polymerisation_rate, polymerase_complex_creation_rate, ssb_binding_rate;
+  const SSB_transformation_rate, terminal_lag_ligation_rate, termination_rate;
+  const unwinding_rate, Lead_ss_dna_block_rate;
+
+  // Unit definitions:
+  unit volume = dimensionless;
+  unit time_unit = dimensionless;
+  unit substance = item;
+
+  // Display Names:
+  time_unit is "time";
+  dsDNA is "dsDNA";
+  MG_094_HEXAMER is "Helicase";
+  leadSsDNA is "leading ssDNA";
+  lagSsDNA is "lagging ssDNA";
+  MG_254_MONOMER is "ligase";
+  DNA_POLYMERASE_CORE is "core subunit";
+  MG_001_DIMER is "beta-clamp";
+  MG_250_MONOMER is "primase";
+  DNA_POLYMERASE_GAMMA_COMPLEX is "gamma complex";
+  leadDsDNA is "leading dsDNA bp with a break";
+  lagDsDNA is "lagDsDNA bp";
+  okazaki_fragment is "lagging ssDNA with an Okazaki fragment";
+  MG_091_TETRAMER is "SSB tetramer";
+  lagSsDNA_MG_091_OCTAMER is "lagging ssDNA with SSBP bound";
+  MG_091_OCTAMER is "SSB octamer";
+  DNA_POLYMERASE_CORE_BETA_CLAMP_GAMMA_COMPLEX is "DNA polymerase III";
+  DnaA_ATP_complex is "DnaA-ATP complex";
+  Complete_DNA is "Complete DNA";
+  block_of_100_bases_of_leading_ssDNA is "block of 100 bases of leading ssDNA";
+  re20 is "unwinding";
+  re22 is "terminal lagging strand ligation";
+  re23 is "terminal leading strand ligation";
+  re24 is "leading strand polymerisation";
+  re25 is "Okazaki creation";
+  re26 is "SSB binding";
+  re27 is "lagging strand ligation";
+  re29 is "Polymerase complex creation";
+  re30 is "SSB dissociation";
+  re32 is "initiation";
+  re33 is "termination";
+  SSB_association is "SSB association";
+  lead_ssDNA_block_creation is "lead ssDNA block creation";
+end
