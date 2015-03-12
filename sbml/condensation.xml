@@ -1,501 +1,732 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Created by libAntimony version v2.5 on 2015-03-12 16:21 with libSBML version 5.11.2. -->
+<!-- Created by libAntimony version v2.5 on 2015-03-12 17:15 with libSBML version 5.11.2. -->
 <sbml xmlns="http://www.sbml.org/sbml/level3/version1/core" level="3" version="1">
-  <model id="condensation" name="condensation">
-    <listOfCompartments>
-      <compartment sboTerm="SBO:0000410" id="default_compartment" spatialDimensions="3" size="1" constant="true"/>
-    </listOfCompartments>
-    <listOfSpecies>
-      <species id="_state" compartment="default_compartment" initialConcentration="0" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
-      <species id="DNA_region0" compartment="default_compartment" initialConcentration="0" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
-      <species id="DNA_region1" compartment="default_compartment" initialConcentration="0" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
-      <species id="DNA_region2" compartment="default_compartment" initialConcentration="0" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
-      <species id="DNA_region3" compartment="default_compartment" initialConcentration="0" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
-      <species id="DNA_region4" compartment="default_compartment" initialConcentration="0" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
-      <species id="SMC_position0" compartment="default_compartment" initialConcentration="0" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
-      <species id="SMC_position1" compartment="default_compartment" initialConcentration="0" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
-      <species id="SMC_position2" compartment="default_compartment" initialConcentration="0" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
-      <species id="SMC_position3" compartment="default_compartment" initialConcentration="0" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
-      <species id="SMC_position4" compartment="default_compartment" initialConcentration="0" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
-      <species id="num_SMC" compartment="default_compartment" initialConcentration="5" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
-      <species id="num_free_ATP" compartment="default_compartment" initialConcentration="10" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
-      <species id="num_H2O" compartment="default_compartment" initialConcentration="3" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
-      <species id="num_SMC_ADP" compartment="default_compartment" initialConcentration="10" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
-      <species id="num_Pi" compartment="default_compartment" initialConcentration="10" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
-      <species id="num_H" compartment="default_compartment" initialConcentration="0" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
-      <species id="num_free_SMC_ADP" compartment="default_compartment" initialConcentration="0" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
-      <species id="num_bound_SMC_ADP" compartment="default_compartment" initialConcentration="0" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
-      <species id="num_free_ADP" compartment="default_compartment" initialConcentration="10" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
-      <species id="num_free_SMC" compartment="default_compartment" initialConcentration="10" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
-      <species id="SMC_binding_limit" compartment="default_compartment" initialConcentration="0" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
-      <species id="r0" compartment="default_compartment" initialConcentration="0.6557" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
-      <species id="r1" compartment="default_compartment" initialConcentration="0.0357" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
-      <species id="r2" compartment="default_compartment" initialConcentration="0.8491" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
-      <species id="r3" compartment="default_compartment" initialConcentration="0.934" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
-      <species id="r4" compartment="default_compartment" initialConcentration="0.6787" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
-      <species id="Pbindingaccessiblebase" compartment="default_compartment" initialConcentration="0.66" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
-    </listOfSpecies>
-    <listOfEvents>
-      <event id="_E0" useValuesFromTriggerTime="false">
-        <trigger initialValue="false" persistent="false">
-          <math xmlns="http://www.w3.org/1998/Math/MathML">
-            <apply>
-              <eq/>
-              <ci> _state </ci>
-              <cn type="integer"> 0 </cn>
-            </apply>
-          </math>
-        </trigger>
-        <delay>
-          <math xmlns="http://www.w3.org/1998/Math/MathML">
-            <cn> 0.5 </cn>
-          </math>
-        </delay>
-        <listOfEventAssignments>
-          <eventAssignment variable="_state">
-            <math xmlns="http://www.w3.org/1998/Math/MathML">
-              <cn type="integer"> 1 </cn>
-            </math>
-          </eventAssignment>
-          <eventAssignment variable="num_SMC_ADP">
-            <math xmlns="http://www.w3.org/1998/Math/MathML">
-              <cn type="integer"> 0 </cn>
-            </math>
-          </eventAssignment>
-          <eventAssignment variable="num_free_ADP">
-            <math xmlns="http://www.w3.org/1998/Math/MathML">
-              <apply>
-                <plus/>
-                <ci> num_free_ADP </ci>
-                <ci> num_SMC_ADP </ci>
-              </apply>
-            </math>
-          </eventAssignment>
-          <eventAssignment variable="num_free_SMC">
-            <math xmlns="http://www.w3.org/1998/Math/MathML">
-              <apply>
-                <plus/>
-                <ci> num_free_SMC </ci>
-                <ci> num_SMC_ADP </ci>
-              </apply>
-            </math>
-          </eventAssignment>
-        </listOfEventAssignments>
-      </event>
-      <event id="_E1" useValuesFromTriggerTime="true">
-        <trigger initialValue="true" persistent="true">
-          <math xmlns="http://www.w3.org/1998/Math/MathML">
-            <apply>
-              <and/>
-              <apply>
-                <eq/>
-                <ci> _state </ci>
-                <cn type="integer"> 1 </cn>
-              </apply>
-              <apply>
-                <gt/>
-                <ci> num_free_ATP </ci>
-                <ci> num_H2O </ci>
-              </apply>
-            </apply>
-          </math>
-        </trigger>
-        <listOfEventAssignments>
-          <eventAssignment variable="_state">
-            <math xmlns="http://www.w3.org/1998/Math/MathML">
-              <cn type="integer"> 2 </cn>
-            </math>
-          </eventAssignment>
-          <eventAssignment variable="SMC_binding_limit">
-            <math xmlns="http://www.w3.org/1998/Math/MathML">
-              <ci> num_H2O </ci>
-            </math>
-          </eventAssignment>
-        </listOfEventAssignments>
-      </event>
-      <event id="_E2" useValuesFromTriggerTime="true">
-        <trigger initialValue="true" persistent="true">
-          <math xmlns="http://www.w3.org/1998/Math/MathML">
-            <apply>
-              <and/>
-              <apply>
-                <eq/>
-                <ci> _state </ci>
-                <cn type="integer"> 1 </cn>
-              </apply>
-              <apply>
-                <leq/>
-                <ci> num_free_ATP </ci>
-                <ci> num_H2O </ci>
-              </apply>
-            </apply>
-          </math>
-        </trigger>
-        <listOfEventAssignments>
-          <eventAssignment variable="_state">
-            <math xmlns="http://www.w3.org/1998/Math/MathML">
-              <cn type="integer"> 2 </cn>
-            </math>
-          </eventAssignment>
-          <eventAssignment variable="SMC_binding_limit">
-            <math xmlns="http://www.w3.org/1998/Math/MathML">
-              <ci> num_free_ATP </ci>
-            </math>
-          </eventAssignment>
-        </listOfEventAssignments>
-      </event>
-      <event id="_E3" useValuesFromTriggerTime="true">
-        <trigger initialValue="true" persistent="true">
-          <math xmlns="http://www.w3.org/1998/Math/MathML">
-            <apply>
-              <and/>
-              <apply>
-                <eq/>
-                <ci> _state </ci>
-                <cn type="integer"> 2 </cn>
-              </apply>
-              <apply>
-                <gt/>
-                <ci> SMC_binding_limit </ci>
-                <ci> num_free_SMC </ci>
-              </apply>
-            </apply>
-          </math>
-        </trigger>
-        <listOfEventAssignments>
-          <eventAssignment variable="_state">
-            <math xmlns="http://www.w3.org/1998/Math/MathML">
-              <cn type="integer"> 10 </cn>
-            </math>
-          </eventAssignment>
-          <eventAssignment variable="SMC_binding_limit">
-            <math xmlns="http://www.w3.org/1998/Math/MathML">
-              <ci> num_free_SMC </ci>
-            </math>
-          </eventAssignment>
-        </listOfEventAssignments>
-      </event>
-      <event id="_E4" useValuesFromTriggerTime="true">
-        <trigger initialValue="true" persistent="true">
-          <math xmlns="http://www.w3.org/1998/Math/MathML">
-            <apply>
-              <and/>
-              <apply>
-                <eq/>
-                <ci> _state </ci>
-                <cn type="integer"> 2 </cn>
-              </apply>
-              <apply>
-                <leq/>
-                <ci> SMC_binding_limit </ci>
-                <ci> num_free_SMC </ci>
-              </apply>
-            </apply>
-          </math>
-        </trigger>
-        <listOfEventAssignments>
-          <eventAssignment variable="_state">
-            <math xmlns="http://www.w3.org/1998/Math/MathML">
-              <cn type="integer"> 10 </cn>
-            </math>
-          </eventAssignment>
-        </listOfEventAssignments>
-      </event>
-      <event id="_E5" useValuesFromTriggerTime="false">
-        <trigger initialValue="false" persistent="false">
-          <math xmlns="http://www.w3.org/1998/Math/MathML">
-            <apply>
-              <and/>
-              <apply>
-                <lt/>
-                <ci> r0 </ci>
-                <ci> Pbindingaccessiblebase </ci>
-              </apply>
-              <apply>
-                <eq/>
-                <ci> _state </ci>
-                <cn type="integer"> 10 </cn>
-              </apply>
-              <apply>
-                <eq/>
-                <ci> DNA_region0 </ci>
-                <cn type="integer"> 0 </cn>
-              </apply>
-              <apply>
-                <leq/>
-                <ci> num_bound_SMC_ADP </ci>
-                <ci> SMC_binding_limit </ci>
-              </apply>
-            </apply>
-          </math>
-        </trigger>
-        <delay>
-          <math xmlns="http://www.w3.org/1998/Math/MathML">
-            <cn> 0.001 </cn>
-          </math>
-        </delay>
-        <listOfEventAssignments>
-          <eventAssignment variable="num_bound_SMC_ADP">
-            <math xmlns="http://www.w3.org/1998/Math/MathML">
-              <apply>
-                <plus/>
-                <ci> num_bound_SMC_ADP </ci>
-                <cn type="integer"> 1 </cn>
-              </apply>
-            </math>
-          </eventAssignment>
-          <eventAssignment variable="num_free_SMC_ADP">
-            <math xmlns="http://www.w3.org/1998/Math/MathML">
-              <apply>
-                <minus/>
-                <ci> num_free_ADP </ci>
-                <cn type="integer"> 1 </cn>
-              </apply>
-            </math>
-          </eventAssignment>
-          <eventAssignment variable="SMC_position0">
-            <math xmlns="http://www.w3.org/1998/Math/MathML">
-              <cn type="integer"> 1 </cn>
-            </math>
-          </eventAssignment>
-        </listOfEventAssignments>
-      </event>
-      <event id="_E6" useValuesFromTriggerTime="false">
-        <trigger initialValue="false" persistent="false">
-          <math xmlns="http://www.w3.org/1998/Math/MathML">
-            <apply>
-              <and/>
-              <apply>
-                <lt/>
-                <ci> r1 </ci>
-                <ci> Pbindingaccessiblebase </ci>
-              </apply>
-              <apply>
-                <eq/>
-                <ci> _state </ci>
-                <cn type="integer"> 10 </cn>
-              </apply>
-              <apply>
-                <eq/>
-                <ci> DNA_region1 </ci>
-                <cn type="integer"> 0 </cn>
-              </apply>
-              <apply>
-                <leq/>
-                <ci> num_bound_SMC_ADP </ci>
-                <ci> SMC_binding_limit </ci>
-              </apply>
-            </apply>
-          </math>
-        </trigger>
-        <delay>
-          <math xmlns="http://www.w3.org/1998/Math/MathML">
-            <cn> 0.001 </cn>
-          </math>
-        </delay>
-        <listOfEventAssignments>
-          <eventAssignment variable="num_bound_SMC_ADP">
-            <math xmlns="http://www.w3.org/1998/Math/MathML">
-              <apply>
-                <plus/>
-                <ci> num_bound_SMC_ADP </ci>
-                <cn type="integer"> 1 </cn>
-              </apply>
-            </math>
-          </eventAssignment>
-          <eventAssignment variable="num_free_SMC_ADP">
-            <math xmlns="http://www.w3.org/1998/Math/MathML">
-              <apply>
-                <minus/>
-                <ci> num_free_ADP </ci>
-                <cn type="integer"> 1 </cn>
-              </apply>
-            </math>
-          </eventAssignment>
-          <eventAssignment variable="SMC_position1">
-            <math xmlns="http://www.w3.org/1998/Math/MathML">
-              <cn type="integer"> 1 </cn>
-            </math>
-          </eventAssignment>
-        </listOfEventAssignments>
-      </event>
-      <event id="_E7" useValuesFromTriggerTime="false">
-        <trigger initialValue="false" persistent="false">
-          <math xmlns="http://www.w3.org/1998/Math/MathML">
-            <apply>
-              <and/>
-              <apply>
-                <lt/>
-                <ci> r2 </ci>
-                <ci> Pbindingaccessiblebase </ci>
-              </apply>
-              <apply>
-                <eq/>
-                <ci> _state </ci>
-                <cn type="integer"> 10 </cn>
-              </apply>
-              <apply>
-                <eq/>
-                <ci> DNA_region2 </ci>
-                <cn type="integer"> 0 </cn>
-              </apply>
-              <apply>
-                <leq/>
-                <ci> num_bound_SMC_ADP </ci>
-                <ci> SMC_binding_limit </ci>
-              </apply>
-            </apply>
-          </math>
-        </trigger>
-        <delay>
-          <math xmlns="http://www.w3.org/1998/Math/MathML">
-            <cn> 0.001 </cn>
-          </math>
-        </delay>
-        <listOfEventAssignments>
-          <eventAssignment variable="num_bound_SMC_ADP">
-            <math xmlns="http://www.w3.org/1998/Math/MathML">
-              <apply>
-                <plus/>
-                <ci> num_bound_SMC_ADP </ci>
-                <cn type="integer"> 1 </cn>
-              </apply>
-            </math>
-          </eventAssignment>
-          <eventAssignment variable="num_free_SMC_ADP">
-            <math xmlns="http://www.w3.org/1998/Math/MathML">
-              <apply>
-                <minus/>
-                <ci> num_free_ADP </ci>
-                <cn type="integer"> 1 </cn>
-              </apply>
-            </math>
-          </eventAssignment>
-          <eventAssignment variable="SMC_position2">
-            <math xmlns="http://www.w3.org/1998/Math/MathML">
-              <cn type="integer"> 1 </cn>
-            </math>
-          </eventAssignment>
-        </listOfEventAssignments>
-      </event>
-      <event id="_E8" useValuesFromTriggerTime="false">
-        <trigger initialValue="false" persistent="false">
-          <math xmlns="http://www.w3.org/1998/Math/MathML">
-            <apply>
-              <and/>
-              <apply>
-                <lt/>
-                <ci> r3 </ci>
-                <ci> Pbindingaccessiblebase </ci>
-              </apply>
-              <apply>
-                <eq/>
-                <ci> _state </ci>
-                <cn type="integer"> 10 </cn>
-              </apply>
-              <apply>
-                <eq/>
-                <ci> DNA_region3 </ci>
-                <cn type="integer"> 0 </cn>
-              </apply>
-              <apply>
-                <leq/>
-                <ci> num_bound_SMC_ADP </ci>
-                <ci> SMC_binding_limit </ci>
-              </apply>
-            </apply>
-          </math>
-        </trigger>
-        <delay>
-          <math xmlns="http://www.w3.org/1998/Math/MathML">
-            <cn> 0.001 </cn>
-          </math>
-        </delay>
-        <listOfEventAssignments>
-          <eventAssignment variable="num_bound_SMC_ADP">
-            <math xmlns="http://www.w3.org/1998/Math/MathML">
-              <apply>
-                <plus/>
-                <ci> num_bound_SMC_ADP </ci>
-                <cn type="integer"> 1 </cn>
-              </apply>
-            </math>
-          </eventAssignment>
-          <eventAssignment variable="num_free_SMC_ADP">
-            <math xmlns="http://www.w3.org/1998/Math/MathML">
-              <apply>
-                <minus/>
-                <ci> num_free_ADP </ci>
-                <cn type="integer"> 1 </cn>
-              </apply>
-            </math>
-          </eventAssignment>
-          <eventAssignment variable="SMC_position3">
-            <math xmlns="http://www.w3.org/1998/Math/MathML">
-              <cn type="integer"> 1 </cn>
-            </math>
-          </eventAssignment>
-        </listOfEventAssignments>
-      </event>
-      <event id="_E9" useValuesFromTriggerTime="false">
-        <trigger initialValue="false" persistent="false">
-          <math xmlns="http://www.w3.org/1998/Math/MathML">
-            <apply>
-              <and/>
-              <apply>
-                <lt/>
-                <ci> r4 </ci>
-                <ci> Pbindingaccessiblebase </ci>
-              </apply>
-              <apply>
-                <eq/>
-                <ci> _state </ci>
-                <cn type="integer"> 10 </cn>
-              </apply>
-              <apply>
-                <eq/>
-                <ci> DNA_region4 </ci>
-                <cn type="integer"> 0 </cn>
-              </apply>
-              <apply>
-                <leq/>
-                <ci> num_bound_SMC_ADP </ci>
-                <ci> SMC_binding_limit </ci>
-              </apply>
-            </apply>
-          </math>
-        </trigger>
-        <delay>
-          <math xmlns="http://www.w3.org/1998/Math/MathML">
-            <cn> 0.001 </cn>
-          </math>
-        </delay>
-        <listOfEventAssignments>
-          <eventAssignment variable="num_bound_SMC_ADP">
-            <math xmlns="http://www.w3.org/1998/Math/MathML">
-              <apply>
-                <plus/>
-                <ci> num_bound_SMC_ADP </ci>
-                <cn type="integer"> 1 </cn>
-              </apply>
-            </math>
-          </eventAssignment>
-          <eventAssignment variable="num_free_SMC_ADP">
-            <math xmlns="http://www.w3.org/1998/Math/MathML">
-              <apply>
-                <minus/>
-                <ci> num_free_ADP </ci>
-                <cn type="integer"> 1 </cn>
-              </apply>
-            </math>
-          </eventAssignment>
-          <eventAssignment variable="SMC_position4">
-            <math xmlns="http://www.w3.org/1998/Math/MathML">
-              <cn type="integer"> 1 </cn>
-            </math>
-          </eventAssignment>
-        </listOfEventAssignments>
-      </event>
-    </listOfEvents>
-  </model>
+    <model metaid="model1" id="WCM_0_0" name="Whole Cell 2015 - condensation">
+        <annotation>
+            <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+                xmlns:dc="http://purl.org/dc/elements/1.1/"
+                xmlns:dcterms="http://purl.org/dc/terms/"
+                xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#"
+                xmlns:bqbiol="http://biomodels.net/biology-qualifiers/"
+                xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
+                <rdf:Description rdf:about="#model1">
+                    <dc:creator>
+                        <rdf:Bag>
+                            <rdf:li rdf:parseType="Resource">
+                                <vCard:N rdf:parseType="Resource">
+                                    <vCard:Family>Song</vCard:Family>
+                                    <vCard:Given>Je-Hoon</vCard:Given>
+                                </vCard:N>
+                                <vCard:EMAIL>song.jehoon@gmail.com</vCard:EMAIL>
+                                <vCard:ORG rdf:parseType="Resource">
+                                    <vCard:Orgname>KAIST</vCard:Orgname>
+                                </vCard:ORG>
+                            </rdf:li>
+                        </rdf:Bag>
+                    </dc:creator>
+                    <dcterms:created rdf:parseType="Resource">
+                        <dcterms:W3CDTF>2015-03-12T18:00:00Z</dcterms:W3CDTF>
+                    </dcterms:created>
+                    <dcterms:modified rdf:parseType="Resource">
+                        <dcterms:W3CDTF>2015-03-12T18:00:00Z</dcterms:W3CDTF>
+                    </dcterms:modified>
+                    <bqmodel:isInstanceOf>
+                        <rdf:Bag>
+                            <rdf:li rdf:resource="http://identifiers.org/mamo/MAMO_0000036"/>
+                        </rdf:Bag>
+                    </bqmodel:isInstanceOf>                    
+                    <bqmodel:isInstanceOf>
+                        <rdf:Bag>
+                            <rdf:li rdf:resource="http://identifiers.org/mamo/MAMO_0000003"/>
+                        </rdf:Bag>
+                    </bqmodel:isInstanceOf>                  
+                    <bqmodel:isDerivedFrom>
+                        <rdf:Bag>
+                            <rdf:li rdf:resource="http://identifiers.org/doi/10.1016/j.cell.2012.05.044"/>
+                        </rdf:Bag>
+                    </bqmodel:isDerivedFrom>
+                    <bqbiol:hasTaxon>
+                        <rdf:Bag>
+                            <rdf:li rdf:resource="http://identifiers.org/taxonomy/243273"/>
+                        </rdf:Bag>
+                    </bqbiol:hasTaxon>
+                </rdf:Description>
+            </rdf:RDF>
+        </annotation>
+        <listOfCompartments>
+            <compartment sboTerm="SBO:0000410" id="default_compartment" spatialDimensions="3" size="1" constant="true"/>
+        </listOfCompartments>
+        <listOfSpecies>
+            <species id="_state" compartment="default_compartment" initialConcentration="0" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+            <species id="DNA_region0" compartment="default_compartment" initialConcentration="0" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+            <species id="DNA_region1" compartment="default_compartment" initialConcentration="0" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+            <species id="DNA_region2" compartment="default_compartment" initialConcentration="0" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+            <species id="DNA_region3" compartment="default_compartment" initialConcentration="0" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+            <species id="DNA_region4" compartment="default_compartment" initialConcentration="0" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+            <species id="SMC_position0" compartment="default_compartment" initialConcentration="0" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+            <species id="SMC_position1" compartment="default_compartment" initialConcentration="0" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+            <species id="SMC_position2" compartment="default_compartment" initialConcentration="0" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+            <species id="SMC_position3" compartment="default_compartment" initialConcentration="0" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+            <species id="SMC_position4" compartment="default_compartment" initialConcentration="0" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+            <species id="num_SMC" compartment="default_compartment" initialConcentration="5" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+            <species id="num_free_ATP" compartment="default_compartment" initialConcentration="10" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+            <species id="num_H2O" compartment="default_compartment" initialConcentration="3" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+            <species id="num_SMC_ADP" compartment="default_compartment" initialConcentration="10" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+            <species id="num_Pi" compartment="default_compartment" initialConcentration="10" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+            <species id="num_H" compartment="default_compartment" initialConcentration="0" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+            <species id="num_free_SMC_ADP" compartment="default_compartment" initialConcentration="0" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+            <species id="num_bound_SMC_ADP" compartment="default_compartment" initialConcentration="0" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+            <species id="num_free_ADP" compartment="default_compartment" initialConcentration="10" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+            <species id="num_free_SMC" compartment="default_compartment" initialConcentration="10" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+            <species id="SMC_binding_limit" compartment="default_compartment" initialConcentration="0" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+            <species id="r0" compartment="default_compartment" initialConcentration="0.6557" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+            <species id="r1" compartment="default_compartment" initialConcentration="0.0357" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+            <species id="r2" compartment="default_compartment" initialConcentration="0.8491" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+            <species id="r3" compartment="default_compartment" initialConcentration="0.934" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+            <species id="r4" compartment="default_compartment" initialConcentration="0.6787" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+            <species id="Pbindingaccessiblebase" compartment="default_compartment" initialConcentration="0.66" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+        </listOfSpecies>
+        <listOfEvents>
+            <event id="_E0" useValuesFromTriggerTime="false">
+                <trigger initialValue="false" persistent="false">
+                    <math xmlns="http://www.w3.org/1998/Math/MathML">
+                        <apply>
+                            <eq/>
+                            <ci> _state </ci>
+                            <cn type="integer"> 0 </cn>
+                        </apply>
+                    </math>
+                </trigger>
+                <delay>
+                    <math xmlns="http://www.w3.org/1998/Math/MathML">
+                        <cn> 0.5 </cn>
+                    </math>
+                </delay>
+                <listOfEventAssignments>
+                    <eventAssignment variable="_state">
+                        <math xmlns="http://www.w3.org/1998/Math/MathML">
+                            <cn type="integer"> 1 </cn>
+                        </math>
+                    </eventAssignment>
+                    <eventAssignment variable="num_SMC_ADP">
+                        <math xmlns="http://www.w3.org/1998/Math/MathML">
+                            <cn type="integer"> 0 </cn>
+                        </math>
+                    </eventAssignment>
+                    <eventAssignment variable="num_free_ADP">
+                        <math xmlns="http://www.w3.org/1998/Math/MathML">
+                            <apply>
+                                <plus/>
+                                <ci> num_free_ADP </ci>
+                                <ci> num_SMC_ADP </ci>
+                            </apply>
+                        </math>
+                    </eventAssignment>
+                    <eventAssignment variable="num_free_SMC">
+                        <math xmlns="http://www.w3.org/1998/Math/MathML">
+                            <apply>
+                                <plus/>
+                                <ci> num_free_SMC </ci>
+                                <ci> num_SMC_ADP </ci>
+                            </apply>
+                        </math>
+                    </eventAssignment>
+                </listOfEventAssignments>
+            </event>
+            <event id="_E1" useValuesFromTriggerTime="true">
+                <trigger initialValue="true" persistent="true">
+                    <math xmlns="http://www.w3.org/1998/Math/MathML">
+                        <apply>
+                            <and/>
+                            <apply>
+                                <eq/>
+                                <ci> _state </ci>
+                                <cn type="integer"> 1 </cn>
+                            </apply>
+                            <apply>
+                                <gt/>
+                                <ci> num_free_ATP </ci>
+                                <ci> num_H2O </ci>
+                            </apply>
+                        </apply>
+                    </math>
+                </trigger>
+                <listOfEventAssignments>
+                    <eventAssignment variable="_state">
+                        <math xmlns="http://www.w3.org/1998/Math/MathML">
+                            <cn type="integer"> 2 </cn>
+                        </math>
+                    </eventAssignment>
+                    <eventAssignment variable="SMC_binding_limit">
+                        <math xmlns="http://www.w3.org/1998/Math/MathML">
+                            <ci> num_H2O </ci>
+                        </math>
+                    </eventAssignment>
+                </listOfEventAssignments>
+            </event>
+            <event id="_E2" useValuesFromTriggerTime="true">
+                <trigger initialValue="true" persistent="true">
+                    <math xmlns="http://www.w3.org/1998/Math/MathML">
+                        <apply>
+                            <and/>
+                            <apply>
+                                <eq/>
+                                <ci> _state </ci>
+                                <cn type="integer"> 1 </cn>
+                            </apply>
+                            <apply>
+                                <leq/>
+                                <ci> num_free_ATP </ci>
+                                <ci> num_H2O </ci>
+                            </apply>
+                        </apply>
+                    </math>
+                </trigger>
+                <listOfEventAssignments>
+                    <eventAssignment variable="_state">
+                        <math xmlns="http://www.w3.org/1998/Math/MathML">
+                            <cn type="integer"> 2 </cn>
+                        </math>
+                    </eventAssignment>
+                    <eventAssignment variable="SMC_binding_limit">
+                        <math xmlns="http://www.w3.org/1998/Math/MathML">
+                            <ci> num_free_ATP </ci>
+                        </math>
+                    </eventAssignment>
+                </listOfEventAssignments>
+            </event>
+            <event id="_E3" useValuesFromTriggerTime="true">
+                <trigger initialValue="true" persistent="true">
+                    <math xmlns="http://www.w3.org/1998/Math/MathML">
+                        <apply>
+                            <and/>
+                            <apply>
+                                <eq/>
+                                <ci> _state </ci>
+                                <cn type="integer"> 2 </cn>
+                            </apply>
+                            <apply>
+                                <gt/>
+                                <ci> SMC_binding_limit </ci>
+                                <ci> num_free_SMC </ci>
+                            </apply>
+                        </apply>
+                    </math>
+                </trigger>
+                <listOfEventAssignments>
+                    <eventAssignment variable="_state">
+                        <math xmlns="http://www.w3.org/1998/Math/MathML">
+                            <cn type="integer"> 10 </cn>
+                        </math>
+                    </eventAssignment>
+                    <eventAssignment variable="SMC_binding_limit">
+                        <math xmlns="http://www.w3.org/1998/Math/MathML">
+                            <ci> num_free_SMC </ci>
+                        </math>
+                    </eventAssignment>
+                </listOfEventAssignments>
+            </event>
+            <event id="_E4" useValuesFromTriggerTime="true">
+                <trigger initialValue="true" persistent="true">
+                    <math xmlns="http://www.w3.org/1998/Math/MathML">
+                        <apply>
+                            <and/>
+                            <apply>
+                                <eq/>
+                                <ci> _state </ci>
+                                <cn type="integer"> 2 </cn>
+                            </apply>
+                            <apply>
+                                <leq/>
+                                <ci> SMC_binding_limit </ci>
+                                <ci> num_free_SMC </ci>
+                            </apply>
+                        </apply>
+                    </math>
+                </trigger>
+                <listOfEventAssignments>
+                    <eventAssignment variable="_state">
+                        <math xmlns="http://www.w3.org/1998/Math/MathML">
+                            <cn type="integer"> 10 </cn>
+                        </math>
+                    </eventAssignment>
+                </listOfEventAssignments>
+            </event>
+            <event id="_E5" useValuesFromTriggerTime="false">
+                <trigger initialValue="false" persistent="false">
+                    <math xmlns="http://www.w3.org/1998/Math/MathML">
+                        <apply>
+                            <and/>
+                            <apply>
+                                <lt/>
+                                <ci> r0 </ci>
+                                <ci> Pbindingaccessiblebase </ci>
+                            </apply>
+                            <apply>
+                                <eq/>
+                                <ci> _state </ci>
+                                <cn type="integer"> 10 </cn>
+                            </apply>
+                            <apply>
+                                <eq/>
+                                <ci> DNA_region0 </ci>
+                                <cn type="integer"> 0 </cn>
+                            </apply>
+                            <apply>
+                                <leq/>
+                                <ci> num_bound_SMC_ADP </ci>
+                                <ci> SMC_binding_limit </ci>
+                            </apply>
+                        </apply>
+                    </math>
+                </trigger>
+                <delay>
+                    <math xmlns="http://www.w3.org/1998/Math/MathML">
+                        <cn> 0.001 </cn>
+                    </math>
+                </delay>
+                <listOfEventAssignments>
+                    <eventAssignment variable="num_H">
+                        <math xmlns="http://www.w3.org/1998/Math/MathML">
+                            <apply>
+                                <plus/>
+                                <ci> num_H </ci>
+                                <cn type="integer"> 1 </cn>
+                            </apply>
+                        </math>
+                    </eventAssignment>
+                    <eventAssignment variable="num_Pi">
+                        <math xmlns="http://www.w3.org/1998/Math/MathML">
+                            <apply>
+                                <plus/>
+                                <ci> num_Pi </ci>
+                                <cn type="integer"> 1 </cn>
+                            </apply>
+                        </math>
+                    </eventAssignment>
+                    <eventAssignment variable="num_H2O">
+                        <math xmlns="http://www.w3.org/1998/Math/MathML">
+                            <apply>
+                                <minus/>
+                                <ci> num_H2O </ci>
+                                <cn type="integer"> 1 </cn>
+                            </apply>
+                        </math>
+                    </eventAssignment>
+                    <eventAssignment variable="num_free_ATP">
+                        <math xmlns="http://www.w3.org/1998/Math/MathML">
+                            <apply>
+                                <minus/>
+                                <ci> num_free_ATP </ci>
+                                <cn type="integer"> 1 </cn>
+                            </apply>
+                        </math>
+                    </eventAssignment>
+                    <eventAssignment variable="num_bound_SMC_ADP">
+                        <math xmlns="http://www.w3.org/1998/Math/MathML">
+                            <apply>
+                                <plus/>
+                                <ci> num_bound_SMC_ADP </ci>
+                                <cn type="integer"> 1 </cn>
+                            </apply>
+                        </math>
+                    </eventAssignment>
+                    <eventAssignment variable="num_free_SMC_ADP">
+                        <math xmlns="http://www.w3.org/1998/Math/MathML">
+                            <apply>
+                                <minus/>
+                                <ci> num_free_ADP </ci>
+                                <cn type="integer"> 1 </cn>
+                            </apply>
+                        </math>
+                    </eventAssignment>
+                    <eventAssignment variable="SMC_position0">
+                        <math xmlns="http://www.w3.org/1998/Math/MathML">
+                            <cn type="integer"> 1 </cn>
+                        </math>
+                    </eventAssignment>
+                </listOfEventAssignments>
+            </event>
+            <event id="_E6" useValuesFromTriggerTime="false">
+                <trigger initialValue="false" persistent="false">
+                    <math xmlns="http://www.w3.org/1998/Math/MathML">
+                        <apply>
+                            <and/>
+                            <apply>
+                                <lt/>
+                                <ci> r1 </ci>
+                                <ci> Pbindingaccessiblebase </ci>
+                            </apply>
+                            <apply>
+                                <eq/>
+                                <ci> _state </ci>
+                                <cn type="integer"> 10 </cn>
+                            </apply>
+                            <apply>
+                                <eq/>
+                                <ci> DNA_region1 </ci>
+                                <cn type="integer"> 0 </cn>
+                            </apply>
+                            <apply>
+                                <leq/>
+                                <ci> num_bound_SMC_ADP </ci>
+                                <ci> SMC_binding_limit </ci>
+                            </apply>
+                        </apply>
+                    </math>
+                </trigger>
+                <delay>
+                    <math xmlns="http://www.w3.org/1998/Math/MathML">
+                        <cn> 0.001 </cn>
+                    </math>
+                </delay>
+                <listOfEventAssignments>
+                    <eventAssignment variable="num_H">
+                        <math xmlns="http://www.w3.org/1998/Math/MathML">
+                            <apply>
+                                <plus/>
+                                <ci> num_H </ci>
+                                <cn type="integer"> 1 </cn>
+                            </apply>
+                        </math>
+                    </eventAssignment>
+                    <eventAssignment variable="num_Pi">
+                        <math xmlns="http://www.w3.org/1998/Math/MathML">
+                            <apply>
+                                <plus/>
+                                <ci> num_Pi </ci>
+                                <cn type="integer"> 1 </cn>
+                            </apply>
+                        </math>
+                    </eventAssignment>
+                    <eventAssignment variable="num_H2O">
+                        <math xmlns="http://www.w3.org/1998/Math/MathML">
+                            <apply>
+                                <minus/>
+                                <ci> num_H2O </ci>
+                                <cn type="integer"> 1 </cn>
+                            </apply>
+                        </math>
+                    </eventAssignment>
+                    <eventAssignment variable="num_free_ATP">
+                        <math xmlns="http://www.w3.org/1998/Math/MathML">
+                            <apply>
+                                <minus/>
+                                <ci> num_free_ATP </ci>
+                                <cn type="integer"> 1 </cn>
+                            </apply>
+                        </math>
+                    </eventAssignment>
+                    <eventAssignment variable="num_bound_SMC_ADP">
+                        <math xmlns="http://www.w3.org/1998/Math/MathML">
+                            <apply>
+                                <plus/>
+                                <ci> num_bound_SMC_ADP </ci>
+                                <cn type="integer"> 1 </cn>
+                            </apply>
+                        </math>
+                    </eventAssignment>
+                    <eventAssignment variable="num_free_SMC_ADP">
+                        <math xmlns="http://www.w3.org/1998/Math/MathML">
+                            <apply>
+                                <minus/>
+                                <ci> num_free_ADP </ci>
+                                <cn type="integer"> 1 </cn>
+                            </apply>
+                        </math>
+                    </eventAssignment>
+                    <eventAssignment variable="SMC_position1">
+                        <math xmlns="http://www.w3.org/1998/Math/MathML">
+                            <cn type="integer"> 1 </cn>
+                        </math>
+                    </eventAssignment>
+                </listOfEventAssignments>
+            </event>
+            <event id="_E7" useValuesFromTriggerTime="false">
+                <trigger initialValue="false" persistent="false">
+                    <math xmlns="http://www.w3.org/1998/Math/MathML">
+                        <apply>
+                            <and/>
+                            <apply>
+                                <lt/>
+                                <ci> r2 </ci>
+                                <ci> Pbindingaccessiblebase </ci>
+                            </apply>
+                            <apply>
+                                <eq/>
+                                <ci> _state </ci>
+                                <cn type="integer"> 10 </cn>
+                            </apply>
+                            <apply>
+                                <eq/>
+                                <ci> DNA_region2 </ci>
+                                <cn type="integer"> 0 </cn>
+                            </apply>
+                            <apply>
+                                <leq/>
+                                <ci> num_bound_SMC_ADP </ci>
+                                <ci> SMC_binding_limit </ci>
+                            </apply>
+                        </apply>
+                    </math>
+                </trigger>
+                <delay>
+                    <math xmlns="http://www.w3.org/1998/Math/MathML">
+                        <cn> 0.001 </cn>
+                    </math>
+                </delay>
+                <listOfEventAssignments>
+                    <eventAssignment variable="num_H">
+                        <math xmlns="http://www.w3.org/1998/Math/MathML">
+                            <apply>
+                                <plus/>
+                                <ci> num_H </ci>
+                                <cn type="integer"> 1 </cn>
+                            </apply>
+                        </math>
+                    </eventAssignment>
+                    <eventAssignment variable="num_Pi">
+                        <math xmlns="http://www.w3.org/1998/Math/MathML">
+                            <apply>
+                                <plus/>
+                                <ci> num_Pi </ci>
+                                <cn type="integer"> 1 </cn>
+                            </apply>
+                        </math>
+                    </eventAssignment>
+                    <eventAssignment variable="num_H2O">
+                        <math xmlns="http://www.w3.org/1998/Math/MathML">
+                            <apply>
+                                <minus/>
+                                <ci> num_H2O </ci>
+                                <cn type="integer"> 1 </cn>
+                            </apply>
+                        </math>
+                    </eventAssignment>
+                    <eventAssignment variable="num_free_ATP">
+                        <math xmlns="http://www.w3.org/1998/Math/MathML">
+                            <apply>
+                                <minus/>
+                                <ci> num_free_ATP </ci>
+                                <cn type="integer"> 1 </cn>
+                            </apply>
+                        </math>
+                    </eventAssignment>
+                    <eventAssignment variable="num_bound_SMC_ADP">
+                        <math xmlns="http://www.w3.org/1998/Math/MathML">
+                            <apply>
+                                <plus/>
+                                <ci> num_bound_SMC_ADP </ci>
+                                <cn type="integer"> 1 </cn>
+                            </apply>
+                        </math>
+                    </eventAssignment>
+                    <eventAssignment variable="num_free_SMC_ADP">
+                        <math xmlns="http://www.w3.org/1998/Math/MathML">
+                            <apply>
+                                <minus/>
+                                <ci> num_free_ADP </ci>
+                                <cn type="integer"> 1 </cn>
+                            </apply>
+                        </math>
+                    </eventAssignment>
+                    <eventAssignment variable="SMC_position2">
+                        <math xmlns="http://www.w3.org/1998/Math/MathML">
+                            <cn type="integer"> 1 </cn>
+                        </math>
+                    </eventAssignment>
+                </listOfEventAssignments>
+            </event>
+            <event id="_E8" useValuesFromTriggerTime="false">
+                <trigger initialValue="false" persistent="false">
+                    <math xmlns="http://www.w3.org/1998/Math/MathML">
+                        <apply>
+                            <and/>
+                            <apply>
+                                <lt/>
+                                <ci> r3 </ci>
+                                <ci> Pbindingaccessiblebase </ci>
+                            </apply>
+                            <apply>
+                                <eq/>
+                                <ci> _state </ci>
+                                <cn type="integer"> 10 </cn>
+                            </apply>
+                            <apply>
+                                <eq/>
+                                <ci> DNA_region3 </ci>
+                                <cn type="integer"> 0 </cn>
+                            </apply>
+                            <apply>
+                                <leq/>
+                                <ci> num_bound_SMC_ADP </ci>
+                                <ci> SMC_binding_limit </ci>
+                            </apply>
+                        </apply>
+                    </math>
+                </trigger>
+                <delay>
+                    <math xmlns="http://www.w3.org/1998/Math/MathML">
+                        <cn> 0.001 </cn>
+                    </math>
+                </delay>
+                <listOfEventAssignments>
+                    <eventAssignment variable="num_H">
+                        <math xmlns="http://www.w3.org/1998/Math/MathML">
+                            <apply>
+                                <plus/>
+                                <ci> num_H </ci>
+                                <cn type="integer"> 1 </cn>
+                            </apply>
+                        </math>
+                    </eventAssignment>
+                    <eventAssignment variable="num_Pi">
+                        <math xmlns="http://www.w3.org/1998/Math/MathML">
+                            <apply>
+                                <plus/>
+                                <ci> num_Pi </ci>
+                                <cn type="integer"> 1 </cn>
+                            </apply>
+                        </math>
+                    </eventAssignment>
+                    <eventAssignment variable="num_H2O">
+                        <math xmlns="http://www.w3.org/1998/Math/MathML">
+                            <apply>
+                                <minus/>
+                                <ci> num_H2O </ci>
+                                <cn type="integer"> 1 </cn>
+                            </apply>
+                        </math>
+                    </eventAssignment>
+                    <eventAssignment variable="num_free_ATP">
+                        <math xmlns="http://www.w3.org/1998/Math/MathML">
+                            <apply>
+                                <minus/>
+                                <ci> num_free_ATP </ci>
+                                <cn type="integer"> 1 </cn>
+                            </apply>
+                        </math>
+                    </eventAssignment>
+                    <eventAssignment variable="num_bound_SMC_ADP">
+                        <math xmlns="http://www.w3.org/1998/Math/MathML">
+                            <apply>
+                                <plus/>
+                                <ci> num_bound_SMC_ADP </ci>
+                                <cn type="integer"> 1 </cn>
+                            </apply>
+                        </math>
+                    </eventAssignment>
+                    <eventAssignment variable="num_free_SMC_ADP">
+                        <math xmlns="http://www.w3.org/1998/Math/MathML">
+                            <apply>
+                                <minus/>
+                                <ci> num_free_ADP </ci>
+                                <cn type="integer"> 1 </cn>
+                            </apply>
+                        </math>
+                    </eventAssignment>
+                    <eventAssignment variable="SMC_position3">
+                        <math xmlns="http://www.w3.org/1998/Math/MathML">
+                            <cn type="integer"> 1 </cn>
+                        </math>
+                    </eventAssignment>
+                </listOfEventAssignments>
+            </event>
+            <event id="_E9" useValuesFromTriggerTime="false">
+                <trigger initialValue="false" persistent="false">
+                    <math xmlns="http://www.w3.org/1998/Math/MathML">
+                        <apply>
+                            <and/>
+                            <apply>
+                                <lt/>
+                                <ci> r4 </ci>
+                                <ci> Pbindingaccessiblebase </ci>
+                            </apply>
+                            <apply>
+                                <eq/>
+                                <ci> _state </ci>
+                                <cn type="integer"> 10 </cn>
+                            </apply>
+                            <apply>
+                                <eq/>
+                                <ci> DNA_region4 </ci>
+                                <cn type="integer"> 0 </cn>
+                            </apply>
+                            <apply>
+                                <leq/>
+                                <ci> num_bound_SMC_ADP </ci>
+                                <ci> SMC_binding_limit </ci>
+                            </apply>
+                        </apply>
+                    </math>
+                </trigger>
+                <delay>
+                    <math xmlns="http://www.w3.org/1998/Math/MathML">
+                        <cn> 0.001 </cn>
+                    </math>
+                </delay>
+                <listOfEventAssignments>
+                    <eventAssignment variable="num_H">
+                        <math xmlns="http://www.w3.org/1998/Math/MathML">
+                            <apply>
+                                <plus/>
+                                <ci> num_H </ci>
+                                <cn type="integer"> 1 </cn>
+                            </apply>
+                        </math>
+                    </eventAssignment>
+                    <eventAssignment variable="num_Pi">
+                        <math xmlns="http://www.w3.org/1998/Math/MathML">
+                            <apply>
+                                <plus/>
+                                <ci> num_Pi </ci>
+                                <cn type="integer"> 1 </cn>
+                            </apply>
+                        </math>
+                    </eventAssignment>
+                    <eventAssignment variable="num_H2O">
+                        <math xmlns="http://www.w3.org/1998/Math/MathML">
+                            <apply>
+                                <minus/>
+                                <ci> num_H2O </ci>
+                                <cn type="integer"> 1 </cn>
+                            </apply>
+                        </math>
+                    </eventAssignment>
+                    <eventAssignment variable="num_free_ATP">
+                        <math xmlns="http://www.w3.org/1998/Math/MathML">
+                            <apply>
+                                <minus/>
+                                <ci> num_free_ATP </ci>
+                                <cn type="integer"> 1 </cn>
+                            </apply>
+                        </math>
+                    </eventAssignment>
+                    <eventAssignment variable="num_bound_SMC_ADP">
+                        <math xmlns="http://www.w3.org/1998/Math/MathML">
+                            <apply>
+                                <plus/>
+                                <ci> num_bound_SMC_ADP </ci>
+                                <cn type="integer"> 1 </cn>
+                            </apply>
+                        </math>
+                    </eventAssignment>
+                    <eventAssignment variable="num_free_SMC_ADP">
+                        <math xmlns="http://www.w3.org/1998/Math/MathML">
+                            <apply>
+                                <minus/>
+                                <ci> num_free_ADP </ci>
+                                <cn type="integer"> 1 </cn>
+                            </apply>
+                        </math>
+                    </eventAssignment>
+                    <eventAssignment variable="SMC_position4">
+                        <math xmlns="http://www.w3.org/1998/Math/MathML">
+                            <cn type="integer"> 1 </cn>
+                        </math>
+                    </eventAssignment>
+                </listOfEventAssignments>
+            </event>
+        </listOfEvents>
+    </model>
 </sbml>
