@@ -264,7 +264,7 @@
             <start x="368.43518" y="191.8309"/>
             <end x="369.61575" y="260.0"/>
         </arc>
-        <arc class="modulation" id="arc31" source="glyph3" target="glyph23">
+        <arc class="necessary stimulation" id="arc31" source="glyph3" target="glyph23">
             <start x="466.0" y="169.22719"/>
             <end x="380.43518" y="168.00264"/>
         </arc>
