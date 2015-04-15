@@ -1,0 +1,501 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created by libAntimony version v2.7.0 on 2015-04-15 16:32 with libSBML version 5.11.4. -->
+<sbml xmlns="http://www.sbml.org/sbml/level3/version1/core" xmlns:comp="http://www.sbml.org/sbml/level3/version1/comp/version1" level="3" version="1" comp:required="true">
+  <model id="Replication" name="Replication" substanceUnits="substance" timeUnits="time_unit" volumeUnits="volume" areaUnits="area" lengthUnits="length" extentUnits="extent">
+    <listOfFunctionDefinitions>
+      <functionDefinition id="my_hill">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <lambda>
+            <bvar>
+              <ci> x </ci>
+            </bvar>
+            <apply>
+              <divide/>
+              <ci> x </ci>
+              <apply>
+                <plus/>
+                <cn type="integer"> 1 </cn>
+                <ci> x </ci>
+              </apply>
+            </apply>
+          </lambda>
+        </math>
+      </functionDefinition>
+    </listOfFunctionDefinitions>
+    <listOfUnitDefinitions>
+      <unitDefinition id="volume">
+        <listOfUnits>
+          <unit kind="litre" exponent="1" scale="0" multiplier="1"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="time_unit" name="time">
+        <listOfUnits>
+          <unit kind="second" exponent="1" scale="0" multiplier="1"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="substance">
+        <listOfUnits>
+          <unit kind="item" exponent="1" scale="0" multiplier="1"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="extent">
+        <listOfUnits>
+          <unit kind="item" exponent="1" scale="0" multiplier="1"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="length">
+        <listOfUnits>
+          <unit kind="metre" exponent="1" scale="0" multiplier="1"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="area">
+        <listOfUnits>
+          <unit kind="dimensionless" exponent="1" scale="0" multiplier="1"/>
+        </listOfUnits>
+      </unitDefinition>
+    </listOfUnitDefinitions>
+    <listOfCompartments>
+      <compartment id="default" spatialDimensions="3" size="1" constant="true"/>
+    </listOfCompartments>
+    <listOfSpecies>
+      <species id="unfinished_okazaki_fragment" compartment="default" initialConcentration="0" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="okazaki_fragment" name="lagging ssDNA with an Okazaki fragment" compartment="default" initialConcentration="0" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="lagDsDNA" name="lagDsDNA bp" compartment="default" initialConcentration="0" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="DnaA_ATP_complex" name="DnaA-ATP complex" compartment="default" initialConcentration="0" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="leadSsDNA" name="leading ssDNA" compartment="default" initialConcentration="0" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="leadDsDNA" name="leading dsDNA bp with a break" compartment="default" initialConcentration="0" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="Complete_DNA" name="Complete DNA" compartment="default" initialConcentration="0" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="dsDNA" compartment="default" initialConcentration="580076" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="leadSsDNA_SSB" name="leading ssDNA with SSB bound" compartment="default" initialConcentration="0" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="lagSsDNA" name="lagging ssDNA" compartment="default" initialConcentration="0" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="lagSsDNA_SSB" name="lagging ssDNA with SSB bound" compartment="default" initialConcentration="0" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="MG_094_HEXAMER" name="Helicase" compartment="default" initialConcentration="50" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="DNA_POLYMERASE_CORE_BETA_CLAMP_GAMMA_COMPLEX" name="DNA polymerase III" compartment="default" initialConcentration="0" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="MG_250_MONOMER" name="primase" compartment="default" initialConcentration="5" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="DNA_POLYMERASE_CORE" name="core subunit" compartment="default" initialConcentration="2" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="DNA_POLYMERASE_GAMMA_COMPLEX" name="gamma complex" compartment="default" initialConcentration="1" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="MG_001_DIMER" name="beta-clamp" compartment="default" initialConcentration="5" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="MG_091_TETRAMER" name="SSB tetramer" compartment="default" initialConcentration="100" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="MG_091_OCTAMER" name="SSB octamer" compartment="default" initialConcentration="50" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+    </listOfSpecies>
+    <listOfParameters>
+      <parameter id="okazaki_fragment_length" value="1500" constant="true"/>
+      <parameter id="MG_254_MONOMER" name="ligase" value="5" constant="true"/>
+      <parameter id="DnaA_ATP_complex_creation_rate" value="1" constant="false"/>
+      <parameter id="unwinding_rate" value="0" constant="false"/>
+      <parameter id="bp_before_polymerization" value="100" constant="true"/>
+      <parameter id="Lead_polymerisation_rate" value="0" constant="false"/>
+      <parameter id="genome_length" value="580076" constant="true"/>
+      <parameter id="okazaki_polymerisation_rate" value="100" constant="true"/>
+      <parameter id="ssb_transformation_rate" value="1" constant="true"/>
+      <parameter id="ssb_binding_rate" value="1" constant="true"/>
+      <parameter id="Initiation_rate" value="1" constant="true"/>
+      <parameter id="Lag_ligation_rate" value="0.04" constant="true"/>
+      <parameter id="Lead_ligation_rate" value="0.04" constant="true"/>
+      <parameter id="polymerase_complex_creation_rate" value="1" constant="true"/>
+      <parameter id="terminal_lag_ligation_rate" value="0.04" constant="true"/>
+      <parameter id="termination_rate" value="1" constant="true"/>
+      <parameter id="re26_k1" value="0" constant="true"/>
+      <parameter id="re32_k" value="0" constant="true"/>
+    </listOfParameters>
+    <listOfReactions>
+      <reaction id="re20" name="unwinding" reversible="false" fast="false">
+        <listOfReactants>
+          <speciesReference species="dsDNA" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="leadSsDNA" stoichiometry="1" constant="true"/>
+          <speciesReference species="lagSsDNA" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference species="MG_094_HEXAMER"/>
+        </listOfModifiers>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> default </ci>
+              <ci> unwinding_rate </ci>
+              <ci> MG_094_HEXAMER </ci>
+              <apply>
+                <ci> my_hill </ci>
+                <ci> dsDNA </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="re24" name="leading strand polymerisation" reversible="false" fast="false">
+        <listOfReactants>
+          <speciesReference species="leadSsDNA_SSB" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="leadDsDNA" stoichiometry="1" constant="true"/>
+          <speciesReference species="MG_091_OCTAMER" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference species="DNA_POLYMERASE_CORE_BETA_CLAMP_GAMMA_COMPLEX"/>
+          <modifierSpeciesReference species="MG_250_MONOMER"/>
+        </listOfModifiers>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> default </ci>
+              <ci> Lead_polymerisation_rate </ci>
+              <apply>
+                <ci> my_hill </ci>
+                <ci> leadSsDNA_SSB </ci>
+              </apply>
+              <apply>
+                <ci> my_hill </ci>
+                <ci> MG_250_MONOMER </ci>
+              </apply>
+              <apply>
+                <ci> my_hill </ci>
+                <ci> DNA_POLYMERASE_CORE_BETA_CLAMP_GAMMA_COMPLEX </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="re25" name="Okazaki creation" reversible="false" fast="false">
+        <listOfReactants>
+          <speciesReference species="lagSsDNA_SSB" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="unfinished_okazaki_fragment" stoichiometry="1" constant="true"/>
+          <speciesReference species="MG_091_OCTAMER" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference species="DNA_POLYMERASE_CORE_BETA_CLAMP_GAMMA_COMPLEX"/>
+          <modifierSpeciesReference species="MG_250_MONOMER"/>
+        </listOfModifiers>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> default </ci>
+              <ci> okazaki_polymerisation_rate </ci>
+              <apply>
+                <ci> my_hill </ci>
+                <ci> lagSsDNA_SSB </ci>
+              </apply>
+              <apply>
+                <ci> my_hill </ci>
+                <ci> MG_250_MONOMER </ci>
+              </apply>
+              <apply>
+                <ci> my_hill </ci>
+                <ci> DNA_POLYMERASE_CORE_BETA_CLAMP_GAMMA_COMPLEX </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="DnaA_ATP_complex_creation" name="DnaA-ATP complex creation" reversible="false" fast="false">
+        <listOfProducts>
+          <speciesReference species="DnaA_ATP_complex" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> default </ci>
+              <ci> DnaA_ATP_complex_creation_rate </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="Polymerase_complex_reaction" name="Polymerase complex creation" reversible="false" fast="false">
+        <listOfReactants>
+          <speciesReference species="DNA_POLYMERASE_CORE" stoichiometry="2" constant="true"/>
+          <speciesReference species="DNA_POLYMERASE_GAMMA_COMPLEX" stoichiometry="1" constant="true"/>
+          <speciesReference species="MG_001_DIMER" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="DNA_POLYMERASE_CORE_BETA_CLAMP_GAMMA_COMPLEX" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> default </ci>
+              <apply>
+                <power/>
+                <ci> DNA_POLYMERASE_CORE </ci>
+                <cn type="integer"> 2 </cn>
+              </apply>
+              <ci> DNA_POLYMERASE_GAMMA_COMPLEX </ci>
+              <ci> MG_001_DIMER </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="SSB_tetra_octa_conversion" name="SSB tetramer to SSB octamer conversion" reversible="true" fast="false">
+        <listOfReactants>
+          <speciesReference species="MG_091_TETRAMER" stoichiometry="2" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="MG_091_OCTAMER" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <times/>
+                <ci> default </ci>
+                <ci> ssb_transformation_rate </ci>
+                <apply>
+                  <power/>
+                  <ci> MG_091_TETRAMER </ci>
+                  <cn type="integer"> 2 </cn>
+                </apply>
+              </apply>
+              <ci> MG_091_OCTAMER </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="SSB_binding_lead" name="SSB binding (leading strand)" reversible="false" fast="false">
+        <listOfReactants>
+          <speciesReference species="MG_091_TETRAMER" stoichiometry="2" constant="true"/>
+          <speciesReference species="leadSsDNA" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="leadSsDNA_SSB" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> default </ci>
+              <ci> ssb_binding_rate </ci>
+              <apply>
+                <power/>
+                <ci> MG_091_TETRAMER </ci>
+                <cn type="integer"> 2 </cn>
+              </apply>
+              <ci> leadSsDNA </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="SSB_binding_lag" name="SSB binding (lagging strand)" reversible="false" fast="false">
+        <listOfReactants>
+          <speciesReference species="MG_091_TETRAMER" stoichiometry="2" constant="true"/>
+          <speciesReference species="lagSsDNA" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="lagSsDNA_SSB" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> default </ci>
+              <ci> ssb_binding_rate </ci>
+              <apply>
+                <power/>
+                <ci> MG_091_TETRAMER </ci>
+                <cn type="integer"> 2 </cn>
+              </apply>
+              <ci> lagSsDNA </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+    </listOfReactions>
+    <listOfEvents>
+      <event id="FinishOkazakiFragment" useValuesFromTriggerTime="true">
+        <trigger initialValue="true" persistent="true">
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <and/>
+              <apply>
+                <geq/>
+                <ci> unfinished_okazaki_fragment </ci>
+                <ci> okazaki_fragment_length </ci>
+              </apply>
+              <apply>
+                <geq/>
+                <ci> MG_254_MONOMER </ci>
+                <cn type="integer"> 1 </cn>
+              </apply>
+            </apply>
+          </math>
+        </trigger>
+        <listOfEventAssignments>
+          <eventAssignment variable="lagDsDNA">
+            <math xmlns="http://www.w3.org/1998/Math/MathML">
+              <apply>
+                <plus/>
+                <ci> lagDsDNA </ci>
+                <ci> okazaki_fragment_length </ci>
+              </apply>
+            </math>
+          </eventAssignment>
+          <eventAssignment variable="okazaki_fragment">
+            <math xmlns="http://www.w3.org/1998/Math/MathML">
+              <apply>
+                <plus/>
+                <ci> okazaki_fragment </ci>
+                <cn type="integer"> 1 </cn>
+              </apply>
+            </math>
+          </eventAssignment>
+          <eventAssignment variable="unfinished_okazaki_fragment">
+            <math xmlns="http://www.w3.org/1998/Math/MathML">
+              <apply>
+                <minus/>
+                <ci> unfinished_okazaki_fragment </ci>
+                <ci> okazaki_fragment_length </ci>
+              </apply>
+            </math>
+          </eventAssignment>
+        </listOfEventAssignments>
+      </event>
+      <event id="replication_initiation" useValuesFromTriggerTime="true">
+        <trigger initialValue="true" persistent="true">
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <geq/>
+              <apply>
+                <times/>
+                <ci> DnaA_ATP_complex </ci>
+                <ci> default </ci>
+              </apply>
+              <cn type="integer"> 1 </cn>
+            </apply>
+          </math>
+        </trigger>
+        <listOfEventAssignments>
+          <eventAssignment variable="unwinding_rate">
+            <math xmlns="http://www.w3.org/1998/Math/MathML">
+              <cn type="integer"> 2 </cn>
+            </math>
+          </eventAssignment>
+          <eventAssignment variable="DnaA_ATP_complex">
+            <math xmlns="http://www.w3.org/1998/Math/MathML">
+              <cn type="integer"> 0 </cn>
+            </math>
+          </eventAssignment>
+          <eventAssignment variable="DnaA_ATP_complex_creation_rate">
+            <math xmlns="http://www.w3.org/1998/Math/MathML">
+              <cn type="integer"> 0 </cn>
+            </math>
+          </eventAssignment>
+        </listOfEventAssignments>
+      </event>
+      <event id="start_polymerisation" useValuesFromTriggerTime="true">
+        <trigger initialValue="true" persistent="true">
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <geq/>
+              <apply>
+                <times/>
+                <ci> leadSsDNA </ci>
+                <ci> default </ci>
+              </apply>
+              <ci> bp_before_polymerization </ci>
+            </apply>
+          </math>
+        </trigger>
+        <listOfEventAssignments>
+          <eventAssignment variable="Lead_polymerisation_rate">
+            <math xmlns="http://www.w3.org/1998/Math/MathML">
+              <cn type="integer"> 100 </cn>
+            </math>
+          </eventAssignment>
+        </listOfEventAssignments>
+      </event>
+      <event id="terminate_lead" useValuesFromTriggerTime="true">
+        <trigger initialValue="true" persistent="true">
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <and/>
+              <apply>
+                <geq/>
+                <apply>
+                  <times/>
+                  <ci> leadDsDNA </ci>
+                  <ci> default </ci>
+                </apply>
+                <apply>
+                  <minus/>
+                  <ci> genome_length </ci>
+                  <cn type="integer"> 1 </cn>
+                </apply>
+              </apply>
+              <apply>
+                <geq/>
+                <ci> MG_254_MONOMER </ci>
+                <cn type="integer"> 1 </cn>
+              </apply>
+            </apply>
+          </math>
+        </trigger>
+        <listOfEventAssignments>
+          <eventAssignment variable="Complete_DNA">
+            <math xmlns="http://www.w3.org/1998/Math/MathML">
+              <apply>
+                <plus/>
+                <ci> Complete_DNA </ci>
+                <cn type="integer"> 1 </cn>
+              </apply>
+            </math>
+          </eventAssignment>
+          <eventAssignment variable="leadDsDNA">
+            <math xmlns="http://www.w3.org/1998/Math/MathML">
+              <cn type="integer"> 0 </cn>
+            </math>
+          </eventAssignment>
+        </listOfEventAssignments>
+      </event>
+      <event id="terminate_lag" useValuesFromTriggerTime="true">
+        <trigger initialValue="true" persistent="true">
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <and/>
+              <apply>
+                <geq/>
+                <apply>
+                  <times/>
+                  <ci> lagDsDNA </ci>
+                  <ci> default </ci>
+                </apply>
+                <apply>
+                  <minus/>
+                  <ci> genome_length </ci>
+                  <ci> okazaki_fragment_length </ci>
+                </apply>
+              </apply>
+              <apply>
+                <geq/>
+                <ci> MG_254_MONOMER </ci>
+                <cn type="integer"> 1 </cn>
+              </apply>
+            </apply>
+          </math>
+        </trigger>
+        <listOfEventAssignments>
+          <eventAssignment variable="Complete_DNA">
+            <math xmlns="http://www.w3.org/1998/Math/MathML">
+              <apply>
+                <plus/>
+                <ci> Complete_DNA </ci>
+                <cn type="integer"> 1 </cn>
+              </apply>
+            </math>
+          </eventAssignment>
+          <eventAssignment variable="lagDsDNA">
+            <math xmlns="http://www.w3.org/1998/Math/MathML">
+              <cn type="integer"> 0 </cn>
+            </math>
+          </eventAssignment>
+        </listOfEventAssignments>
+      </event>
+    </listOfEvents>
+  </model>
+</sbml>
